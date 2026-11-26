@@ -1,8 +1,8 @@
 {
   "hospital": "HOSPITAL CRUZEIRO DO SUL",
   "municipio": "SÃO PAULO",
-  "geradoEm": "26/11/2026 às 12:33",
-  "planilhaModificadaEm": "26/11/2026 às 12:23",
+  "geradoEm": "26/11/2026 às 12:38",
+  "planilhaModificadaEm": "26/11/2026 às 12:34",
   "arquivoFonte": "Escalas_Hospital_Cruzeiro_Do_Sul_11_26.xlsx",
   "escalas": [
     {
@@ -15,15 +15,15 @@
       "mesAnoLabel": "Dezembro/2026",
       "refYear": 2026,
       "refMonth": 12,
-      "exportRef": "26/11/2026 - 12:22:38",
+      "exportRef": "26/11/2026 - 12:33:48",
       "kpis": {
         "totalVagas": 387,
-        "preenchidas": 44,
-        "abertas": 343,
-        "coberturaPct": 11.4,
-        "medicosEscalados": 4,
+        "preenchidas": 51,
+        "abertas": 336,
+        "coberturaPct": 13.2,
+        "medicosEscalados": 5,
         "medicosCadastrados": 22,
-        "totalHoras": 273.0
+        "totalHoras": 351.0
       },
       "semanas": [
         {
@@ -210,8 +210,15 @@
                   "fim": "07:00",
                   "horas": 12.0,
                   "periodo": "noite",
-                  "medicos": [],
-                  "vagasAbertas": 3,
+                  "medicos": [
+                    {
+                      "nome": "MAIRA DUTRA ULIANA",
+                      "nomeCurto": "Maira Uliana",
+                      "crm": "246245",
+                      "uf": "SP"
+                    }
+                  ],
+                  "vagasAbertas": 2,
                   "totalVagas": 3
                 }
               ]
@@ -348,8 +355,15 @@
                   "fim": "07:00",
                   "horas": 12.0,
                   "periodo": "noite",
-                  "medicos": [],
-                  "vagasAbertas": 3,
+                  "medicos": [
+                    {
+                      "nome": "MAIRA DUTRA ULIANA",
+                      "nomeCurto": "Maira Uliana",
+                      "crm": "246245",
+                      "uf": "SP"
+                    }
+                  ],
+                  "vagasAbertas": 2,
                   "totalVagas": 3
                 }
               ]
@@ -369,13 +383,19 @@
                   "periodo": "manha",
                   "medicos": [
                     {
+                      "nome": "MAIRA DUTRA ULIANA",
+                      "nomeCurto": "Maira Uliana",
+                      "crm": "246245",
+                      "uf": "SP"
+                    },
+                    {
                       "nome": "CAMILA CAROLINE LEITE BEZERRA",
                       "nomeCurto": "Camila Bezerra",
                       "crm": "189860",
                       "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 4,
+                  "vagasAbertas": 3,
                   "totalVagas": 5
                 },
                 {
@@ -480,9 +500,15 @@
                       "nomeCurto": "Fernanda Carvalho",
                       "crm": "233188",
                       "uf": "SP"
+                    },
+                    {
+                      "nome": "MAIRA DUTRA ULIANA",
+                      "nomeCurto": "Maira Uliana",
+                      "crm": "246245",
+                      "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 2,
+                  "vagasAbertas": 1,
                   "totalVagas": 3
                 }
               ]
@@ -772,8 +798,15 @@
                   "fim": "07:00",
                   "horas": 12.0,
                   "periodo": "noite",
-                  "medicos": [],
-                  "vagasAbertas": 3,
+                  "medicos": [
+                    {
+                      "nome": "MAIRA DUTRA ULIANA",
+                      "nomeCurto": "Maira Uliana",
+                      "crm": "246245",
+                      "uf": "SP"
+                    }
+                  ],
+                  "vagasAbertas": 2,
                   "totalVagas": 3
                 }
               ]
@@ -832,8 +865,15 @@
                   "fim": "07:00",
                   "horas": 12.0,
                   "periodo": "noite",
-                  "medicos": [],
-                  "vagasAbertas": 3,
+                  "medicos": [
+                    {
+                      "nome": "MAIRA DUTRA ULIANA",
+                      "nomeCurto": "Maira Uliana",
+                      "crm": "246245",
+                      "uf": "SP"
+                    }
+                  ],
+                  "vagasAbertas": 2,
                   "totalVagas": 3
                 }
               ]
@@ -1030,8 +1070,15 @@
                   "fim": "07:00",
                   "horas": 12.0,
                   "periodo": "noite",
-                  "medicos": [],
-                  "vagasAbertas": 3,
+                  "medicos": [
+                    {
+                      "nome": "MAIRA DUTRA ULIANA",
+                      "nomeCurto": "Maira Uliana",
+                      "crm": "246245",
+                      "uf": "SP"
+                    }
+                  ],
+                  "vagasAbertas": 2,
                   "totalVagas": 3
                 }
               ]
@@ -1830,6 +1877,17 @@
           "noite": 0
         },
         {
+          "nome": "MAIRA DUTRA ULIANA",
+          "nomeCurto": "Maira Uliana",
+          "crm": "246245",
+          "uf": "SP",
+          "totalHoras": 78.0,
+          "totalPlantoes": 7,
+          "manha": 1,
+          "tarde": 0,
+          "noite": 6
+        },
+        {
           "nome": "FERNANDA CAROLINE GUEDES DE ANDRADE CARVALHO",
           "nomeCurto": "Fernanda Carvalho",
           "crm": "233188",
@@ -1955,17 +2013,6 @@
           "nomeCurto": "Lucio Camara",
           "crm": "122322",
           "uf": "RJ",
-          "totalHoras": 0.0,
-          "totalPlantoes": 0,
-          "manha": 0,
-          "tarde": 0,
-          "noite": 0
-        },
-        {
-          "nome": "MAIRA DUTRA ULIANA",
-          "nomeCurto": "Maira Uliana",
-          "crm": "246245",
-          "uf": "SP",
           "totalHoras": 0.0,
           "totalPlantoes": 0,
           "manha": 0,
@@ -2161,6 +2208,34 @@
           "uf": "SP"
         },
         {
+          "iso": "2026-12-03",
+          "ddmm": "03/12",
+          "weekdayFull": "Quinta-feira",
+          "weekdayShort": "QUI",
+          "inicio": "19:00",
+          "fim": "07:00",
+          "horas": 12.0,
+          "periodo": "noite",
+          "medico": "MAIRA DUTRA ULIANA",
+          "medicoCurto": "Maira Uliana",
+          "crm": "246245",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-06",
+          "ddmm": "06/12",
+          "weekdayFull": "Domingo",
+          "weekdayShort": "DOM",
+          "inicio": "19:00",
+          "fim": "07:00",
+          "horas": 12.0,
+          "periodo": "noite",
+          "medico": "MAIRA DUTRA ULIANA",
+          "medicoCurto": "Maira Uliana",
+          "crm": "246245",
+          "uf": "SP"
+        },
+        {
           "iso": "2026-12-07",
           "ddmm": "07/12",
           "weekdayFull": "Segunda-feira",
@@ -2172,6 +2247,20 @@
           "medico": "CAMILA CAROLINE LEITE BEZERRA",
           "medicoCurto": "Camila Bezerra",
           "crm": "189860",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-07",
+          "ddmm": "07/12",
+          "weekdayFull": "Segunda-feira",
+          "weekdayShort": "SEG",
+          "inicio": "07:00",
+          "fim": "13:00",
+          "horas": 6.0,
+          "periodo": "manha",
+          "medico": "MAIRA DUTRA ULIANA",
+          "medicoCurto": "Maira Uliana",
+          "crm": "246245",
           "uf": "SP"
         },
         {
@@ -2228,6 +2317,20 @@
           "medico": "FERNANDA CAROLINE GUEDES DE ANDRADE CARVALHO",
           "medicoCurto": "Fernanda Carvalho",
           "crm": "233188",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-08",
+          "ddmm": "08/12",
+          "weekdayFull": "Terça-feira",
+          "weekdayShort": "TER",
+          "inicio": "19:00",
+          "fim": "07:00",
+          "horas": 12.0,
+          "periodo": "noite",
+          "medico": "MAIRA DUTRA ULIANA",
+          "medicoCurto": "Maira Uliana",
+          "crm": "246245",
           "uf": "SP"
         },
         {
@@ -2357,6 +2460,20 @@
           "uf": "SP"
         },
         {
+          "iso": "2026-12-13",
+          "ddmm": "13/12",
+          "weekdayFull": "Domingo",
+          "weekdayShort": "DOM",
+          "inicio": "19:00",
+          "fim": "07:00",
+          "horas": 12.0,
+          "periodo": "noite",
+          "medico": "MAIRA DUTRA ULIANA",
+          "medicoCurto": "Maira Uliana",
+          "crm": "246245",
+          "uf": "SP"
+        },
+        {
           "iso": "2026-12-14",
           "ddmm": "14/12",
           "weekdayFull": "Segunda-feira",
@@ -2382,6 +2499,20 @@
           "medico": "JULIANA MARIA DE ANDRADE SOUTO",
           "medicoCurto": "Juliana Souto",
           "crm": "229571",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-14",
+          "ddmm": "14/12",
+          "weekdayFull": "Segunda-feira",
+          "weekdayShort": "SEG",
+          "inicio": "19:00",
+          "fim": "07:00",
+          "horas": 12.0,
+          "periodo": "noite",
+          "medico": "MAIRA DUTRA ULIANA",
+          "medicoCurto": "Maira Uliana",
+          "crm": "246245",
           "uf": "SP"
         },
         {
@@ -2494,6 +2625,20 @@
           "medico": "CAMILA CAROLINE LEITE BEZERRA",
           "medicoCurto": "Camila Bezerra",
           "crm": "189860",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-17",
+          "ddmm": "17/12",
+          "weekdayFull": "Quinta-feira",
+          "weekdayShort": "QUI",
+          "inicio": "19:00",
+          "fim": "07:00",
+          "horas": 12.0,
+          "periodo": "noite",
+          "medico": "MAIRA DUTRA ULIANA",
+          "medicoCurto": "Maira Uliana",
+          "crm": "246245",
           "uf": "SP"
         },
         {
@@ -2690,7 +2835,7 @@
       "mesAnoLabel": "Dezembro/2026",
       "refYear": 2026,
       "refMonth": 12,
-      "exportRef": "26/11/2026 - 12:22:38",
+      "exportRef": "26/11/2026 - 12:33:48",
       "kpis": {
         "totalVagas": 31,
         "preenchidas": 16,
