@@ -1,8 +1,8 @@
 {
   "hospital": "HOSPITAL CRUZEIRO DO SUL",
   "municipio": "SÃO PAULO",
-  "geradoEm": "26/11/2026 às 13:07",
-  "planilhaModificadaEm": "26/11/2026 às 13:07",
+  "geradoEm": "26/11/2026 às 13:09",
+  "planilhaModificadaEm": "26/11/2026 às 13:08",
   "arquivoFonte": "Escalas_Hospital_Cruzeiro_Do_Sul_11_26.xlsx",
   "escalas": [
     {
@@ -15,15 +15,15 @@
       "mesAnoLabel": "Dezembro/2026",
       "refYear": 2026,
       "refMonth": 12,
-      "exportRef": "26/11/2026 - 13:06:59",
+      "exportRef": "26/11/2026 - 13:08:37",
       "kpis": {
         "totalVagas": 387,
-        "preenchidas": 61,
-        "abertas": 326,
-        "coberturaPct": 15.8,
-        "medicosEscalados": 7,
+        "preenchidas": 68,
+        "abertas": 319,
+        "coberturaPct": 17.6,
+        "medicosEscalados": 8,
         "medicosCadastrados": 22,
-        "totalHoras": 423.0
+        "totalHoras": 471.0
       },
       "semanas": [
         {
@@ -96,8 +96,15 @@
                   "fim": "07:00",
                   "horas": 12.0,
                   "periodo": "noite",
-                  "medicos": [],
-                  "vagasAbertas": 3,
+                  "medicos": [
+                    {
+                      "nome": "MARIA LUIZA GARBIERE DA SILVA FINAZZI",
+                      "nomeCurto": "Maria Finazzi",
+                      "crm": "217449",
+                      "uf": "SP"
+                    }
+                  ],
+                  "vagasAbertas": 2,
                   "totalVagas": 3
                 }
               ]
@@ -675,9 +682,15 @@
                       "nomeCurto": "Ana Souza",
                       "crm": "225497",
                       "uf": "SP"
+                    },
+                    {
+                      "nome": "MARIA LUIZA GARBIERE DA SILVA FINAZZI",
+                      "nomeCurto": "Maria Finazzi",
+                      "crm": "217449",
+                      "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 3,
+                  "vagasAbertas": 2,
                   "totalVagas": 5
                 },
                 {
@@ -927,9 +940,15 @@
                       "nomeCurto": "Juliana Souto",
                       "crm": "229571",
                       "uf": "SP"
+                    },
+                    {
+                      "nome": "MARIA LUIZA GARBIERE DA SILVA FINAZZI",
+                      "nomeCurto": "Maria Finazzi",
+                      "crm": "217449",
+                      "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 4,
+                  "vagasAbertas": 3,
                   "totalVagas": 5
                 },
                 {
@@ -1150,9 +1169,15 @@
                       "nomeCurto": "Ana Souza",
                       "crm": "225497",
                       "uf": "SP"
+                    },
+                    {
+                      "nome": "MARIA LUIZA GARBIERE DA SILVA FINAZZI",
+                      "nomeCurto": "Maria Finazzi",
+                      "crm": "217449",
+                      "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 3,
+                  "vagasAbertas": 2,
                   "totalVagas": 5
                 },
                 {
@@ -1168,13 +1193,19 @@
                       "uf": "SP"
                     },
                     {
+                      "nome": "MARIA LUIZA GARBIERE DA SILVA FINAZZI",
+                      "nomeCurto": "Maria Finazzi",
+                      "crm": "217449",
+                      "uf": "SP"
+                    },
+                    {
                       "nome": "ANA CRISTINA LUCATO DE SOUZA",
                       "nomeCurto": "Ana Souza",
                       "crm": "225497",
                       "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 2,
+                  "vagasAbertas": 1,
                   "totalVagas": 4
                 },
                 {
@@ -1411,9 +1442,15 @@
                       "nomeCurto": "Fernanda Carvalho",
                       "crm": "233188",
                       "uf": "SP"
+                    },
+                    {
+                      "nome": "MARIA LUIZA GARBIERE DA SILVA FINAZZI",
+                      "nomeCurto": "Maria Finazzi",
+                      "crm": "217449",
+                      "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 3,
+                  "vagasAbertas": 2,
                   "totalVagas": 5
                 },
                 {
@@ -1433,9 +1470,15 @@
                       "nomeCurto": "Bruna Alves",
                       "crm": "222834",
                       "uf": "SP"
+                    },
+                    {
+                      "nome": "MARIA LUIZA GARBIERE DA SILVA FINAZZI",
+                      "nomeCurto": "Maria Finazzi",
+                      "crm": "217449",
+                      "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 2,
+                  "vagasAbertas": 1,
                   "totalVagas": 4
                 },
                 {
@@ -1981,6 +2024,17 @@
           "noite": 0
         },
         {
+          "nome": "MARIA LUIZA GARBIERE DA SILVA FINAZZI",
+          "nomeCurto": "Maria Finazzi",
+          "crm": "217449",
+          "uf": "SP",
+          "totalHoras": 48.0,
+          "totalPlantoes": 7,
+          "manha": 4,
+          "tarde": 2,
+          "noite": 1
+        },
+        {
           "nome": "CAMILA CAROLINE LEITE BEZERRA",
           "nomeCurto": "Camila Bezerra",
           "crm": "189860",
@@ -2113,17 +2167,6 @@
           "noite": 0
         },
         {
-          "nome": "MARIA LUIZA GARBIERE DA SILVA FINAZZI",
-          "nomeCurto": "Maria Finazzi",
-          "crm": "217449",
-          "uf": "SP",
-          "totalHoras": 0.0,
-          "totalPlantoes": 0,
-          "manha": 0,
-          "tarde": 0,
-          "noite": 0
-        },
-        {
           "nome": "MARIANA OLIVEIRA SOBRAL",
           "nomeCurto": "Mariana Sobral",
           "crm": "216235",
@@ -2223,6 +2266,20 @@
           "medico": "JULIANA MARIA DE ANDRADE SOUTO",
           "medicoCurto": "Juliana Souto",
           "crm": "229571",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-01",
+          "ddmm": "01/12",
+          "weekdayFull": "Terça-feira",
+          "weekdayShort": "TER",
+          "inicio": "19:00",
+          "fim": "07:00",
+          "horas": 12.0,
+          "periodo": "noite",
+          "medico": "MARIA LUIZA GARBIERE DA SILVA FINAZZI",
+          "medicoCurto": "Maria Finazzi",
+          "crm": "217449",
           "uf": "SP"
         },
         {
@@ -2520,6 +2577,20 @@
           "uf": "SP"
         },
         {
+          "iso": "2026-12-11",
+          "ddmm": "11/12",
+          "weekdayFull": "Sexta-feira",
+          "weekdayShort": "SEX",
+          "inicio": "07:00",
+          "fim": "13:00",
+          "horas": 6.0,
+          "periodo": "manha",
+          "medico": "MARIA LUIZA GARBIERE DA SILVA FINAZZI",
+          "medicoCurto": "Maria Finazzi",
+          "crm": "217449",
+          "uf": "SP"
+        },
+        {
           "iso": "2026-12-13",
           "ddmm": "13/12",
           "weekdayFull": "Domingo",
@@ -2643,6 +2714,20 @@
           "medico": "JULIANA MARIA DE ANDRADE SOUTO",
           "medicoCurto": "Juliana Souto",
           "crm": "229571",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-15",
+          "ddmm": "15/12",
+          "weekdayFull": "Terça-feira",
+          "weekdayShort": "TER",
+          "inicio": "07:00",
+          "fim": "13:00",
+          "horas": 6.0,
+          "periodo": "manha",
+          "medico": "MARIA LUIZA GARBIERE DA SILVA FINAZZI",
+          "medicoCurto": "Maria Finazzi",
+          "crm": "217449",
           "uf": "SP"
         },
         {
@@ -2832,6 +2917,20 @@
           "ddmm": "18/12",
           "weekdayFull": "Sexta-feira",
           "weekdayShort": "SEX",
+          "inicio": "07:00",
+          "fim": "13:00",
+          "horas": 6.0,
+          "periodo": "manha",
+          "medico": "MARIA LUIZA GARBIERE DA SILVA FINAZZI",
+          "medicoCurto": "Maria Finazzi",
+          "crm": "217449",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-18",
+          "ddmm": "18/12",
+          "weekdayFull": "Sexta-feira",
+          "weekdayShort": "SEX",
           "inicio": "13:00",
           "fim": "19:00",
           "horas": 6.0,
@@ -2853,6 +2952,20 @@
           "medico": "JULIANA MARIA DE ANDRADE SOUTO",
           "medicoCurto": "Juliana Souto",
           "crm": "229571",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-18",
+          "ddmm": "18/12",
+          "weekdayFull": "Sexta-feira",
+          "weekdayShort": "SEX",
+          "inicio": "13:00",
+          "fim": "19:00",
+          "horas": 6.0,
+          "periodo": "tarde",
+          "medico": "MARIA LUIZA GARBIERE DA SILVA FINAZZI",
+          "medicoCurto": "Maria Finazzi",
+          "crm": "217449",
           "uf": "SP"
         },
         {
@@ -2986,6 +3099,20 @@
           "ddmm": "22/12",
           "weekdayFull": "Terça-feira",
           "weekdayShort": "TER",
+          "inicio": "07:00",
+          "fim": "13:00",
+          "horas": 6.0,
+          "periodo": "manha",
+          "medico": "MARIA LUIZA GARBIERE DA SILVA FINAZZI",
+          "medicoCurto": "Maria Finazzi",
+          "crm": "217449",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-22",
+          "ddmm": "22/12",
+          "weekdayFull": "Terça-feira",
+          "weekdayShort": "TER",
           "inicio": "13:00",
           "fim": "19:00",
           "horas": 6.0,
@@ -3007,6 +3134,20 @@
           "medico": "FERNANDA CAROLINE GUEDES DE ANDRADE CARVALHO",
           "medicoCurto": "Fernanda Carvalho",
           "crm": "233188",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-22",
+          "ddmm": "22/12",
+          "weekdayFull": "Terça-feira",
+          "weekdayShort": "TER",
+          "inicio": "13:00",
+          "fim": "19:00",
+          "horas": 6.0,
+          "periodo": "tarde",
+          "medico": "MARIA LUIZA GARBIERE DA SILVA FINAZZI",
+          "medicoCurto": "Maria Finazzi",
+          "crm": "217449",
           "uf": "SP"
         },
         {
@@ -3035,7 +3176,7 @@
       "mesAnoLabel": "Dezembro/2026",
       "refYear": 2026,
       "refMonth": 12,
-      "exportRef": "26/11/2026 - 13:06:59",
+      "exportRef": "26/11/2026 - 13:08:37",
       "kpis": {
         "totalVagas": 31,
         "preenchidas": 16,
