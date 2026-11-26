@@ -703,9 +703,9 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
     /* ==================== CONTAINER & HERO ==================== */
     .container {
-      max-width: 1380px;
+      max-width: 1560px;
       margin: 0 auto;
-      padding: 18px 20px 40px;
+      padding: 20px 24px 44px;
     }
 
     .hero {
@@ -1060,119 +1060,211 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       color: var(--shift-noite-text);
     }
 
-    /* ==================== GRADE SEMANAL ==================== */
+    /* ==================== GRADE SEMANAL (MATRIZ HORIZONTAL) ==================== */
     .week-block {
-      margin-bottom: 16px;
+      margin-bottom: 22px;
     }
 
     .week-header {
       display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .week-title {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+    }
+
+    .week-summary {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .matrix-card {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .matrix-scroll {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    .roster-matrix {
+      width: 100%;
+      min-width: 980px;
+      border-collapse: separate;
+      border-spacing: 0;
+      table-layout: fixed;
+    }
+
+    .roster-matrix thead th {
+      background: var(--bg-subnav);
+      border-bottom: 1px solid var(--border-card);
+      border-right: 1px solid var(--border-subtle);
+      padding: 10px 10px;
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .roster-matrix thead th:last-child {
+      border-right: none;
+    }
+
+    .roster-matrix .col-slot {
+      width: 138px;
+      position: sticky;
+      left: 0;
+      z-index: 3;
+      background: var(--bg-subnav);
+      border-right: 1px solid var(--border-card);
+    }
+
+    .roster-matrix .col-day.is-today {
+      background: rgba(253, 185, 19, 0.10);
+      box-shadow: inset 0 2px 0 var(--accent-yellow);
+    }
+
+    .roster-matrix .col-day.is-out-month {
+      opacity: 0.45;
+    }
+
+    .m-day-head {
+      display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 7px;
-    }
-
-    .week-grid {
-      display: grid;
-      grid-template-columns: repeat(7, minmax(0, 1fr));
-      gap: 8px;
-    }
-
-    .day-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-card);
-      border-radius: 3px 3px 14px 3px;
-      padding: 9px;
-      display: flex;
-      flex-direction: column;
       gap: 6px;
     }
 
-    .day-card.is-out-month {
-      opacity: 0.42;
-      border-style: dashed;
-      border-color: var(--border-dashed);
-      background: transparent;
+    .m-day-wk {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      color: var(--text-muted);
     }
 
-    .day-card.is-today {
-      border-color: var(--accent-yellow);
-      background: linear-gradient(180deg, rgba(253, 185, 19, 0.08) 0%, var(--bg-card) 48%);
+    .m-day-wk.is-weekend {
+      color: var(--accent-yellow);
     }
 
-    .day-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-bottom: 6px;
-      border-bottom: 1px solid var(--border-subtle);
-    }
-
-    .day-date {
+    .m-day-date {
       font-size: 14px;
       font-weight: 700;
       font-variant-numeric: tabular-nums;
       color: var(--text-primary);
+      margin-top: 1px;
     }
 
-    .day-wk {
-      font-size: 11px;
+    .roster-matrix tbody th.col-slot-cell {
+      position: sticky;
+      left: 0;
+      z-index: 2;
+      background: var(--bg-subnav);
+      border-right: 1px solid var(--border-card);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 10px 12px;
+      vertical-align: top;
+      text-align: left;
       font-weight: 600;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
     }
 
-    .day-wk.is-weekend { color: var(--accent-yellow); }
+    .roster-matrix tbody td.matrix-cell {
+      padding: 10px;
+      vertical-align: top;
+      border-right: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+    }
 
-    .slot-group {
+    .roster-matrix tbody td.matrix-cell:last-child {
+      border-right: none;
+    }
+
+    .roster-matrix tbody tr:last-child th.col-slot-cell,
+    .roster-matrix tbody tr:last-child td.matrix-cell {
+      border-bottom: none;
+    }
+
+    .roster-matrix tbody td.matrix-cell.is-today {
+      background: rgba(253, 185, 19, 0.04);
+    }
+
+    .roster-matrix tbody td.matrix-cell.is-out-month {
+      opacity: 0.42;
       background: var(--bg-card-inner);
-      border: 1px solid var(--border-subtle);
-      border-radius: 2px 2px 8px 2px;
-      padding: 5px 7px;
+    }
+
+    .slot-cell-wrap {
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      align-items: flex-start;
+      gap: 5px;
     }
 
-    .slot-group-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .slot-time {
+    .slot-meta {
       font-size: 11px;
-      font-weight: 700;
+      font-weight: 500;
+      color: var(--text-muted);
       font-variant-numeric: tabular-nums;
-      letter-spacing: 0.03em;
     }
 
-    .doc-item {
-      font-size: 11.5px;
+    .cell-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .doc-pill {
+      display: block;
+      width: 100%;
+      text-align: left;
+      font-family: inherit;
+      font-size: 12px;
       font-weight: 500;
       color: var(--text-primary);
-      padding: 3px 6px;
+      padding: 5px 8px;
       background: var(--tag-bg);
-      border-radius: 2px;
-      border-left: 2px solid transparent;
-      line-height: 1.25;
-      word-break: break-word;
+      border: 1px solid transparent;
+      border-left: 2px solid var(--border-dashed);
+      border-radius: 2px 2px 6px 2px;
+      line-height: 1.3;
+      cursor: pointer;
+      transition: border-color 0.15s ease, background-color 0.15s ease;
     }
 
-    .doc-item.is-selected {
+    .doc-pill:hover {
+      border-color: var(--text-muted);
+    }
+
+    .doc-pill.is-selected {
       background: var(--highlight-bg);
+      border-color: var(--accent-orange);
       border-left: 3px solid var(--accent-orange);
       font-weight: 700;
     }
 
-    .open-slot-pill {
+    .open-hint {
       font-size: 11px;
-      font-weight: 600;
+      font-weight: 500;
       color: var(--text-muted);
-      border: 1px dashed var(--border-dashed);
-      border-radius: 2px;
-      padding: 2px 5px;
+      padding: 2px 2px 0;
+    }
+
+    .open-pill-empty {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-muted);
+      border: 1px dashed var(--border-subtle);
+      border-radius: 2px 2px 6px 2px;
+      padding: 6px 8px;
       text-align: center;
     }
 
@@ -1180,29 +1272,53 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     .list-view {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
     }
 
     .list-day-card {
       background: var(--bg-card);
       border: 1px solid var(--border-card);
       border-radius: 3px 3px 16px 3px;
-      padding: 12px 14px;
+      padding: 14px 16px;
     }
 
     .list-day-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       padding-bottom: 8px;
       border-bottom: 1px solid var(--border-subtle);
     }
 
     .list-shift-rows {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-      gap: 8px;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 10px;
+    }
+
+    .slot-group {
+      background: var(--bg-card-inner);
+      border: 1px solid var(--border-subtle);
+      border-radius: 2px 2px 10px 2px;
+      padding: 8px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .slot-group-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .slot-time {
+      font-size: 11px;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.03em;
     }
 
     /* ==================== TABELA CORPO CLÍNICO ==================== */
@@ -1216,13 +1332,13 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       overflow-x: auto;
     }
 
-    table {
+    .table-card table {
       width: 100%;
       border-collapse: collapse;
       font-size: 13px;
     }
 
-    thead th {
+    .table-card thead th {
       text-align: left;
       padding: 10px 14px;
       font-size: 11px;
@@ -1235,17 +1351,17 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       white-space: nowrap;
     }
 
-    tbody td {
+    .table-card tbody td {
       padding: 9px 14px;
       border-bottom: 1px solid var(--border-subtle);
       color: var(--text-primary);
     }
 
-    tbody tr:hover {
+    .table-card tbody tr:hover {
       background: rgba(255, 255, 255, 0.03);
     }
 
-    [data-theme="light"] tbody tr:hover {
+    [data-theme="light"] .table-card tbody tr:hover {
       background: rgba(0, 68, 196, 0.04);
     }
 
@@ -1275,13 +1391,11 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
     /* ==================== RESPONSIVIDADE ==================== */
     @media (max-width: 1120px) {
-      .week-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
       .filter-row { grid-template-columns: 1fr 1fr; }
     }
 
     @media (max-width: 820px) {
       .grid-4 { grid-template-columns: repeat(2, 1fr); }
-      .week-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .header-right { display: none; }
       .subnav-meta { display: none; }
     }
@@ -1293,7 +1407,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       .grid-4 { grid-template-columns: 1fr; }
       .col-span-2 { grid-column: span 1; }
       .filter-row { grid-template-columns: 1fr; }
-      .week-grid { grid-template-columns: 1fr; }
       .hero h1 { font-size: 21px; }
       .header-divider { display: none; }
       .header-left { flex-direction: column; align-items: flex-start; gap: 6px; }
@@ -1304,14 +1417,22 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       body { background: #ffffff !important; color: #000000 !important; }
       .subnav, .filter-card, .theme-toggle, .btn-accent, .btn-outline { display: none !important; }
       .top-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-      .card, .day-card, .list-day-card, .slot-group {
+      .card, .matrix-card, .list-day-card, .slot-group {
         background: #ffffff !important;
         color: #000000 !important;
         border-color: #cccccc !important;
         break-inside: avoid;
       }
-      .doc-item { background: #eef3fb !important; color: #000000 !important; }
-      .week-grid { grid-template-columns: repeat(7, 1fr) !important; gap: 4px !important; }
+      .roster-matrix { min-width: 0 !important; }
+      .roster-matrix thead th,
+      .roster-matrix tbody th.col-slot-cell,
+      .roster-matrix tbody td.matrix-cell {
+        position: static !important;
+        background: #ffffff !important;
+        color: #000000 !important;
+        border-color: #cccccc !important;
+      }
+      .doc-pill { background: #eef3fb !important; color: #000000 !important; }
     }
   </style>
 </head>
@@ -1669,86 +1790,160 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         };
       }
 
+      function bindDoctorPills() {
+        contentArea.querySelectorAll("[data-doc]").forEach(btn => {
+          btn.addEventListener("click", () => {
+            const docName = btn.getAttribute("data-doc");
+            state.selectedDoctor = state.selectedDoctor === docName ? "" : docName;
+            doctorSelect.value = state.selectedDoctor;
+            if (!state.selectedDoctor) {
+              state.onlyDoctor = false;
+              onlyDoctorCheck.checked = false;
+            }
+            renderAll();
+          });
+        });
+      }
+
       function renderGrid(sc) {
         document.getElementById("viewHeading").textContent = `Grade Semanal · ${sc.titulo} (${sc.mesAnoLabel})`;
         let html = "";
         let anyVisible = false;
+        const shiftLabel = { manha: "Manhã", tarde: "Tarde", noite: "Noite" };
 
         sc.semanas.forEach(wk => {
-          let daysHtml = "";
-          let weekHasContent = false;
-
+          // Coleta faixas horárias únicas da semana em ordem cronológica
+          const slotMap = new Map();
           wk.dias.forEach(dia => {
-            const isToday = dia.iso === todayIso;
-            const classes = ["day-card"];
-            if (!dia.inMonth) classes.push("is-out-month");
-            if (isToday) classes.push("is-today");
-
-            let groupsHtml = "";
             dia.grupos.forEach(g => {
-              const fg = filterGroup(g);
-              if (!fg) return;
-              weekHasContent = true;
-              anyVisible = true;
+              const key = `${g.inicio}-${g.fim}`;
+              if (!slotMap.has(key)) {
+                slotMap.set(key, { key, inicio: g.inicio, fim: g.fim, horas: g.horas, periodo: g.periodo });
+              }
+            });
+          });
+          const slots = Array.from(slotMap.values()).sort((a, b) => a.inicio.localeCompare(b.inicio) || a.fim.localeCompare(b.fim));
 
-              const periodClass = `shift-${fg.periodo}`;
+          let rowsHtml = "";
+          let weekFilled = 0;
+          let weekOpen = 0;
+
+          slots.forEach(slot => {
+            let rowHasVisible = false;
+            let cellsHtml = "";
+
+            wk.dias.forEach(dia => {
+              const isToday = dia.iso === todayIso;
+              const cellClasses = ["matrix-cell"];
+              if (!dia.inMonth) cellClasses.push("is-out-month");
+              if (isToday) cellClasses.push("is-today");
+
+              const rawGrp = dia.grupos.find(g => `${g.inicio}-${g.fim}` === slot.key);
+              const fg = rawGrp ? filterGroup(rawGrp) : null;
+
+              if (!fg) {
+                cellsHtml += `<td class="${cellClasses.join(" ")}"></td>`;
+                return;
+              }
+
+              rowHasVisible = true;
+              anyVisible = true;
+              if (dia.inMonth) {
+                weekFilled += fg.medicos.length;
+                weekOpen += fg.vagasAbertasVisiveis;
+              }
+
               const medsHtml = fg.medicos.map(m => {
                 const sel = state.selectedDoctor && m.nome === state.selectedDoctor;
-                const titleAttr = `${m.nome}${m.crm ? ' · CRM ' + m.crm + '/' + m.uf : ''}`;
-                return `<div class="doc-item ${sel ? 'is-selected' : ''}" title="${escapeHtml(titleAttr)}">${escapeHtml(m.nomeCurto)}</div>`;
+                const titleAttr = `${m.nome}${m.crm ? ' · CRM ' + m.crm + '/' + m.uf : ''} (clique para destacar)`;
+                return `<button type="button" class="doc-pill ${sel ? 'is-selected' : ''}" data-doc="${escapeHtml(m.nome)}" title="${escapeHtml(titleAttr)}">${escapeHtml(m.nomeCurto)}</button>`;
               }).join("");
 
-              const openHtml = fg.vagasAbertasVisiveis > 0
-                ? `<div class="open-slot-pill">+ ${fg.vagasAbertasVisiveis} vaga${fg.vagasAbertasVisiveis > 1 ? 's' : ''} em aberto</div>`
-                : "";
+              let openHtml = "";
+              if (fg.vagasAbertasVisiveis > 0) {
+                const label = `${fg.vagasAbertasVisiveis} vaga${fg.vagasAbertasVisiveis > 1 ? 's' : ''} em aberto`;
+                openHtml = fg.medicos.length > 0
+                  ? `<div class="open-hint">+ ${label}</div>`
+                  : `<div class="open-pill-empty">${label}</div>`;
+              }
 
-              groupsHtml += `
-                <div class="slot-group">
-                  <div class="slot-group-head">
-                    <span class="shift-chip ${periodClass} slot-time">${fg.inicio}–${fg.fim}</span>
-                    <span style="font-size:10px; color:var(--text-muted);">${fg.horas}h</span>
+              cellsHtml += `
+                <td class="${cellClasses.join(" ")}">
+                  <div class="cell-stack">
+                    ${medsHtml}
+                    ${openHtml}
                   </div>
-                  ${medsHtml}
-                  ${openHtml}
-                </div>
+                </td>
               `;
             });
 
-            if (!groupsHtml && dia.inMonth) {
-              groupsHtml = `<div style="font-size:11px; color:var(--text-muted); padding:8px 2px;">Sem registros para o filtro</div>`;
+            if (rowHasVisible) {
+              rowsHtml += `
+                <tr>
+                  <th class="col-slot-cell" scope="row">
+                    <div class="slot-cell-wrap">
+                      <span class="shift-chip shift-${slot.periodo} slot-time">${slot.inicio} – ${slot.fim}</span>
+                      <span class="slot-meta">${shiftLabel[slot.periodo] || ""} · ${slot.horas}h</span>
+                    </div>
+                  </th>
+                  ${cellsHtml}
+                </tr>
+              `;
             }
+          });
 
-            const todayBadge = isToday ? `<span class="badge-yellow" style="padding:2px 6px; font-size:9px;">HOJE</span>` : "";
+          if (!rowsHtml) return;
 
-            daysHtml += `
-              <div class="${classes.join(" ")}">
-                <div class="day-head">
+          const dayHeadersHtml = wk.dias.map(dia => {
+            const isToday = dia.iso === todayIso;
+            const classes = ["col-day"];
+            if (!dia.inMonth) classes.push("is-out-month");
+            if (isToday) classes.push("is-today");
+            const todayBadge = isToday ? `<span class="badge-yellow" style="padding:2px 6px;">HOJE</span>` : "";
+            return `
+              <th class="${classes.join(" ")}" scope="col">
+                <div class="m-day-head">
                   <div>
-                    <div class="day-wk ${dia.isWeekend ? 'is-weekend' : ''}">${dia.weekdayShort}</div>
-                    <div class="day-date">${dia.ddmm}</div>
+                    <div class="m-day-wk ${dia.isWeekend ? 'is-weekend' : ''}">${dia.weekdayShort}</div>
+                    <div class="m-day-date">${dia.ddmm}</div>
                   </div>
                   ${todayBadge}
                 </div>
-                ${groupsHtml}
-              </div>
+              </th>
             `;
-          });
+          }).join("");
 
-          if (weekHasContent || (!state.onlyDoctor && !state.searchText && !state.onlyOpen)) {
-            html += `
-              <section class="week-block">
-                <div class="week-header">
-                  <span class="eyebrow">${escapeHtml(wk.label)}</span>
+          const summaryParts = [];
+          if (weekFilled > 0) summaryParts.push(`${weekFilled} preenchido${weekFilled > 1 ? 's' : ''}`);
+          if (weekOpen > 0) summaryParts.push(`${weekOpen} em aberto`);
+
+          html += `
+            <section class="week-block">
+              <div class="week-header">
+                <span class="week-title">${escapeHtml(wk.label)}</span>
+                <span class="week-summary">${summaryParts.join(" · ")}</span>
+              </div>
+              <div class="card matrix-card">
+                <div class="matrix-scroll">
+                  <table class="roster-matrix">
+                    <thead>
+                      <tr>
+                        <th class="col-slot" scope="col"><span class="eyebrow">Horário</span></th>
+                        ${dayHeadersHtml}
+                      </tr>
+                    </thead>
+                    <tbody>${rowsHtml}</tbody>
+                  </table>
                 </div>
-                <div class="week-grid">${daysHtml}</div>
-              </section>
-            `;
-          }
+              </div>
+            </section>
+          `;
         });
 
         contentArea.innerHTML = anyVisible
           ? html
           : `<div class="empty-state">Nenhum plantão encontrado com os filtros aplicados. Clique em <strong>Limpar</strong> para ver toda a escala.</div>`;
+        bindDoctorPills();
       }
 
       function renderList(sc) {
@@ -1769,13 +1964,17 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
             const rowsHtml = visibleGroups.map(fg => {
               const medsHtml = fg.medicos.map(m => {
                 const sel = state.selectedDoctor && m.nome === state.selectedDoctor;
-                const crm = m.crm ? `<span style="color:var(--text-muted); font-size:10.5px;"> · CRM ${escapeHtml(m.crm)}/${escapeHtml(m.uf)}</span>` : "";
-                return `<div class="doc-item ${sel ? 'is-selected' : ''}">${escapeHtml(m.nome)}${crm}</div>`;
+                const crm = m.crm ? `<span style="color:var(--text-muted); font-size:11px;"> · CRM ${escapeHtml(m.crm)}/${escapeHtml(m.uf)}</span>` : "";
+                return `<button type="button" class="doc-pill ${sel ? 'is-selected' : ''}" data-doc="${escapeHtml(m.nome)}">${escapeHtml(m.nome)}${crm}</button>`;
               }).join("");
 
-              const openHtml = fg.vagasAbertasVisiveis > 0
-                ? `<div class="open-slot-pill">+ ${fg.vagasAbertasVisiveis} vaga${fg.vagasAbertasVisiveis > 1 ? 's' : ''} em aberto</div>`
-                : "";
+              let openHtml = "";
+              if (fg.vagasAbertasVisiveis > 0) {
+                const label = `${fg.vagasAbertasVisiveis} vaga${fg.vagasAbertasVisiveis > 1 ? 's' : ''} em aberto`;
+                openHtml = fg.medicos.length > 0
+                  ? `<div class="open-hint">+ ${label}</div>`
+                  : `<div class="open-pill-empty">${label}</div>`;
+              }
 
               return `
                 <div class="slot-group">
@@ -1808,6 +2007,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         contentArea.innerHTML = count > 0
           ? html
           : `<div class="empty-state">Nenhum plantão encontrado com os filtros aplicados.</div>`;
+        bindDoctorPills();
       }
 
       function renderDoctorsTable(sc) {
@@ -1837,7 +2037,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
               <td class="num-col"><strong>${m.totalPlantoes}</strong></td>
               <td class="num-col"><strong>${m.totalHoras}h</strong></td>
               <td class="num-col">
-                <button type="button" class="btn-outline" style="padding:5px 10px; font-size:10px;" data-pick-doc="${escapeHtml(m.nome)}">
+                <button type="button" class="btn-outline" style="padding:5px 10px; font-size:11px;" data-pick-doc="${escapeHtml(m.nome)}">
                   Ver plantões →
                 </button>
               </td>
