@@ -1,8 +1,8 @@
 {
   "hospital": "HOSPITAL CRUZEIRO DO SUL",
   "municipio": "SÃO PAULO",
-  "geradoEm": "26/11/2026 às 13:57",
-  "planilhaModificadaEm": "26/11/2026 às 13:57",
+  "geradoEm": "26/11/2026 às 14:16",
+  "planilhaModificadaEm": "26/11/2026 às 14:16",
   "arquivoFonte": "Escalas_Hospital_Cruzeiro_Do_Sul_11_26.xlsx",
   "escalas": [
     {
@@ -15,7 +15,7 @@
       "mesAnoLabel": "Dezembro/2026",
       "refYear": 2026,
       "refMonth": 12,
-      "exportRef": "26/11/2026 - 13:55:15",
+      "exportRef": "26/11/2026 - 14:15:55",
       "kpis": {
         "totalVagas": 387,
         "preenchidas": 80,
@@ -51,12 +51,6 @@
                       "uf": "SP"
                     },
                     {
-                      "nome": "BRUNA DE PAULA ALVES",
-                      "nomeCurto": "Bruna Alves",
-                      "crm": "222834",
-                      "uf": "SP"
-                    },
-                    {
                       "nome": "JULIANA MARIA DE ANDRADE SOUTO",
                       "nomeCurto": "Juliana Souto",
                       "crm": "229571",
@@ -76,7 +70,7 @@
                     }
                   ],
                   "vagasAbertas": 0,
-                  "totalVagas": 5
+                  "totalVagas": 4
                 },
                 {
                   "inicio": "13:00",
@@ -2171,9 +2165,9 @@
           "nomeCurto": "Bruna Alves",
           "crm": "222834",
           "uf": "SP",
-          "totalHoras": 78.0,
-          "totalPlantoes": 13,
-          "manha": 1,
+          "totalHoras": 72.0,
+          "totalPlantoes": 12,
+          "manha": 0,
           "tarde": 12,
           "noite": 0
         },
@@ -2389,20 +2383,6 @@
           "medico": "ANA CRISTINA LUCATO DE SOUZA",
           "medicoCurto": "Ana Souza",
           "crm": "225497",
-          "uf": "SP"
-        },
-        {
-          "iso": "2026-11-30",
-          "ddmm": "30/11",
-          "weekdayFull": "Segunda-feira",
-          "weekdayShort": "SEG",
-          "inicio": "07:00",
-          "fim": "13:00",
-          "horas": 6.0,
-          "periodo": "manha",
-          "medico": "BRUNA DE PAULA ALVES",
-          "medicoCurto": "Bruna Alves",
-          "crm": "222834",
           "uf": "SP"
         },
         {
@@ -3649,7 +3629,7 @@
       "mesAnoLabel": "Dezembro/2026",
       "refYear": 2026,
       "refMonth": 12,
-      "exportRef": "26/11/2026 - 13:55:15",
+      "exportRef": "26/11/2026 - 14:15:55",
       "kpis": {
         "totalVagas": 31,
         "preenchidas": 16,
