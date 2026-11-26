@@ -16,6 +16,7 @@ import hashlib
 import hmac
 import json
 import os
+import re
 import secrets
 import sqlite3
 import threading
@@ -24,8 +25,14 @@ from datetime import datetime, timedelta
 from http import cookies
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import parse_qs, urlparse
 from zoneinfo import ZoneInfo
+
+SCALE_ID_RE = re.compile(r"^[a-z0-9-]{1,80}$")
+ISO_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+TIME_RE = re.compile(r"^\d{2}:\d{2}$")
+CRM_RE = re.compile(r"^\d{4,10}$")
+UF_RE = re.compile(r"^[A-Z]{2}$")
 
 TZ_SP = ZoneInfo("America/Sao_Paulo")
 COOKIE_NAME = "escala_session"
@@ -487,6 +494,7 @@ def compute_director_overview() -> dict:
                     "horasPendentesMedico": round(horas_pendentes, 1),
                 },
                 "medicos": meds_sorted,
+                "plantoes": sc.get("plantoes", []),
             }
         )
 
@@ -528,11 +536,20 @@ class EscalaHandler(BaseHTTPRequestHandler):
         pass
 
     def client_ip(self) -> str:
-        fwd = self.headers.get("X-Real-IP") or self.headers.get("X-Forwarded-For") or ""
-        return fwd.split(",")[0].strip() or self.client_address[0]
+        # X-Real-IP é sobrescrito pelo Nginx ($remote_addr) e não pode ser falsificado pelo cliente
+        real_ip = (self.headers.get("X-Real-IP") or "").strip()
+        return real_ip or self.client_address[0]
 
     def is_https(self) -> bool:
         return self.headers.get("X-Forwarded-Proto", "").lower() == "https"
+
+    def check_same_origin(self) -> bool:
+        origin = (self.headers.get("Origin") or "").strip()
+        if not origin:
+            return True
+        parsed = urlparse(origin)
+        host = (self.headers.get("X-Forwarded-Host") or self.headers.get("Host") or "").split(",")[0].strip().lower()
+        return bool(host and parsed.netloc.lower() == host)
 
     def current_session(self) -> dict | None:
         raw_cookie = self.headers.get("Cookie", "")
@@ -645,7 +662,22 @@ class EscalaHandler(BaseHTTPRequestHandler):
             if not sess:
                 self.send_json(401, {"error": "Não autenticado"})
                 return
-            self.send_json(200, {"solicitacoes": fetch_requests()})
+            all_reqs = fetch_requests()
+            if sess["role"] == "diretor":
+                self.send_json(200, {"solicitacoes": all_reqs})
+                return
+            qs = parse_qs(urlparse(self.path).query)
+            q_nome = " ".join((qs.get("nome", [""])[0]).strip().split()).upper()
+            q_crm = re.sub(r"\D", "", qs.get("crm", [""])[0])
+            if not q_nome and not q_crm:
+                self.send_json(200, {"solicitacoes": []})
+                return
+            filtered = [
+                r for r in all_reqs
+                if (q_nome and r["medicoNome"].upper() == q_nome)
+                or (q_crm and re.sub(r"\D", "", r.get("medicoCrm", "")) == q_crm)
+            ]
+            self.send_json(200, {"solicitacoes": filtered})
             return
 
         if path == "/api/director/overview":
@@ -663,6 +695,10 @@ class EscalaHandler(BaseHTTPRequestHandler):
 
     def do_POST(self):
         path = urlparse(self.path).path
+
+        if not self.check_same_origin():
+            self.send_json(403, {"error": "Origem não autorizada."})
+            return
 
         if path == "/_auth/login":
             ip = self.client_ip()
@@ -725,8 +761,17 @@ class EscalaHandler(BaseHTTPRequestHandler):
             except (TypeError, ValueError):
                 horas = 0.0
 
-            if tipo not in ("solicitar", "desistir") or not scale_id or not iso or not inicio or not fim or not medico_nome:
-                self.send_json(400, {"error": "Preencha nome completo, CRM, escala, data e horário."})
+            if tipo not in ("solicitar", "desistir") or not SCALE_ID_RE.match(scale_id) or not ISO_RE.match(iso) or not TIME_RE.match(inicio) or not TIME_RE.match(fim) or not medico_nome:
+                self.send_json(400, {"error": "Preencha nome completo, CRM, escala, data e horário válidos."})
+                return
+            if medico_crm:
+                crm_digits = re.sub(r"\D", "", medico_crm)
+                if not CRM_RE.match(crm_digits):
+                    self.send_json(400, {"error": "CRM inválido."})
+                    return
+                medico_crm = crm_digits
+            if medico_uf and not UF_RE.match(medico_uf):
+                self.send_json(400, {"error": "UF inválida."})
                 return
 
             # Valida contra a escala atual (vaga aberta para solicitar / plantão escalado para desistir)
@@ -858,6 +903,101 @@ class EscalaHandler(BaseHTTPRequestHandler):
                 conn.commit()
                 updated = conn.execute("SELECT * FROM shift_requests WHERE id = ?", (req_id,)).fetchone()
             self.send_json(200, {"ok": True, "solicitacao": row_to_dict(updated)})
+            return
+
+        if path == "/api/director/shifts/remove":
+            sess = self.current_session()
+            if not sess:
+                self.send_json(401, {"error": "Não autenticado"})
+                return
+            if sess["role"] != "diretor":
+                self.send_json(403, {"error": "Acesso restrito ao Diretor"})
+                return
+            body = self.read_json_body()
+            if not body:
+                self.send_json(400, {"error": "Corpo JSON inválido."})
+                return
+
+            scale_id = str(body.get("scaleId", "")).strip()
+            iso = str(body.get("iso", "")).strip()
+            inicio = str(body.get("inicio", "")).strip()
+            fim = str(body.get("fim", "")).strip()
+            medico_nome = " ".join(str(body.get("medicoNome", "")).strip().split())
+            note = str(body.get("note", "")).strip()[:400] or "Retirado do plantão pela Diretoria"
+
+            if not SCALE_ID_RE.match(scale_id) or not ISO_RE.match(iso) or not TIME_RE.match(inicio) or not TIME_RE.match(fim) or not medico_nome:
+                self.send_json(400, {"error": "Dados inválidos para remoção de plantão."})
+                return
+
+            merged = get_merged_scale()
+            sc = next((s for s in merged.get("escalas", []) if s["id"] == scale_id), None)
+            if not sc:
+                self.send_json(404, {"error": "Escala não encontrada."})
+                return
+
+            found_day = None
+            found_grp = None
+            found_med = None
+            for wk in sc.get("semanas", []):
+                for dia in wk.get("dias", []):
+                    if dia.get("iso") == iso:
+                        for g in dia.get("grupos", []):
+                            if g.get("inicio") == inicio and g.get("fim") == fim:
+                                m = next((x for x in g.get("medicos", []) if x["nome"].strip().upper() == medico_nome.upper()), None)
+                                if m:
+                                    found_day = dia
+                                    found_grp = g
+                                    found_med = m
+                                    break
+
+            if not found_med:
+                self.send_json(404, {"error": "Médico não está escalado neste plantão."})
+                return
+
+            now_str = datetime.now(TZ_SP).strftime("%d/%m/%Y %H:%M")
+            with _DB_LOCK, sqlite3.connect(DB_FILE) as conn:
+                conn.row_factory = sqlite3.Row
+                conn.execute(
+                    """
+                    UPDATE shift_requests
+                    SET status = 'rejected', decided_by = ?, decided_at = ?, director_note = ?
+                    WHERE status = 'pending' AND tipo = 'desistir'
+                      AND scale_id = ? AND iso = ? AND inicio = ? AND fim = ?
+                      AND UPPER(medico_nome) = UPPER(?)
+                    """,
+                    (sess["username"], now_str, "Encerrado após remoção direta pela Diretoria", scale_id, iso, inicio, fim, found_med["nome"]),
+                )
+                cur = conn.execute(
+                    """
+                    INSERT INTO shift_requests (
+                        scale_id, scale_title, iso, ddmm, inicio, fim, horas, periodo,
+                        tipo, medico_nome, medico_crm, medico_uf, motivo, status,
+                        requested_by, created_at, decided_by, decided_at, director_note
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'desistir', ?, ?, ?, ?, 'approved', ?, ?, ?, ?, ?)
+                    """,
+                    (
+                        sc["id"],
+                        sc["tabLabel"],
+                        found_day["iso"],
+                        found_day["ddmm"],
+                        found_grp["inicio"],
+                        found_grp["fim"],
+                        float(found_grp["horas"]),
+                        found_grp["periodo"],
+                        found_med["nome"],
+                        found_med.get("crm", ""),
+                        found_med.get("uf", ""),
+                        "Remoção direta pela Diretoria",
+                        sess["username"],
+                        now_str,
+                        sess["username"],
+                        now_str,
+                        note,
+                    ),
+                )
+                conn.commit()
+                row = conn.execute("SELECT * FROM shift_requests WHERE id = ?", (cur.lastrowid,)).fetchone()
+            self.send_json(200, {"ok": True, "solicitacao": row_to_dict(row)})
             return
 
         self.send_empty(404)

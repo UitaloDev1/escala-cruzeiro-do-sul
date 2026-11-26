@@ -493,12 +493,21 @@
       font-size: 13px;
     }
 
+    .remove-form-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1.3fr 1.4fr 1.2fr auto;
+      gap: 10px;
+      align-items: end;
+    }
+
     @media (max-width: 1180px) {
       .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .remove-form-grid { grid-template-columns: 1fr 1fr; }
     }
 
     @media (max-width: 640px) {
       .kpi-grid { grid-template-columns: 1fr; }
+      .remove-form-grid { grid-template-columns: 1fr; }
       .container { padding: 14px 12px 36px; }
       .header-divider { display: none; }
       .header-left { flex-direction: column; align-items: flex-start; gap: 6px; }
@@ -597,6 +606,33 @@
     </div>
 
     <div id="requestsArea" class="requests-list"></div>
+
+    <div class="section-head">
+      <h2>Retirar Médico de Plantão</h2>
+    </div>
+
+    <section class="card" style="margin-bottom: 8px;">
+      <form id="removeShiftForm" class="remove-form-grid">
+        <div style="display:flex; flex-direction:column; gap:5px;">
+          <label class="eyebrow" for="remScaleSelect">Escala</label>
+          <select id="remScaleSelect" class="input-control"></select>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:5px;">
+          <label class="eyebrow" for="remDoctorSelect">Médico Escalado</label>
+          <select id="remDoctorSelect" class="input-control"></select>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:5px;">
+          <label class="eyebrow" for="remShiftSelect">Plantão</label>
+          <select id="remShiftSelect" class="input-control"></select>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:5px;">
+          <label class="eyebrow" for="remNoteInput">Motivo (opcional)</label>
+          <input id="remNoteInput" type="text" class="input-control" placeholder="Ex.: remanejamento..." />
+        </div>
+        <button type="submit" class="btn-reject" id="remSubmitBtn" style="height:34px;">Retirar do Plantão</button>
+      </form>
+      <div id="remFeedback" style="display:none; font-size:12px; margin-top:10px;"></div>
+    </section>
 
     <div class="section-head">
       <h2>Quadro de Horas por Médico</h2>
@@ -818,13 +854,110 @@
         `).join("");
       }
 
+      function renderRemoveControls() {
+        const remScaleSelect = document.getElementById("remScaleSelect");
+        const remDoctorSelect = document.getElementById("remDoctorSelect");
+        const remShiftSelect = document.getElementById("remShiftSelect");
+        const remSubmitBtn = document.getElementById("remSubmitBtn");
+
+        const prevScale = remScaleSelect.value;
+        remScaleSelect.innerHTML = OVERVIEW.escalas.map(sc => `<option value="${esc(sc.id)}">${esc(sc.tabLabel)}</option>`).join("");
+        if (prevScale && OVERVIEW.escalas.some(s => s.id === prevScale)) {
+          remScaleSelect.value = prevScale;
+        } else if (state.scaleFilter !== "all") {
+          remScaleSelect.value = state.scaleFilter;
+        }
+
+        function fillDoctors() {
+          const sc = OVERVIEW.escalas.find(x => x.id === remScaleSelect.value) || OVERVIEW.escalas[0];
+          const prevDoc = remDoctorSelect.value;
+          const activeDocs = (sc ? sc.medicos : []).filter(m => m.totalPlantoes > 0);
+          remDoctorSelect.innerHTML = "";
+          if (activeDocs.length === 0) {
+            remDoctorSelect.innerHTML = `<option value="">Nenhum médico escalado</option>`;
+            fillShifts();
+            return;
+          }
+          activeDocs.forEach(m => {
+            const opt = document.createElement("option");
+            opt.value = m.nome;
+            opt.textContent = m.crm ? `${m.nome} · CRM ${m.crm}/${m.uf}` : m.nome;
+            remDoctorSelect.appendChild(opt);
+          });
+          if (prevDoc && activeDocs.some(m => m.nome === prevDoc)) {
+            remDoctorSelect.value = prevDoc;
+          }
+          fillShifts();
+        }
+
+        function fillShifts() {
+          const sc = OVERVIEW.escalas.find(x => x.id === remScaleSelect.value) || OVERVIEW.escalas[0];
+          const docName = remDoctorSelect.value;
+          const shifts = (sc && docName)
+            ? (sc.plantoes || []).filter(p => p.medico === docName)
+            : [];
+          remShiftSelect.innerHTML = "";
+          if (shifts.length === 0) {
+            remShiftSelect.innerHTML = `<option value="">Sem plantões disponíveis</option>`;
+            remSubmitBtn.disabled = true;
+            return;
+          }
+          shifts.forEach(p => {
+            const opt = document.createElement("option");
+            opt.value = `${p.iso}|${p.inicio}|${p.fim}`;
+            opt.textContent = `${p.ddmm} (${p.weekdayShort}) · ${p.inicio}–${p.fim} (${p.horas}h)`;
+            remShiftSelect.appendChild(opt);
+          });
+          remSubmitBtn.disabled = false;
+        }
+
+        remScaleSelect.onchange = fillDoctors;
+        remDoctorSelect.onchange = fillShifts;
+        fillDoctors();
+      }
+
       function renderAll() {
         const sel = getSelectedData();
         renderTabs();
         renderKPIs(sel);
         renderRequests();
+        renderRemoveControls();
         renderDoctorsTable(sel);
       }
+
+      document.getElementById("removeShiftForm").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const scaleId = document.getElementById("remScaleSelect").value;
+        const medicoNome = document.getElementById("remDoctorSelect").value;
+        const shiftVal = document.getElementById("remShiftSelect").value;
+        const note = document.getElementById("remNoteInput").value.trim();
+        const fb = document.getElementById("remFeedback");
+        if (!scaleId || !medicoNome || !shiftVal) return;
+
+        const [iso, inicio, fim] = shiftVal.split("|");
+        const btn = document.getElementById("remSubmitBtn");
+        btn.disabled = true;
+        fb.style.display = "none";
+
+        const res = await fetch("/api/director/shifts/remove", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ scaleId, iso, inicio, fim, medicoNome, note })
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) {
+          fb.textContent = data.error || "Não foi possível retirar o médico do plantão.";
+          fb.style.color = "var(--danger-color)";
+          fb.style.display = "block";
+          btn.disabled = false;
+          return;
+        }
+        document.getElementById("remNoteInput").value = "";
+        fb.textContent = `${medicoNome} retirado(a) do plantão (${iso} ${inicio}–${fim}). Vaga reaberta na escala.`;
+        fb.style.color = "var(--ok-color)";
+        fb.style.display = "block";
+        await loadOverview();
+      });
 
       document.querySelectorAll("[data-req-status]").forEach(btn => {
         btn.addEventListener("click", () => {

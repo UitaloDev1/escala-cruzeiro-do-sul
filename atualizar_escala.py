@@ -1767,8 +1767,10 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       function populateDoctors() {
         const sc = getActiveScale();
         const prev = state.selectedDoctor;
-        doctorSelect.innerHTML = '<option value="">Todos os médicos da escala</option>';
-        const sorted = [...sc.medicos].sort((a, b) => a.nome.localeCompare(b.nome, "pt-BR"));
+        doctorSelect.innerHTML = '<option value="">Todos os médicos escalados</option>';
+        const sorted = sc.medicos
+          .filter(m => m.totalPlantoes > 0)
+          .sort((a, b) => a.nome.localeCompare(b.nome, "pt-BR"));
         sorted.forEach(m => {
           const opt = document.createElement("option");
           opt.value = m.nome;
@@ -1956,7 +1958,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
             </div>
           `;
 
-          document.getElementById("verifyDocForm").addEventListener("submit", (e) => {
+          document.getElementById("verifyDocForm").addEventListener("submit", async (e) => {
             e.preventDefault();
             const res = validateDoctorIdentity(
               document.getElementById("valNomeInput").value,
@@ -1971,6 +1973,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
             state.verifiedDoctor = { nome: res.nome, crm: res.crm, uf: res.uf };
             state.reqMode = "solicitar";
             state.reqFeedback = null;
+            await refreshDoctorRequests();
             renderAll();
           });
           return;
@@ -2629,13 +2632,32 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       document.getElementById("exportIcsBtn").addEventListener("click", exportICS);
       document.getElementById("printBtn").addEventListener("click", () => window.print());
 
+      async function refreshDoctorRequests() {
+        if (window.location.protocol === "file:" || !state.verifiedDoctor) {
+          REQUESTS = [];
+          return;
+        }
+        try {
+          const qs = new URLSearchParams({
+            nome: state.verifiedDoctor.nome,
+            crm: state.verifiedDoctor.crm || ""
+          });
+          const rRes = await fetch(`/api/requests?${qs.toString()}`, { cache: "no-store" });
+          if (rRes.ok) {
+            const rJson = await rRes.json();
+            REQUESTS = rJson.solicitacoes || [];
+          }
+        } catch (err) {
+          // silencioso
+        }
+      }
+
       async function refreshLiveServerData() {
         if (window.location.protocol === "file:") return;
         try {
-          const [sRes, eRes, rRes] = await Promise.all([
+          const [sRes, eRes] = await Promise.all([
             fetch("/_auth/session", { cache: "no-store" }),
-            fetch("/api/escala", { cache: "no-store" }),
-            fetch("/api/requests", { cache: "no-store" })
+            fetch("/api/escala", { cache: "no-store" })
           ]);
           if (sRes.ok) {
             SESSION = await sRes.json();
@@ -2651,10 +2673,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
             updateMetaTexts();
             populateDoctors();
           }
-          if (rRes.ok) {
-            const rJson = await rRes.json();
-            REQUESTS = rJson.solicitacoes || [];
-          }
+          await refreshDoctorRequests();
         } catch (err) {
           // Fallback silencioso para arquivo local sem backend
         }
