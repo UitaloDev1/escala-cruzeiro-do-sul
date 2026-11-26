@@ -1,0 +1,5 @@
+@echo off
+chcp 65001 >nul
+cd /d "%~dp0"
+python atualizar_escala.py --git-push
+pause
