@@ -1790,7 +1790,11 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
         if (state.onlyOpen) {
           if (grp.vagasAbertas <= 0) return null;
-          return { ...grp, medicos: [] };
+          return {
+            ...grp,
+            medicos: [],
+            vagasAbertasVisiveis: grp.vagasAbertas
+          };
         }
 
         if (state.selectedDoctor && state.onlyDoctor) {
@@ -2140,6 +2144,10 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
       showOpenCheck.addEventListener("change", () => {
         state.showOpen = showOpenCheck.checked;
+        if (!state.showOpen && state.onlyOpen) {
+          state.onlyOpen = false;
+          onlyOpenCheck.checked = false;
+        }
         renderAll();
       });
 
