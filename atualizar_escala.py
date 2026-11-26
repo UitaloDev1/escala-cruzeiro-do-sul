@@ -1222,16 +1222,9 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       gap: 5px;
     }
 
-    .doc-row {
-      display: flex;
-      align-items: stretch;
-      gap: 4px;
-    }
-
     .doc-pill {
       display: block;
-      flex: 1;
-      min-width: 0;
+      width: 100%;
       text-align: left;
       font-family: inherit;
       font-size: 12px;
@@ -1258,94 +1251,75 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       font-weight: 700;
     }
 
-    .doc-drop-btn {
-      flex-shrink: 0;
-      background: transparent;
-      color: var(--text-muted);
-      border: 1px solid var(--border-subtle);
-      border-radius: 2px 2px 6px 2px;
-      padding: 0 7px;
-      font-family: inherit;
+    .open-hint {
       font-size: 11px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+      font-weight: 500;
+      color: var(--text-muted);
+      padding: 2px 2px 0;
     }
 
-    .doc-drop-btn:hover {
-      color: #fca5a5;
-      border-color: rgba(248, 113, 113, 0.55);
-      background: rgba(239, 68, 68, 0.15);
-    }
-
-    .open-req-btn {
-      width: 100%;
-      background: transparent;
-      font-family: inherit;
+    .open-pill-empty {
       font-size: 11px;
-      font-weight: 600;
+      font-weight: 500;
       color: var(--text-muted);
-      border: 1px dashed var(--border-dashed);
+      border: 1px dashed var(--border-subtle);
       border-radius: 2px 2px 6px 2px;
-      padding: 5px 7px;
+      padding: 6px 8px;
       text-align: center;
-      cursor: pointer;
-      transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
     }
 
-    .open-req-btn:hover {
-      color: var(--text-primary);
-      border-color: var(--accent-orange);
-      background: rgba(243, 112, 33, 0.12);
-    }
-
-    .pending-badge {
-      font-size: 10.5px;
-      font-weight: 600;
-      color: var(--accent-yellow);
-      padding: 2px 4px;
-    }
-
-    /* ==================== MODAIS & SOLICITAÇÕES ==================== */
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(2, 10, 28, 0.72);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-      z-index: 90;
-    }
-
-    .modal-backdrop.is-open { display: flex; }
-
-    .modal-card {
-      width: 100%;
-      max-width: 500px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-card);
-      border-radius: 3px 3px 18px 3px;
-      padding: 20px;
-      max-height: 88vh;
-      overflow-y: auto;
-    }
-
-    .modal-head {
+    /* ==================== ABA DE SOLICITAÇÕES DE PLANTÃO ==================== */
+    .req-workspace {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      padding-bottom: 10px;
-      margin-bottom: 14px;
-      border-bottom: 1px solid var(--border-subtle);
+      flex-direction: column;
+      gap: 14px;
     }
 
-    .modal-title {
-      margin: 0;
-      font-size: 17px;
-      font-weight: 600;
+    .req-grid-3 {
+      display: grid;
+      grid-template-columns: 2fr 1fr 0.7fr auto;
+      gap: 12px;
+      align-items: end;
     }
+
+    .req-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      align-items: end;
+    }
+
+    .mode-switch {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .feedback-box {
+      border-radius: 2px 2px 10px 2px;
+      padding: 10px 12px;
+      font-size: 12.5px;
+      margin-bottom: 12px;
+      display: none;
+    }
+
+    .feedback-box.is-error {
+      display: block;
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(248, 113, 113, 0.5);
+      color: #fecaca;
+    }
+
+    .feedback-box.is-ok {
+      display: block;
+      background: rgba(52, 211, 153, 0.14);
+      border: 1px solid rgba(52, 211, 153, 0.48);
+      color: #6ee7b7;
+    }
+
+    [data-theme="light"] .feedback-box.is-error { color: #991b1b; }
+    [data-theme="light"] .feedback-box.is-ok { color: #065f46; }
 
     .req-item-card {
       background: var(--bg-card-inner);
@@ -1495,6 +1469,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
     @media (max-width: 820px) {
       .grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .req-grid-3, .req-grid-2 { grid-template-columns: 1fr; }
       .header-right { display: none; }
       .subnav-meta { display: none; }
     }
@@ -1554,7 +1529,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     <div class="subnav-tabs" id="scaleTabs"></div>
     <div class="subnav-right">
       <a class="btn-outline" id="directorLink" href="/dashboard" style="display:none; padding:5px 10px; text-decoration:none;">Painel Diretor →</a>
-      <button class="btn-outline" id="myRequestsBtn" type="button" style="display:none; padding:5px 10px;">Solicitações (<span id="myRequestsCount">0</span>)</button>
       <button class="theme-toggle" id="themeToggle" type="button" title="Alternar tema claro/escuro">
         <span id="themeIcon">☀</span>
         <span id="themeLabel">Claro</span>
@@ -1580,7 +1554,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     </section>
 
     <!-- BARRA DE FILTROS -->
-    <section class="card filter-card" aria-label="Filtros da escala">
+    <section class="card filter-card" id="filterCard" aria-label="Filtros da escala">
       <div class="filter-row">
         <div class="field-group">
           <label class="field-label" for="doctorSelect">Médico (filtrar ou destacar)</label>
@@ -1648,7 +1622,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     </section>
 
     <!-- LEGENDA + ÁREA DE RENDERIZAÇÃO -->
-    <div class="legend-bar">
+    <div class="legend-bar" id="legendBar">
       <h2 class="section-title" id="viewHeading">Grade Semanal de Plantões</h2>
       <div class="legend-items">
         <span class="shift-chip shift-manha">Manhã · 07h–13h</span>
@@ -1662,54 +1636,13 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     <!-- RODAPÉ -->
     <footer class="page-footer">
       <div>
-        <strong id="footerHospital">Hospital Cruzeiro do Sul</strong> · Visualização da escala e solicitações de plantão (dados pessoais sensíveis omitidos conforme LGPD).
+        <strong id="footerHospital">Hospital Cruzeiro do Sul</strong> · Sistema de plantões médicos (dados pessoais sensíveis omitidos conforme LGPD).
       </div>
       <div>
         Planilha atualizada em <span id="footerMtime">--</span> · Publicado em <span id="footerGen">--</span>
       </div>
     </footer>
   </main>
-
-  <!-- MODAL DE SOLICITAÇÃO / DESISTÊNCIA DE PLANTÃO -->
-  <div class="modal-backdrop" id="requestModal" aria-hidden="true">
-    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="reqModalTitle">
-      <div class="modal-head">
-        <h3 class="modal-title" id="reqModalTitle">Solicitar Plantão</h3>
-        <button type="button" class="btn-outline" id="closeReqModalBtn" style="padding:4px 9px;">Fechar</button>
-      </div>
-      <form id="requestForm">
-        <div class="eyebrow" id="reqSlotSummary" style="margin-bottom:12px;">--</div>
-        <div class="field-group" style="margin-bottom:12px;">
-          <label class="field-label" for="reqDoctorSelect">Médico</label>
-          <select id="reqDoctorSelect" class="select-control"></select>
-        </div>
-        <div class="field-group" id="reqCustomDocWrap" style="margin-bottom:12px; display:none;">
-          <label class="field-label" for="reqCustomDocInput">Nome completo do médico</label>
-          <input id="reqCustomDocInput" type="text" class="input-control" placeholder="Digite o nome completo..." />
-        </div>
-        <div class="field-group" style="margin-bottom:14px;">
-          <label class="field-label" for="reqMotivoInput">Observação / Motivo (opcional)</label>
-          <input id="reqMotivoInput" type="text" class="input-control" placeholder="Ex.: disponibilidade confirmada / conflito de agenda..." />
-        </div>
-        <div id="reqModalError" style="display:none; color:#fca5a5; font-size:12px; margin-bottom:10px;"></div>
-        <div style="display:flex; justify-content:flex-end; gap:8px;">
-          <button type="button" class="btn-outline" id="cancelReqModalBtn">Cancelar</button>
-          <button type="submit" class="btn-accent" id="submitReqBtn">Enviar para Diretoria</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- MODAL DE ACOMPANHAMENTO DE SOLICITAÇÕES -->
-  <div class="modal-backdrop" id="historyModal" aria-hidden="true">
-    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="histModalTitle" style="max-width:640px;">
-      <div class="modal-head">
-        <h3 class="modal-title" id="histModalTitle">Solicitações Enviadas</h3>
-        <button type="button" class="btn-outline" id="closeHistModalBtn" style="padding:4px 9px;">Fechar</button>
-      </div>
-      <div id="historyList"></div>
-    </div>
-  </div>
 
   <!-- DADOS DA ESCALA EMBUTIDOS AUTOMATICAMENTE PELO SCRIPT PYTHON -->
   <script id="escala-data" type="application/json">__JSON_DATA__</script>
@@ -1719,9 +1652,9 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       let DATA = JSON.parse(document.getElementById("escala-data").textContent);
       let SESSION = { authenticated: false, role: null };
       let REQUESTS = [];
-      let pendingReqContext = null;
 
       const state = {
+        activeTab: "scale", // "scale" | "requests"
         scaleIndex: 0,
         view: window.innerWidth <= 640 ? "list" : "grid",
         selectedDoctor: "",
@@ -1729,13 +1662,18 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         shiftFilter: "todos",
         onlyDoctor: false,
         onlyOpen: false,
-        showOpen: true
+        showOpen: true,
+        verifiedDoctor: null, // { nome, crm, uf, scheduledShifts }
+        reqMode: "solicitar", // "solicitar" | "desistir"
+        reqFeedback: null     // { type: "ok" | "error", text }
       };
 
       const todayIso = new Date().toISOString().slice(0, 10);
 
       // Elementos DOM
       const tabsEl = document.getElementById("scaleTabs");
+      const filterCard = document.getElementById("filterCard");
+      const legendBar = document.getElementById("legendBar");
       const doctorSelect = document.getElementById("doctorSelect");
       const shiftSelect = document.getElementById("shiftSelect");
       const searchInput = document.getElementById("searchInput");
@@ -1744,13 +1682,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       const showOpenCheck = document.getElementById("showOpenCheck");
       const contentArea = document.getElementById("contentArea");
       const doctorBanner = document.getElementById("doctorBanner");
-      const requestModal = document.getElementById("requestModal");
-      const historyModal = document.getElementById("historyModal");
-      const reqDoctorSelect = document.getElementById("reqDoctorSelect");
-      const reqCustomDocWrap = document.getElementById("reqCustomDocWrap");
-      const reqCustomDocInput = document.getElementById("reqCustomDocInput");
-      const reqMotivoInput = document.getElementById("reqMotivoInput");
-      const reqModalError = document.getElementById("reqModalError");
 
       function updateMetaTexts() {
         document.getElementById("headerHospital").textContent = `${titleCase(DATA.hospital)} — Escala Médica`;
@@ -1809,15 +1740,28 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         DATA.escalas.forEach((sc, idx) => {
           const btn = document.createElement("button");
           btn.type = "button";
-          btn.className = "subnav-tab" + (idx === state.scaleIndex ? " is-active" : "");
+          const active = state.activeTab === "scale" && idx === state.scaleIndex;
+          btn.className = "subnav-tab" + (active ? " is-active" : "");
           btn.textContent = sc.tabLabel;
           btn.addEventListener("click", () => {
+            state.activeTab = "scale";
             state.scaleIndex = idx;
             populateDoctors();
             renderAll();
           });
           tabsEl.appendChild(btn);
         });
+
+        const reqBtn = document.createElement("button");
+        reqBtn.type = "button";
+        reqBtn.className = "subnav-tab" + (state.activeTab === "requests" ? " is-active" : "");
+        reqBtn.textContent = "PEGAR / DESISTIR PLANTÃO";
+        reqBtn.addEventListener("click", () => {
+          state.activeTab = "requests";
+          state.reqFeedback = null;
+          renderAll();
+        });
+        tabsEl.appendChild(reqBtn);
       }
 
       function populateDoctors() {
@@ -1894,80 +1838,432 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         };
       }
 
-      function countPendingForSlot(scaleId, iso, inicio, fim, tipo) {
-        return REQUESTS.filter(r =>
-          r.status === "pending" &&
-          r.scaleId === scaleId &&
-          r.iso === iso &&
-          r.inicio === inicio &&
-          r.fim === fim &&
-          (!tipo || r.tipo === tipo)
-        ).length;
+      function namesMatch(aNorm, bNorm) {
+        if (aNorm === bNorm) return true;
+        const preps = new Set(["DE", "DA", "DO", "DAS", "DOS", "E"]);
+        const tokA = aNorm.split(" ").filter(w => w && !preps.has(w));
+        const tokB = bNorm.split(" ").filter(w => w && !preps.has(w));
+        if (tokA.length < 2 || tokB.length < 2) return false;
+        if (tokA[0] !== tokB[0] || tokA[tokA.length - 1] !== tokB[tokB.length - 1]) return false;
+        const setB = new Set(tokB);
+        const setA = new Set(tokA);
+        const shorter = tokA.length <= tokB.length ? tokA : tokB;
+        const longerSet = tokA.length <= tokB.length ? setB : setA;
+        return shorter.every(w => longerSet.has(w));
       }
 
-      function openRequestModal(ctx) {
-        const sc = getActiveScale();
-        pendingReqContext = ctx;
-        const isDrop = ctx.tipo === "desistir";
-        document.getElementById("reqModalTitle").textContent = isDrop ? "Solicitar Desistência de Plantão" : "Solicitar Plantão";
-        document.getElementById("reqSlotSummary").textContent = `${sc.titulo} · ${ctx.ddmm} · ${ctx.inicio}–${ctx.fim} (${ctx.horas}h)`;
-        document.getElementById("submitReqBtn").textContent = isDrop ? "Enviar Desistência" : "Solicitar Plantão";
-        reqMotivoInput.value = "";
-        reqModalError.style.display = "none";
+      function validateDoctorIdentity(rawNome, rawCrm, rawUf) {
+        const nomeClean = String(rawNome || "").trim().replace(/\s+/g, " ");
+        const nomeNorm = normalize(nomeClean);
+        const crmDigits = String(rawCrm || "").replace(/\D/g, "");
+        const ufClean = String(rawUf || "SP").trim().toUpperCase() || "SP";
 
-        reqDoctorSelect.innerHTML = "";
-        const sorted = [...sc.medicos].sort((a, b) => a.nome.localeCompare(b.nome, "pt-BR"));
-        sorted.forEach(m => {
-          const opt = document.createElement("option");
-          opt.value = m.nome;
-          opt.textContent = m.crm ? `${m.nome} · CRM ${m.crm}/${m.uf}` : m.nome;
-          reqDoctorSelect.appendChild(opt);
+        if (nomeClean.split(" ").filter(Boolean).length < 2) {
+          return { ok: false, error: "Informe seu nome completo (nome e sobrenome)." };
+        }
+        if (crmDigits.length < 4) {
+          return { ok: false, error: "Informe um número de CRM válido." };
+        }
+
+        const catalog = [];
+        DATA.escalas.forEach(sc => {
+          sc.medicos.forEach(m => {
+            catalog.push(m);
+          });
         });
-        if (!isDrop) {
-          const otherOpt = document.createElement("option");
-          otherOpt.value = "__CUSTOM__";
-          otherOpt.textContent = "Outro médico (digitar nome)...";
-          reqDoctorSelect.appendChild(otherOpt);
+
+        const byCrm = catalog.find(m => String(m.crm || "").replace(/\D/g, "") === crmDigits);
+        if (byCrm) {
+          if (!namesMatch(nomeNorm, normalize(byCrm.nome))) {
+            return { ok: false, error: "O CRM informado não confere com o nome cadastrado na unidade. Verifique os dados." };
+          }
+          return { ok: true, nome: byCrm.nome, crm: byCrm.crm, uf: byCrm.uf || ufClean };
         }
 
-        const preDoc = ctx.medicoNome || state.selectedDoctor || (sorted[0] ? sorted[0].nome : "");
-        if (preDoc && sorted.some(m => m.nome === preDoc)) {
-          reqDoctorSelect.value = preDoc;
+        const byName = catalog.find(m => namesMatch(nomeNorm, normalize(m.nome)));
+        if (byName && String(byName.crm || "").replace(/\D/g, "")) {
+          return { ok: false, error: "Este nome já possui outro CRM cadastrado na unidade. Confira seu CRM." };
         }
-        reqDoctorSelect.disabled = isDrop;
-        reqCustomDocWrap.style.display = reqDoctorSelect.value === "__CUSTOM__" ? "flex" : "none";
-        reqCustomDocInput.value = "";
 
-        requestModal.classList.add("is-open");
+        return { ok: true, nome: nomeClean.toUpperCase(), crm: crmDigits, uf: ufClean };
       }
 
-      function closeRequestModal() {
-        requestModal.classList.remove("is-open");
-        pendingReqContext = null;
+      function collectScheduledShifts(docNameNorm) {
+        const shifts = [];
+        DATA.escalas.forEach(sc => {
+          sc.semanas.forEach(wk => {
+            wk.dias.forEach(dia => {
+              dia.grupos.forEach(g => {
+                if (g.medicos.some(m => normalize(m.nome) === docNameNorm)) {
+                  shifts.push({
+                    scaleId: sc.id,
+                    scaleTitle: sc.tabLabel,
+                    titulo: sc.titulo,
+                    iso: dia.iso,
+                    ddmm: dia.ddmm,
+                    weekdayFull: dia.weekdayFull,
+                    inicio: g.inicio,
+                    fim: g.fim,
+                    horas: g.horas,
+                    periodo: g.periodo
+                  });
+                }
+              });
+            });
+          });
+        });
+        return shifts.sort((a, b) => a.iso.localeCompare(b.iso) || a.inicio.localeCompare(b.inicio));
       }
 
-      function renderHistoryModal() {
-        const listEl = document.getElementById("historyList");
-        const statusLabel = { pending: "Pendente", approved: "Aprovada", rejected: "Recusada" };
-        if (REQUESTS.length === 0) {
-          listEl.innerHTML = `<div class="empty-state">Nenhuma solicitação enviada até o momento.</div>`;
-          return;
-        }
-        listEl.innerHTML = REQUESTS.map(r => {
-          const tipoLabel = r.tipo === "solicitar" ? "Solicitação de Plantão" : "Desistência de Plantão";
-          const noteHtml = r.directorNote ? `<div style="font-size:11.5px; color:var(--text-secondary); margin-top:4px;">Diretoria: ${escapeHtml(r.directorNote)}</div>` : "";
-          return `
-            <div class="req-item-card">
-              <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:4px;">
-                <span class="eyebrow">${tipoLabel} · ${escapeHtml(r.scaleTitle)} · ${escapeHtml(r.ddmm)} (${escapeHtml(r.inicio)}–${escapeHtml(r.fim)})</span>
-                <span class="status-pill status-${r.status}">${statusLabel[r.status] || r.status}</span>
-              </div>
-              <div style="font-size:13px; font-weight:600;">${escapeHtml(r.medicoNome)}</div>
-              <div style="font-size:11.5px; color:var(--text-muted); margin-top:2px;">Enviada em ${escapeHtml(r.createdAt)}${r.motivo ? ' · Obs.: ' + escapeHtml(r.motivo) : ''}</div>
-              ${noteHtml}
+      function renderRequestsWorkspace() {
+        document.getElementById("heroEyebrow").textContent = `${DATA.hospital} · ${DATA.municipio}`;
+        document.getElementById("heroTitle").textContent = "Pegar Nova Vaga ou Desistir de Plantão";
+
+        const fbHtml = state.reqFeedback
+          ? `<div class="feedback-box ${state.reqFeedback.type === 'ok' ? 'is-ok' : 'is-error'}">${escapeHtml(state.reqFeedback.text)}</div>`
+          : "";
+
+        if (!state.verifiedDoctor) {
+          contentArea.innerHTML = `
+            <div class="req-workspace">
+              <section class="card">
+                <div class="eyebrow">ETAPA 1 · IDENTIFICAÇÃO DO MÉDICO</div>
+                <h2 class="section-title" style="margin:6px 0 6px;">Valide seu Nome Completo e CRM</h2>
+                <p class="hero-desc" style="margin-bottom:14px;">
+                  Após a validação, o sistema verifica automaticamente se você já possui plantões escalados para liberar as opções disponíveis.
+                </p>
+                ${fbHtml}
+                <form id="verifyDocForm">
+                  <div class="req-grid-3">
+                    <div class="field-group">
+                      <label class="field-label" for="valNomeInput">Nome Completo</label>
+                      <input id="valNomeInput" type="text" class="input-control" placeholder="Digite seu nome completo..." required />
+                    </div>
+                    <div class="field-group">
+                      <label class="field-label" for="valCrmInput">CRM</label>
+                      <input id="valCrmInput" type="text" inputmode="numeric" class="input-control" placeholder="Ex.: 229571" required />
+                    </div>
+                    <div class="field-group">
+                      <label class="field-label" for="valUfInput">UF</label>
+                      <input id="valUfInput" type="text" maxlength="2" class="input-control" value="SP" required />
+                    </div>
+                    <div class="field-group">
+                      <button type="submit" class="btn-accent" style="height:36px;">Validar</button>
+                    </div>
+                  </div>
+                </form>
+              </section>
             </div>
           `;
-        }).join("");
+
+          document.getElementById("verifyDocForm").addEventListener("submit", (e) => {
+            e.preventDefault();
+            const res = validateDoctorIdentity(
+              document.getElementById("valNomeInput").value,
+              document.getElementById("valCrmInput").value,
+              document.getElementById("valUfInput").value
+            );
+            if (!res.ok) {
+              state.reqFeedback = { type: "error", text: res.error };
+              renderAll();
+              return;
+            }
+            state.verifiedDoctor = { nome: res.nome, crm: res.crm, uf: res.uf };
+            state.reqMode = "solicitar";
+            state.reqFeedback = null;
+            renderAll();
+          });
+          return;
+        }
+
+        const doc = state.verifiedDoctor;
+        const docNorm = normalize(doc.nome);
+        const scheduledShifts = collectScheduledShifts(docNorm);
+        if (scheduledShifts.length === 0) {
+          state.reqMode = "solicitar";
+        }
+
+        const modeSwitchHtml = scheduledShifts.length > 0
+          ? `
+            <div class="mode-switch">
+              <button type="button" class="btn-outline ${state.reqMode === 'solicitar' ? 'is-active' : ''}" data-req-mode="solicitar">Solicitar Novo Plantão</button>
+              <button type="button" class="btn-outline ${state.reqMode === 'desistir' ? 'is-active' : ''}" data-req-mode="desistir">Desistir de Plantão (${scheduledShifts.length})</button>
+            </div>
+          `
+          : `
+            <div style="font-size:12.5px; color:var(--text-secondary); margin-bottom:12px;">
+              Você ainda não possui plantões escalados. Utilize o formulário abaixo para solicitar uma nova vaga.
+            </div>
+          `;
+
+        let actionFormHtml = "";
+        if (state.reqMode === "solicitar") {
+          const scaleOpts = DATA.escalas.map(sc => `<option value="${escapeHtml(sc.id)}">${escapeHtml(sc.tabLabel)} — ${escapeHtml(sc.titulo)}</option>`).join("");
+          actionFormHtml = `
+            <form id="solicitarForm">
+              <div class="req-grid-2" style="margin-bottom:12px;">
+                <div class="field-group">
+                  <label class="field-label" for="solScaleSelect">Escala / Setor</label>
+                  <select id="solScaleSelect" class="select-control">${scaleOpts}</select>
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="solDaySelect">Dia com vaga aberta</label>
+                  <select id="solDaySelect" class="select-control"></select>
+                </div>
+              </div>
+              <div class="req-grid-2" style="margin-bottom:14px;">
+                <div class="field-group">
+                  <label class="field-label" for="solSlotSelect">Horário / Turno disponível</label>
+                  <select id="solSlotSelect" class="select-control"></select>
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="solMotivoInput">Observação (opcional)</label>
+                  <input id="solMotivoInput" type="text" class="input-control" placeholder="Ex.: disponibilidade confirmada..." />
+                </div>
+              </div>
+              <div style="display:flex; justify-content:flex-end;">
+                <button type="submit" class="btn-accent" id="solSubmitBtn">Enviar Solicitação de Plantão</button>
+              </div>
+            </form>
+          `;
+        } else {
+          const shiftOpts = scheduledShifts.map((s, idx) =>
+            `<option value="${idx}">${escapeHtml(s.scaleTitle)} · ${escapeHtml(s.ddmm)} (${escapeHtml(s.weekdayFull)}) · ${escapeHtml(s.inicio)}–${escapeHtml(s.fim)} (${s.horas}h)</option>`
+          ).join("");
+          actionFormHtml = `
+            <form id="desistirForm">
+              <div class="req-grid-2" style="margin-bottom:14px;">
+                <div class="field-group">
+                  <label class="field-label" for="desShiftSelect">Selecione o plantão que deseja desistir</label>
+                  <select id="desShiftSelect" class="select-control">${shiftOpts}</select>
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="desMotivoInput">Motivo da desistência (opcional)</label>
+                  <input id="desMotivoInput" type="text" class="input-control" placeholder="Informe o motivo..." />
+                </div>
+              </div>
+              <div style="display:flex; justify-content:flex-end;">
+                <button type="submit" class="btn-accent" id="desSubmitBtn">Enviar Pedido de Desistência</button>
+              </div>
+            </form>
+          `;
+        }
+
+        const myRequests = REQUESTS.filter(r =>
+          normalize(r.medicoNome) === docNorm ||
+          (doc.crm && String(r.medicoCrm || "").replace(/\D/g, "") === doc.crm)
+        );
+        const statusLabel = { pending: "Pendente", approved: "Aprovada", rejected: "Recusada" };
+        const histHtml = myRequests.length === 0
+          ? `<div style="font-size:12.5px; color:var(--text-muted);">Nenhuma solicitação enviada ainda para este CRM.</div>`
+          : myRequests.map(r => {
+              const tipoLabel = r.tipo === "solicitar" ? "Solicitação de Plantão" : "Desistência de Plantão";
+              const noteHtml = r.directorNote ? `<div style="font-size:12px; color:var(--text-secondary); margin-top:4px;">Diretoria: ${escapeHtml(r.directorNote)}</div>` : "";
+              return `
+                <div class="req-item-card">
+                  <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:4px;">
+                    <span class="eyebrow">${tipoLabel} · ${escapeHtml(r.scaleTitle)} · ${escapeHtml(r.ddmm)} (${escapeHtml(r.inicio)}–${escapeHtml(r.fim)})</span>
+                    <span class="status-pill status-${r.status}">${statusLabel[r.status] || r.status}</span>
+                  </div>
+                  <div style="font-size:12px; color:var(--text-muted);">Enviada em ${escapeHtml(r.createdAt)}${r.motivo ? ' · Obs.: ' + escapeHtml(r.motivo) : ''}</div>
+                  ${noteHtml}
+                </div>
+              `;
+            }).join("");
+
+        contentArea.innerHTML = `
+          <div class="req-workspace">
+            <section class="card" style="border-color: var(--accent-orange);">
+              <div class="doctor-banner-grid">
+                <div>
+                  <div class="eyebrow">MÉDICO VALIDADO</div>
+                  <div class="doctor-banner-name">${escapeHtml(doc.nome)}</div>
+                  <div class="doctor-banner-tags">
+                    <span class="tech-tag">CRM ${escapeHtml(doc.crm)}/${escapeHtml(doc.uf)}</span>
+                    <span class="tech-tag">${scheduledShifts.length} plantão(ões) escalado(s)</span>
+                  </div>
+                </div>
+                <button type="button" class="btn-outline" id="changeVerifiedDocBtn">Trocar médico</button>
+              </div>
+            </section>
+
+            <section class="card">
+              ${fbHtml}
+              ${modeSwitchHtml}
+              ${actionFormHtml}
+            </section>
+
+            <section class="card">
+              <div class="eyebrow" style="margin-bottom:10px;">MINHAS SOLICITAÇÕES ENVIADAS</div>
+              ${histHtml}
+            </section>
+          </div>
+        `;
+
+        document.getElementById("changeVerifiedDocBtn").addEventListener("click", () => {
+          state.verifiedDoctor = null;
+          state.reqFeedback = null;
+          renderAll();
+        });
+
+        contentArea.querySelectorAll("[data-req-mode]").forEach(btn => {
+          btn.addEventListener("click", () => {
+            state.reqMode = btn.getAttribute("data-req-mode");
+            state.reqFeedback = null;
+            renderAll();
+          });
+        });
+
+        if (state.reqMode === "solicitar") {
+          const solScaleSelect = document.getElementById("solScaleSelect");
+          const solDaySelect = document.getElementById("solDaySelect");
+          const solSlotSelect = document.getElementById("solSlotSelect");
+          const solSubmitBtn = document.getElementById("solSubmitBtn");
+          const shiftName = { manha: "Manhã", tarde: "Tarde", noite: "Noite" };
+
+          function getOpenDaysForScale(scaleId) {
+            const sc = DATA.escalas.find(x => x.id === scaleId);
+            if (!sc) return [];
+            const days = [];
+            sc.semanas.forEach(wk => {
+              wk.dias.forEach(dia => {
+                if (!dia.inMonth) return;
+                const openSlots = dia.grupos.filter(g =>
+                  g.vagasAbertas > 0 && !g.medicos.some(m => normalize(m.nome) === docNorm)
+                );
+                if (openSlots.length > 0) {
+                  days.push({ dia, openSlots });
+                }
+              });
+            });
+            return days;
+          }
+
+          function populateOpenSlots() {
+            const days = getOpenDaysForScale(solScaleSelect.value);
+            const chosen = days.find(d => d.dia.iso === solDaySelect.value);
+            solSlotSelect.innerHTML = "";
+            if (!chosen) {
+              solSlotSelect.innerHTML = `<option value="">Sem horários disponíveis</option>`;
+              solSubmitBtn.disabled = true;
+              return;
+            }
+            chosen.openSlots.forEach(g => {
+              const opt = document.createElement("option");
+              opt.value = `${g.inicio}|${g.fim}|${g.horas}|${g.periodo}`;
+              opt.textContent = `${g.inicio} – ${g.fim} (${shiftName[g.periodo] || ""} · ${g.horas}h · ${g.vagasAbertas} vaga${g.vagasAbertas > 1 ? 's' : ''})`;
+              solSlotSelect.appendChild(opt);
+            });
+            solSubmitBtn.disabled = false;
+          }
+
+          function populateOpenDays() {
+            const days = getOpenDaysForScale(solScaleSelect.value);
+            solDaySelect.innerHTML = "";
+            if (days.length === 0) {
+              solDaySelect.innerHTML = `<option value="">Nenhum dia com vaga aberta nesta escala</option>`;
+              populateOpenSlots();
+              return;
+            }
+            days.forEach(d => {
+              const opt = document.createElement("option");
+              opt.value = d.dia.iso;
+              opt.textContent = `${d.dia.ddmm} · ${d.dia.weekdayFull} (${d.openSlots.length} faixa${d.openSlots.length > 1 ? 's' : ''})`;
+              solDaySelect.appendChild(opt);
+            });
+            populateOpenSlots();
+          }
+
+          solScaleSelect.addEventListener("change", populateOpenDays);
+          solDaySelect.addEventListener("change", populateOpenSlots);
+          populateOpenDays();
+
+          document.getElementById("solicitarForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            if (!solDaySelect.value || !solSlotSelect.value) return;
+            const sc = DATA.escalas.find(x => x.id === solScaleSelect.value);
+            const [inicio, fim, horasStr, periodo] = solSlotSelect.value.split("|");
+            const dayObj = sc.semanas.flatMap(w => w.dias).find(d => d.iso === solDaySelect.value);
+            solSubmitBtn.disabled = true;
+
+            try {
+              const res = await fetch("/api/requests", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  tipo: "solicitar",
+                  scaleId: sc.id,
+                  scaleTitle: sc.tabLabel,
+                  iso: dayObj.iso,
+                  ddmm: dayObj.ddmm,
+                  inicio,
+                  fim,
+                  horas: Number(horasStr),
+                  periodo,
+                  medicoNome: doc.nome,
+                  medicoCrm: doc.crm,
+                  medicoUf: doc.uf,
+                  motivo: document.getElementById("solMotivoInput").value.trim()
+                })
+              });
+              const data = await res.json().catch(() => ({}));
+              if (!res.ok) {
+                state.reqFeedback = { type: "error", text: data.error || "Erro ao enviar solicitação." };
+                renderAll();
+                return;
+              }
+              await refreshLiveServerData();
+              state.reqFeedback = { type: "ok", text: "Solicitação de plantão enviada para aprovação da Diretoria." };
+              renderAll();
+            } catch (err) {
+              state.reqFeedback = { type: "error", text: "Erro de conexão com o servidor." };
+              renderAll();
+            }
+          });
+        } else {
+          document.getElementById("desistirForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const idx = Number(document.getElementById("desShiftSelect").value);
+            const chosen = scheduledShifts[idx];
+            if (!chosen) return;
+            const btn = document.getElementById("desSubmitBtn");
+            btn.disabled = true;
+
+            try {
+              const res = await fetch("/api/requests", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  tipo: "desistir",
+                  scaleId: chosen.scaleId,
+                  scaleTitle: chosen.scaleTitle,
+                  iso: chosen.iso,
+                  ddmm: chosen.ddmm,
+                  inicio: chosen.inicio,
+                  fim: chosen.fim,
+                  horas: chosen.horas,
+                  periodo: chosen.periodo,
+                  medicoNome: doc.nome,
+                  medicoCrm: doc.crm,
+                  medicoUf: doc.uf,
+                  motivo: document.getElementById("desMotivoInput").value.trim()
+                })
+              });
+              const data = await res.json().catch(() => ({}));
+              if (!res.ok) {
+                state.reqFeedback = { type: "error", text: data.error || "Erro ao enviar pedido de desistência." };
+                renderAll();
+                return;
+              }
+              await refreshLiveServerData();
+              state.reqFeedback = { type: "ok", text: "Pedido de desistência enviado para aprovação da Diretoria." };
+              renderAll();
+            } catch (err) {
+              state.reqFeedback = { type: "error", text: "Erro de conexão com o servidor." };
+              renderAll();
+            }
+          });
+        }
       }
 
       function bindDoctorPills() {
@@ -1981,35 +2277,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
               onlyDoctorCheck.checked = false;
             }
             renderAll();
-          });
-        });
-
-        contentArea.querySelectorAll("[data-req-open]").forEach(btn => {
-          btn.addEventListener("click", () => {
-            openRequestModal({
-              tipo: "solicitar",
-              iso: btn.getAttribute("data-iso"),
-              ddmm: btn.getAttribute("data-ddmm"),
-              inicio: btn.getAttribute("data-inicio"),
-              fim: btn.getAttribute("data-fim"),
-              horas: Number(btn.getAttribute("data-horas")),
-              periodo: btn.getAttribute("data-periodo")
-            });
-          });
-        });
-
-        contentArea.querySelectorAll("[data-drop-shift]").forEach(btn => {
-          btn.addEventListener("click", () => {
-            openRequestModal({
-              tipo: "desistir",
-              medicoNome: btn.getAttribute("data-med"),
-              iso: btn.getAttribute("data-iso"),
-              ddmm: btn.getAttribute("data-ddmm"),
-              inicio: btn.getAttribute("data-inicio"),
-              fim: btn.getAttribute("data-fim"),
-              horas: Number(btn.getAttribute("data-horas")),
-              periodo: btn.getAttribute("data-periodo")
-            });
           });
         });
       }
@@ -2065,31 +2332,22 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
               const medsHtml = fg.medicos.map(m => {
                 const sel = state.selectedDoctor && m.nome === state.selectedDoctor;
                 const titleAttr = `${m.nome}${m.crm ? ' · CRM ' + m.crm + '/' + m.uf : ''} (clique para destacar)`;
-                const dropBtn = SESSION.authenticated
-                  ? `<button type="button" class="doc-drop-btn" data-drop-shift="1" data-med="${escapeHtml(m.nome)}" data-iso="${dia.iso}" data-ddmm="${dia.ddmm}" data-inicio="${fg.inicio}" data-fim="${fg.fim}" data-horas="${fg.horas}" data-periodo="${fg.periodo}" title="Solicitar desistência deste plantão">Desistir</button>`
-                  : "";
-                return `<div class="doc-row"><button type="button" class="doc-pill ${sel ? 'is-selected' : ''}" data-doc="${escapeHtml(m.nome)}" title="${escapeHtml(titleAttr)}">${escapeHtml(m.nomeCurto)}</button>${dropBtn}</div>`;
+                return `<button type="button" class="doc-pill ${sel ? 'is-selected' : ''}" data-doc="${escapeHtml(m.nome)}" title="${escapeHtml(titleAttr)}">${escapeHtml(m.nomeCurto)}</button>`;
               }).join("");
 
               let openHtml = "";
               if (fg.vagasAbertasVisiveis > 0) {
                 const label = `${fg.vagasAbertasVisiveis} vaga${fg.vagasAbertasVisiveis > 1 ? 's' : ''} em aberto`;
-                if (SESSION.authenticated) {
-                  openHtml = `<button type="button" class="open-req-btn" data-req-open="1" data-iso="${dia.iso}" data-ddmm="${dia.ddmm}" data-inicio="${fg.inicio}" data-fim="${fg.fim}" data-horas="${fg.horas}" data-periodo="${fg.periodo}">+ Solicitar (${label})</button>`;
-                } else {
-                  openHtml = `<div class="open-pill-empty">${label}</div>`;
-                }
+                openHtml = fg.medicos.length > 0
+                  ? `<div class="open-hint">+ ${label}</div>`
+                  : `<div class="open-pill-empty">${label}</div>`;
               }
-
-              const pendCount = SESSION.authenticated ? countPendingForSlot(sc.id, dia.iso, fg.inicio, fg.fim) : 0;
-              const pendHtml = pendCount > 0 ? `<div class="pending-badge">${pendCount} pendente(s)</div>` : "";
 
               cellsHtml += `
                 <td class="${cellClasses.join(" ")}">
                   <div class="cell-stack">
                     ${medsHtml}
                     ${openHtml}
-                    ${pendHtml}
                   </div>
                 </td>
               `;
@@ -2183,20 +2441,15 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
               const medsHtml = fg.medicos.map(m => {
                 const sel = state.selectedDoctor && m.nome === state.selectedDoctor;
                 const crm = m.crm ? `<span style="color:var(--text-muted); font-size:11px;"> · CRM ${escapeHtml(m.crm)}/${escapeHtml(m.uf)}</span>` : "";
-                const dropBtn = SESSION.authenticated
-                  ? `<button type="button" class="doc-drop-btn" data-drop-shift="1" data-med="${escapeHtml(m.nome)}" data-iso="${dia.iso}" data-ddmm="${dia.ddmm}" data-inicio="${fg.inicio}" data-fim="${fg.fim}" data-horas="${fg.horas}" data-periodo="${fg.periodo}" title="Solicitar desistência">Desistir</button>`
-                  : "";
-                return `<div class="doc-row"><button type="button" class="doc-pill ${sel ? 'is-selected' : ''}" data-doc="${escapeHtml(m.nome)}">${escapeHtml(m.nome)}${crm}</button>${dropBtn}</div>`;
+                return `<button type="button" class="doc-pill ${sel ? 'is-selected' : ''}" data-doc="${escapeHtml(m.nome)}">${escapeHtml(m.nome)}${crm}</button>`;
               }).join("");
 
               let openHtml = "";
               if (fg.vagasAbertasVisiveis > 0) {
                 const label = `${fg.vagasAbertasVisiveis} vaga${fg.vagasAbertasVisiveis > 1 ? 's' : ''} em aberto`;
-                if (SESSION.authenticated) {
-                  openHtml = `<button type="button" class="open-req-btn" data-req-open="1" data-iso="${dia.iso}" data-ddmm="${dia.ddmm}" data-inicio="${fg.inicio}" data-fim="${fg.fim}" data-horas="${fg.horas}" data-periodo="${fg.periodo}">+ Solicitar (${label})</button>`;
-                } else {
-                  openHtml = `<div class="open-pill-empty">${label}</div>`;
-                }
+                openHtml = fg.medicos.length > 0
+                  ? `<div class="open-hint">+ ${label}</div>`
+                  : `<div class="open-pill-empty">${label}</div>`;
               }
 
               return `
@@ -2292,12 +2545,22 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       }
 
       function renderAll() {
+        renderTabs();
+        if (state.activeTab === "requests") {
+          filterCard.style.display = "none";
+          doctorBanner.classList.remove("is-visible");
+          legendBar.style.display = "none";
+          renderRequestsWorkspace();
+          return;
+        }
+        filterCard.style.display = "";
+        legendBar.style.display = "";
+
         const sc = getActiveScale();
         if (!sc) {
           contentArea.innerHTML = `<div class="empty-state">Nenhuma escala válida encontrada na planilha.</div>`;
           return;
         }
-        renderTabs();
         renderHeaderInfo(sc);
         renderDoctorBanner(sc);
         if (state.view === "list") renderList(sc);
@@ -2366,76 +2629,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       document.getElementById("exportIcsBtn").addEventListener("click", exportICS);
       document.getElementById("printBtn").addEventListener("click", () => window.print());
 
-      document.getElementById("closeReqModalBtn").addEventListener("click", closeRequestModal);
-      document.getElementById("cancelReqModalBtn").addEventListener("click", closeRequestModal);
-      reqDoctorSelect.addEventListener("change", () => {
-        reqCustomDocWrap.style.display = reqDoctorSelect.value === "__CUSTOM__" ? "flex" : "none";
-      });
-
-      document.getElementById("requestForm").addEventListener("submit", async (e) => {
-        e.preventDefault();
-        if (!pendingReqContext) return;
-        const sc = getActiveScale();
-        let docNome = reqDoctorSelect.value;
-        if (docNome === "__CUSTOM__") {
-          docNome = reqCustomDocInput.value.trim();
-        }
-        if (!docNome) {
-          reqModalError.textContent = "Informe o nome do médico.";
-          reqModalError.style.display = "block";
-          return;
-        }
-        const docObj = sc.medicos.find(m => m.nome === docNome) || {};
-        const btn = document.getElementById("submitReqBtn");
-        btn.disabled = true;
-        reqModalError.style.display = "none";
-
-        try {
-          const res = await fetch("/api/requests", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              tipo: pendingReqContext.tipo,
-              scaleId: sc.id,
-              scaleTitle: sc.tabLabel,
-              iso: pendingReqContext.iso,
-              ddmm: pendingReqContext.ddmm,
-              inicio: pendingReqContext.inicio,
-              fim: pendingReqContext.fim,
-              horas: pendingReqContext.horas,
-              periodo: pendingReqContext.periodo,
-              medicoNome: docNome,
-              medicoCrm: docObj.crm || "",
-              medicoUf: docObj.uf || "",
-              motivo: reqMotivoInput.value.trim()
-            })
-          });
-          const data = await res.json().catch(() => ({}));
-          if (!res.ok) {
-            reqModalError.textContent = data.error || "Não foi possível enviar a solicitação.";
-            reqModalError.style.display = "block";
-            btn.disabled = false;
-            return;
-          }
-          btn.disabled = false;
-          closeRequestModal();
-          await refreshLiveServerData();
-          renderAll();
-        } catch (err) {
-          reqModalError.textContent = "Erro de conexão com o servidor.";
-          reqModalError.style.display = "block";
-          btn.disabled = false;
-        }
-      });
-
-      document.getElementById("myRequestsBtn").addEventListener("click", () => {
-        renderHistoryModal();
-        historyModal.classList.add("is-open");
-      });
-      document.getElementById("closeHistModalBtn").addEventListener("click", () => {
-        historyModal.classList.remove("is-open");
-      });
-
       async function refreshLiveServerData() {
         if (window.location.protocol === "file:") return;
         try {
@@ -2448,7 +2641,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
             SESSION = await sRes.json();
             if (SESSION.authenticated) {
               document.getElementById("logoutLink").style.display = "inline-flex";
-              document.getElementById("myRequestsBtn").style.display = "inline-flex";
               if (SESSION.role === "diretor") {
                 document.getElementById("directorLink").style.display = "inline-flex";
               }
@@ -2462,8 +2654,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
           if (rRes.ok) {
             const rJson = await rRes.json();
             REQUESTS = rJson.solicitacoes || [];
-            const pend = REQUESTS.filter(r => r.status === "pending").length;
-            document.getElementById("myRequestsCount").textContent = pend;
           }
         } catch (err) {
           // Fallback silencioso para arquivo local sem backend

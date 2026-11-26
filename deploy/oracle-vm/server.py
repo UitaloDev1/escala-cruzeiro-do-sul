@@ -726,8 +726,39 @@ class EscalaHandler(BaseHTTPRequestHandler):
                 horas = 0.0
 
             if tipo not in ("solicitar", "desistir") or not scale_id or not iso or not inicio or not fim or not medico_nome:
-                self.send_json(400, {"error": "Preencha médico, data, horário e tipo de solicitação."})
+                self.send_json(400, {"error": "Preencha nome completo, CRM, escala, data e horário."})
                 return
+
+            # Valida contra a escala atual (vaga aberta para solicitar / plantão escalado para desistir)
+            merged = get_merged_scale()
+            sc = next((s for s in merged.get("escalas", []) if s["id"] == scale_id), None)
+            if not sc:
+                self.send_json(404, {"error": "Escala não encontrada."})
+                return
+            slot_grp = None
+            for wk in sc.get("semanas", []):
+                for dia in wk.get("dias", []):
+                    if dia.get("iso") == iso:
+                        for g in dia.get("grupos", []):
+                            if g.get("inicio") == inicio and g.get("fim") == fim:
+                                slot_grp = g
+                                break
+            if not slot_grp:
+                self.send_json(404, {"error": "Faixa de horário não encontrada nesta data."})
+                return
+
+            med_upper = medico_nome.upper()
+            already_in = any(m["nome"].strip().upper() == med_upper for m in slot_grp.get("medicos", []))
+            if tipo == "desistir" and not already_in:
+                self.send_json(400, {"error": "Não há plantão escalado para este médico nesta data e horário."})
+                return
+            if tipo == "solicitar":
+                if already_in:
+                    self.send_json(400, {"error": "Este médico já está escalado nesta data e horário."})
+                    return
+                if int(slot_grp.get("vagasAbertas", 0)) <= 0:
+                    self.send_json(400, {"error": "Não há mais vagas em aberto nesta data e horário."})
+                    return
 
             now_str = datetime.now(TZ_SP).strftime("%d/%m/%Y %H:%M")
             with _DB_LOCK, sqlite3.connect(DB_FILE) as conn:
