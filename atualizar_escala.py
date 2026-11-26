@@ -44,7 +44,13 @@ except ImportError:
 DEFAULT_EXCEL_PATH = r"C:\Users\Computador\OneDrive - HAPVIDA ASSISTÊNCIA MÉDICA LTDA\Escalas_Hospital_Cruzeiro_Do_Sul_11_26.xlsx"
 DEFAULT_OUTPUT_DIR = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_WATCH_INTERVAL = 15  # segundos entre verificações no modo --watch
-IGNORED_SHEETS = {"NUM_ESCALA_NOME_ESCALA", "MODELO", "TEMPLATE", "BASE"}
+IGNORED_SHEETS = {
+    "NUM_ESCALA_NOME_ESCALA",
+    "MODELO",
+    "TEMPLATE",
+    "BASE",
+    "GINECOLOGIA_OBSTETRICIA_11_26",
+}
 
 DIAS_SEMANA_FULL = [
     "Segunda-feira", "Terça-feira", "Quarta-feira",
@@ -477,7 +483,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       --accent-yellow: #fdb913;
       --text-primary: #ffffff;
       --text-secondary: #c5d4ee;
-      --text-muted: #5f83c7;
+      --text-muted: #7d9fdf;
       --text-on-yellow: #041538;
       --shift-manha-bg: rgba(0, 148, 255, 0.14);
       --shift-manha-border: rgba(56, 189, 248, 0.45);
@@ -506,7 +512,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       --border-dashed: #8da9d8;
       --text-primary: #061a42;
       --text-secondary: #354c77;
-      --text-muted: #5773a6;
+      --text-muted: #445f94;
       --text-on-yellow: #041538;
       --shift-manha-bg: rgba(0, 119, 214, 0.10);
       --shift-manha-border: rgba(0, 119, 214, 0.35);
@@ -523,6 +529,21 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
     * { box-sizing: border-box; }
 
+    ::selection {
+      background: rgba(243, 112, 33, 0.32);
+      color: #ffffff;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent-orange);
+      outline-offset: 2px;
+    }
+
+    html {
+      scrollbar-color: var(--border-card) var(--bg-body);
+      scrollbar-width: thin;
+    }
+
     body {
       margin: 0;
       background-color: var(--bg-body);
@@ -535,8 +556,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     /* ==================== HEADER INSTITUCIONAL ==================== */
     .top-header {
       background-color: var(--bg-header);
-      min-height: 68px;
-      padding: 12px 24px;
+      min-height: 56px;
+      padding: 10px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -609,7 +630,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       background-color: var(--bg-subnav);
       border-bottom: 1px solid var(--border-subtle);
       padding: 0 24px;
-      min-height: 46px;
+      min-height: 40px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -622,7 +643,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     .subnav-tabs {
       display: flex;
       align-items: stretch;
-      gap: 24px;
+      gap: 20px;
       overflow-x: auto;
       scrollbar-width: none;
     }
@@ -632,7 +653,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       background: transparent;
       border: none;
       border-bottom: 2px solid transparent;
-      padding: 13px 0 11px;
+      padding: 10px 0 8px;
       font-family: inherit;
       font-size: 11px;
       font-weight: 600;
@@ -674,7 +695,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       border-radius: 999px;
       padding: 4px 10px;
       font-family: inherit;
-      font-size: 10.5px;
+      font-size: 11px;
       font-weight: 600;
       letter-spacing: 0.04em;
       cursor: pointer;
@@ -682,22 +703,22 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
     /* ==================== CONTAINER & HERO ==================== */
     .container {
-      max-width: 1240px;
+      max-width: 1380px;
       margin: 0 auto;
-      padding: 32px 24px 64px;
+      padding: 18px 20px 40px;
     }
 
     .hero {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      gap: 20px;
-      margin-bottom: 24px;
+      gap: 14px;
+      margin-bottom: 14px;
       flex-wrap: wrap;
     }
 
     .eyebrow {
-      font-size: 10.5px;
+      font-size: 11px;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -705,9 +726,9 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     }
 
     .hero h1 {
-      margin: 6px 0 8px;
-      font-size: 30px;
-      font-weight: 500;
+      margin: 3px 0 4px;
+      font-size: 24px;
+      font-weight: 600;
       line-height: 1.15;
       letter-spacing: -0.02em;
       color: var(--text-primary);
@@ -715,10 +736,10 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
     .hero-desc {
       margin: 0;
-      font-size: 13.5px;
+      font-size: 12.5px;
       color: var(--text-secondary);
-      line-height: 1.5;
-      max-width: 580px;
+      line-height: 1.45;
+      max-width: 640px;
     }
 
     .sync-pill {
@@ -728,7 +749,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       background: var(--bg-card);
       border: 1px solid var(--border-card);
       border-radius: 2px 2px 10px 2px;
-      padding: 8px 14px;
+      padding: 6px 12px;
       font-size: 11.5px;
       color: var(--text-secondary);
     }
@@ -745,7 +766,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     .grid-4 {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
+      gap: 12px;
     }
 
     .col-span-2 { grid-column: span 2; }
@@ -754,7 +775,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       background-color: var(--bg-card);
       border: 1px solid var(--border-card);
       border-radius: 3px 3px 18px 3px;
-      padding: 20px;
+      padding: 14px 16px;
       display: flex;
       flex-direction: column;
       transition: border-color 0.2s ease;
@@ -767,30 +788,31 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       justify-content: space-between;
       align-items: center;
       gap: 8px;
-      margin-bottom: 10px;
+      margin-bottom: 6px;
     }
 
     .kpi-value {
-      font-size: 32px;
+      font-size: 26px;
       font-weight: 600;
       line-height: 1.1;
       letter-spacing: -0.01em;
+      font-variant-numeric: tabular-nums;
       color: var(--text-primary);
     }
 
     .kpi-sub {
-      font-size: 12px;
+      font-size: 11.5px;
       color: var(--text-secondary);
-      margin-top: 6px;
+      margin-top: 4px;
     }
 
     .progress-track {
       width: 100%;
-      height: 6px;
+      height: 5px;
       background: var(--tag-bg);
       border-radius: 2px;
       overflow: hidden;
-      margin-top: 14px;
+      margin-top: 10px;
     }
 
     .progress-fill {
@@ -802,7 +824,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     .badge-yellow {
       background-color: var(--accent-yellow);
       color: var(--text-on-yellow);
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.06em;
       text-transform: uppercase;
@@ -812,7 +834,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     }
 
     .badge-status {
-      font-size: 10.5px;
+      font-size: 11px;
       font-weight: 600;
       letter-spacing: 0.06em;
       text-transform: uppercase;
@@ -822,25 +844,25 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
     /* ==================== BARRA DE FILTROS ==================== */
     .filter-card {
-      margin-top: 20px;
-      padding: 18px 20px;
+      margin-top: 12px;
+      padding: 12px 16px;
     }
 
     .filter-row {
       display: grid;
       grid-template-columns: 1.5fr 1fr 1fr auto;
-      gap: 12px;
+      gap: 10px;
       align-items: end;
     }
 
     .field-group {
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 4px;
     }
 
     .field-label {
-      font-size: 10.5px;
+      font-size: 11px;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -849,14 +871,14 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
     .input-control, .select-control {
       width: 100%;
-      height: 38px;
-      padding: 0 12px;
+      height: 36px;
+      padding: 0 11px;
       background: var(--bg-card-inner);
       color: var(--text-primary);
       border: 1px solid var(--border-card);
       border-radius: 2px 2px 10px 2px;
       font-family: inherit;
-      font-size: 13px;
+      font-size: 12.5px;
       outline: none;
     }
 
@@ -865,13 +887,13 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     }
 
     .toolbar-bottom {
-      margin-top: 14px;
-      padding-top: 14px;
+      margin-top: 10px;
+      padding-top: 10px;
       border-top: 1px solid var(--border-subtle);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
     }
 
@@ -952,7 +974,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
     /* ==================== CARD PESSOAL DO MÉDICO ==================== */
     .doctor-banner {
-      margin-top: 18px;
+      margin-top: 12px;
       border-color: var(--accent-orange);
       display: none;
     }
@@ -963,21 +985,21 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 16px;
+      gap: 12px;
       flex-wrap: wrap;
     }
 
     .doctor-banner-name {
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 600;
-      margin: 4px 0;
+      margin: 2px 0;
     }
 
     .doctor-banner-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin-top: 8px;
+      margin-top: 6px;
     }
 
     .tech-tag {
@@ -994,13 +1016,13 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      margin: 24px 0 14px;
+      gap: 10px;
+      margin: 16px 0 10px;
       flex-wrap: wrap;
     }
 
     .section-title {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 600;
       margin: 0;
     }
@@ -1008,12 +1030,12 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     .legend-items {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       flex-wrap: wrap;
     }
 
     .shift-chip {
-      font-size: 10.5px;
+      font-size: 11px;
       font-weight: 600;
       padding: 3px 8px;
       border-radius: 2px;
@@ -1040,31 +1062,30 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
     /* ==================== GRADE SEMANAL ==================== */
     .week-block {
-      margin-bottom: 22px;
+      margin-bottom: 16px;
     }
 
     .week-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 10px;
+      margin-bottom: 7px;
     }
 
     .week-grid {
       display: grid;
       grid-template-columns: repeat(7, minmax(0, 1fr));
-      gap: 10px;
+      gap: 8px;
     }
 
     .day-card {
       background: var(--bg-card);
       border: 1px solid var(--border-card);
-      border-radius: 3px 3px 16px 3px;
-      padding: 12px;
+      border-radius: 3px 3px 14px 3px;
+      padding: 9px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
-      min-height: 150px;
+      gap: 6px;
     }
 
     .day-card.is-out-month {
@@ -1076,24 +1097,26 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
     .day-card.is-today {
       border-color: var(--accent-yellow);
+      background: linear-gradient(180deg, rgba(253, 185, 19, 0.08) 0%, var(--bg-card) 48%);
     }
 
     .day-head {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-bottom: 8px;
+      padding-bottom: 6px;
       border-bottom: 1px solid var(--border-subtle);
     }
 
     .day-date {
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 700;
+      font-variant-numeric: tabular-nums;
       color: var(--text-primary);
     }
 
     .day-wk {
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 600;
       letter-spacing: 0.08em;
       color: var(--text-muted);
@@ -1104,11 +1127,11 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     .slot-group {
       background: var(--bg-card-inner);
       border: 1px solid var(--border-subtle);
-      border-radius: 2px 2px 10px 2px;
-      padding: 7px 8px;
+      border-radius: 2px 2px 8px 2px;
+      padding: 5px 7px;
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 4px;
     }
 
     .slot-group-head {
@@ -1119,8 +1142,9 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     }
 
     .slot-time {
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 700;
+      font-variant-numeric: tabular-nums;
       letter-spacing: 0.03em;
     }
 
@@ -1128,7 +1152,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       font-size: 11.5px;
       font-weight: 500;
       color: var(--text-primary);
-      padding: 4px 6px;
+      padding: 3px 6px;
       background: var(--tag-bg);
       border-radius: 2px;
       border-left: 2px solid transparent;
@@ -1143,12 +1167,12 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     }
 
     .open-slot-pill {
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 600;
       color: var(--text-muted);
       border: 1px dashed var(--border-dashed);
       border-radius: 2px;
-      padding: 3px 6px;
+      padding: 2px 5px;
       text-align: center;
     }
 
@@ -1156,29 +1180,29 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     .list-view {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 8px;
     }
 
     .list-day-card {
       background: var(--bg-card);
       border: 1px solid var(--border-card);
-      border-radius: 3px 3px 18px 3px;
-      padding: 16px 18px;
+      border-radius: 3px 3px 16px 3px;
+      padding: 12px 14px;
     }
 
     .list-day-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 12px;
-      padding-bottom: 10px;
+      margin-bottom: 8px;
+      padding-bottom: 8px;
       border-bottom: 1px solid var(--border-subtle);
     }
 
     .list-shift-rows {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 10px;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 8px;
     }
 
     /* ==================== TABELA CORPO CLÍNICO ==================== */
@@ -1200,8 +1224,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
     thead th {
       text-align: left;
-      padding: 13px 16px;
-      font-size: 10.5px;
+      padding: 10px 14px;
+      font-size: 11px;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -1212,7 +1236,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     }
 
     tbody td {
-      padding: 12px 16px;
+      padding: 9px 14px;
       border-bottom: 1px solid var(--border-subtle);
       color: var(--text-primary);
     }
@@ -1237,8 +1261,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
     /* ==================== RODAPÉ ==================== */
     .page-footer {
-      margin-top: 40px;
-      padding-top: 20px;
+      margin-top: 24px;
+      padding-top: 14px;
       border-top: 1px solid var(--border-subtle);
       display: flex;
       justify-content: space-between;
@@ -1263,14 +1287,14 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     }
 
     @media (max-width: 600px) {
-      .top-header { padding: 12px 16px; }
-      .subnav { padding: 0 16px; }
-      .container { padding: 20px 14px 48px; }
+      .top-header { padding: 10px 14px; }
+      .subnav { padding: 0 14px; }
+      .container { padding: 14px 12px 32px; }
       .grid-4 { grid-template-columns: 1fr; }
       .col-span-2 { grid-column: span 1; }
       .filter-row { grid-template-columns: 1fr; }
       .week-grid { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 24px; }
+      .hero h1 { font-size: 21px; }
       .header-divider { display: none; }
       .header-left { flex-direction: column; align-items: flex-start; gap: 6px; }
     }
