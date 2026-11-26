@@ -1549,7 +1549,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         <div class="view-switcher" role="group" aria-label="Modo de visualização">
           <button type="button" class="btn-outline is-active" data-view="grid">Grade Semanal</button>
           <button type="button" class="btn-outline" data-view="list">Lista por Dia</button>
-          <button type="button" class="btn-outline" data-view="doctors">Corpo Clínico &amp; Horas</button>
         </div>
 
         <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
@@ -2010,74 +2009,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         bindDoctorPills();
       }
 
-      function renderDoctorsTable(sc) {
-        document.getElementById("viewHeading").textContent = `Corpo Clínico & Carga Horária · ${sc.titulo} (${sc.mesAnoLabel})`;
-        const q = normalize(state.searchText);
-        const list = sc.medicos.filter(m => {
-          if (state.selectedDoctor && state.onlyDoctor && m.nome !== state.selectedDoctor) return false;
-          if (q && !normalize(m.nome).includes(q) && !normalize(m.crm).includes(q)) return false;
-          return true;
-        });
-
-        if (list.length === 0) {
-          contentArea.innerHTML = `<div class="empty-state">Nenhum médico encontrado para o filtro atual.</div>`;
-          return;
-        }
-
-        const rows = list.map(m => {
-          const isSel = state.selectedDoctor && m.nome === state.selectedDoctor;
-          const style = isSel ? 'style="background: var(--highlight-bg);"' : "";
-          return `
-            <tr ${style}>
-              <td><strong>${escapeHtml(m.nome)}</strong></td>
-              <td>${m.crm ? `${escapeHtml(m.crm)}/${escapeHtml(m.uf)}` : "—"}</td>
-              <td class="num-col">${m.manha}</td>
-              <td class="num-col">${m.tarde}</td>
-              <td class="num-col">${m.noite}</td>
-              <td class="num-col"><strong>${m.totalPlantoes}</strong></td>
-              <td class="num-col"><strong>${m.totalHoras}h</strong></td>
-              <td class="num-col">
-                <button type="button" class="btn-outline" style="padding:5px 10px; font-size:11px;" data-pick-doc="${escapeHtml(m.nome)}">
-                  Ver plantões →
-                </button>
-              </td>
-            </tr>
-          `;
-        }).join("");
-
-        contentArea.innerHTML = `
-          <div class="card table-card">
-            <div class="table-scroll">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Médico</th>
-                    <th>CRM / UF</th>
-                    <th class="num-col">Manhã</th>
-                    <th class="num-col">Tarde</th>
-                    <th class="num-col">Noite</th>
-                    <th class="num-col">Plantões</th>
-                    <th class="num-col">Total Horas</th>
-                    <th class="num-col">Ação</th>
-                  </tr>
-                </thead>
-                <tbody>${rows}</tbody>
-              </table>
-            </div>
-          </div>
-        `;
-
-        contentArea.querySelectorAll("[data-pick-doc]").forEach(btn => {
-          btn.addEventListener("click", () => {
-            state.selectedDoctor = btn.getAttribute("data-pick-doc");
-            doctorSelect.value = state.selectedDoctor;
-            state.onlyDoctor = true;
-            onlyDoctorCheck.checked = true;
-            setView("list");
-          });
-        });
-      }
-
       function exportICS() {
         const sc = getActiveScale();
         if (!state.selectedDoctor) return;
@@ -2145,9 +2076,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         renderTabs();
         renderKPIs(sc);
         renderDoctorBanner(sc);
-        if (state.view === "grid") renderGrid(sc);
-        else if (state.view === "list") renderList(sc);
-        else renderDoctorsTable(sc);
+        if (state.view === "list") renderList(sc);
+        else renderGrid(sc);
       }
 
       // Listeners
