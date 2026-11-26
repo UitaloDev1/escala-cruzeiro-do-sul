@@ -1,8 +1,8 @@
 {
   "hospital": "HOSPITAL CRUZEIRO DO SUL",
   "municipio": "SÃO PAULO",
-  "geradoEm": "26/11/2026 às 13:19",
-  "planilhaModificadaEm": "26/11/2026 às 13:18",
+  "geradoEm": "26/11/2026 às 13:28",
+  "planilhaModificadaEm": "26/11/2026 às 13:27",
   "arquivoFonte": "Escalas_Hospital_Cruzeiro_Do_Sul_11_26.xlsx",
   "escalas": [
     {
@@ -15,15 +15,15 @@
       "mesAnoLabel": "Dezembro/2026",
       "refYear": 2026,
       "refMonth": 12,
-      "exportRef": "26/11/2026 - 13:18:06",
+      "exportRef": "26/11/2026 - 13:26:06",
       "kpis": {
         "totalVagas": 387,
-        "preenchidas": 68,
-        "abertas": 319,
-        "coberturaPct": 17.6,
-        "medicosEscalados": 8,
+        "preenchidas": 80,
+        "abertas": 307,
+        "coberturaPct": 20.7,
+        "medicosEscalados": 9,
         "medicosCadastrados": 22,
-        "totalHoras": 471.0
+        "totalHoras": 572.0
       },
       "semanas": [
         {
@@ -86,9 +86,15 @@
                       "nomeCurto": "Bruna Alves",
                       "crm": "222834",
                       "uf": "SP"
+                    },
+                    {
+                      "nome": "ANA BEATRIZ DE SOUZA AUGUSTINHO",
+                      "nomeCurto": "Ana Augustinho",
+                      "crm": "242928",
+                      "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 2,
+                  "vagasAbertas": 1,
                   "totalVagas": 4
                 },
                 {
@@ -218,9 +224,9 @@
                   "periodo": "noite",
                   "medicos": [
                     {
-                      "nome": "CAMILA CAROLINE LEITE BEZERRA",
-                      "nomeCurto": "Camila Bezerra",
-                      "crm": "189860",
+                      "nome": "ANA BEATRIZ DE SOUZA AUGUSTINHO",
+                      "nomeCurto": "Ana Augustinho",
+                      "crm": "242928",
                       "uf": "SP"
                     }
                   ],
@@ -244,9 +250,15 @@
                       "nomeCurto": "Marina Meireles",
                       "crm": "221999",
                       "uf": "SP"
+                    },
+                    {
+                      "nome": "CAMILA CAROLINE LEITE BEZERRA",
+                      "nomeCurto": "Camila Bezerra",
+                      "crm": "189860",
+                      "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 1,
+                  "vagasAbertas": 0,
                   "totalVagas": 3
                 }
               ]
@@ -513,8 +525,15 @@
                   "fim": "00:00",
                   "horas": 5.0,
                   "periodo": "noite",
-                  "medicos": [],
-                  "vagasAbertas": 1,
+                  "medicos": [
+                    {
+                      "nome": "ANA BEATRIZ DE SOUZA AUGUSTINHO",
+                      "nomeCurto": "Ana Augustinho",
+                      "crm": "242928",
+                      "uf": "SP"
+                    }
+                  ],
+                  "vagasAbertas": 0,
                   "totalVagas": 1
                 },
                 {
@@ -812,9 +831,15 @@
                       "nomeCurto": "Juliana Souto",
                       "crm": "229571",
                       "uf": "SP"
+                    },
+                    {
+                      "nome": "ANA BEATRIZ DE SOUZA AUGUSTINHO",
+                      "nomeCurto": "Ana Augustinho",
+                      "crm": "242928",
+                      "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 2,
+                  "vagasAbertas": 1,
                   "totalVagas": 3
                 },
                 {
@@ -898,9 +923,15 @@
                       "nomeCurto": "Juliana Souto",
                       "crm": "229571",
                       "uf": "SP"
+                    },
+                    {
+                      "nome": "ANA BEATRIZ DE SOUZA AUGUSTINHO",
+                      "nomeCurto": "Ana Augustinho",
+                      "crm": "242928",
+                      "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 3,
+                  "vagasAbertas": 2,
                   "totalVagas": 4
                 },
                 {
@@ -977,9 +1008,15 @@
                       "nomeCurto": "Bruna Alves",
                       "crm": "222834",
                       "uf": "SP"
+                    },
+                    {
+                      "nome": "ANA BEATRIZ DE SOUZA AUGUSTINHO",
+                      "nomeCurto": "Ana Augustinho",
+                      "crm": "242928",
+                      "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 2,
+                  "vagasAbertas": 1,
                   "totalVagas": 4
                 },
                 {
@@ -1120,9 +1157,9 @@
                   "periodo": "noite",
                   "medicos": [
                     {
-                      "nome": "CAMILA CAROLINE LEITE BEZERRA",
-                      "nomeCurto": "Camila Bezerra",
-                      "crm": "189860",
+                      "nome": "ANA BEATRIZ DE SOUZA AUGUSTINHO",
+                      "nomeCurto": "Ana Augustinho",
+                      "crm": "242928",
                       "uf": "SP"
                     }
                   ],
@@ -1146,9 +1183,15 @@
                       "nomeCurto": "Marina Meireles",
                       "crm": "221999",
                       "uf": "SP"
+                    },
+                    {
+                      "nome": "CAMILA CAROLINE LEITE BEZERRA",
+                      "nomeCurto": "Camila Bezerra",
+                      "crm": "189860",
+                      "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 1,
+                  "vagasAbertas": 0,
                   "totalVagas": 3
                 }
               ]
@@ -1212,9 +1255,15 @@
                       "nomeCurto": "Ana Souza",
                       "crm": "225497",
                       "uf": "SP"
+                    },
+                    {
+                      "nome": "ANA BEATRIZ DE SOUZA AUGUSTINHO",
+                      "nomeCurto": "Ana Augustinho",
+                      "crm": "242928",
+                      "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 1,
+                  "vagasAbertas": 0,
                   "totalVagas": 4
                 },
                 {
@@ -1401,9 +1450,15 @@
                       "nomeCurto": "Bruna Alves",
                       "crm": "222834",
                       "uf": "SP"
+                    },
+                    {
+                      "nome": "ANA BEATRIZ DE SOUZA AUGUSTINHO",
+                      "nomeCurto": "Ana Augustinho",
+                      "crm": "242928",
+                      "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 1,
+                  "vagasAbertas": 0,
                   "totalVagas": 4
                 },
                 {
@@ -1420,8 +1475,27 @@
                   "fim": "07:00",
                   "horas": 12.0,
                   "periodo": "noite",
-                  "medicos": [],
-                  "vagasAbertas": 3,
+                  "medicos": [
+                    {
+                      "nome": "JULIANA MARIA DE ANDRADE SOUTO",
+                      "nomeCurto": "Juliana Souto",
+                      "crm": "229571",
+                      "uf": "SP"
+                    },
+                    {
+                      "nome": "CAMILA CAROLINE LEITE BEZERRA",
+                      "nomeCurto": "Camila Bezerra",
+                      "crm": "189860",
+                      "uf": "SP"
+                    },
+                    {
+                      "nome": "FERNANDA CAROLINE GUEDES DE ANDRADE CARVALHO",
+                      "nomeCurto": "Fernanda Carvalho",
+                      "crm": "233188",
+                      "uf": "SP"
+                    }
+                  ],
+                  "vagasAbertas": 0,
                   "totalVagas": 3
                 }
               ]
@@ -1973,11 +2047,22 @@
           "nomeCurto": "Juliana Souto",
           "crm": "229571",
           "uf": "SP",
-          "totalHoras": 102.0,
-          "totalPlantoes": 17,
+          "totalHoras": 114.0,
+          "totalPlantoes": 18,
           "manha": 10,
           "tarde": 7,
-          "noite": 0
+          "noite": 1
+        },
+        {
+          "nome": "FERNANDA CAROLINE GUEDES DE ANDRADE CARVALHO",
+          "nomeCurto": "Fernanda Carvalho",
+          "crm": "233188",
+          "uf": "SP",
+          "totalHoras": 84.0,
+          "totalPlantoes": 11,
+          "manha": 3,
+          "tarde": 5,
+          "noite": 3
         },
         {
           "nome": "MAIRA DUTRA ULIANA",
@@ -1991,17 +2076,6 @@
           "noite": 6
         },
         {
-          "nome": "FERNANDA CAROLINE GUEDES DE ANDRADE CARVALHO",
-          "nomeCurto": "Fernanda Carvalho",
-          "crm": "233188",
-          "uf": "SP",
-          "totalHoras": 72.0,
-          "totalPlantoes": 10,
-          "manha": 3,
-          "tarde": 5,
-          "noite": 2
-        },
-        {
           "nome": "BRUNA DE PAULA ALVES",
           "nomeCurto": "Bruna Alves",
           "crm": "222834",
@@ -2011,6 +2085,28 @@
           "manha": 0,
           "tarde": 11,
           "noite": 0
+        },
+        {
+          "nome": "CAMILA CAROLINE LEITE BEZERRA",
+          "nomeCurto": "Camila Bezerra",
+          "crm": "189860",
+          "uf": "SP",
+          "totalHoras": 59.0,
+          "totalPlantoes": 7,
+          "manha": 3,
+          "tarde": 0,
+          "noite": 4
+        },
+        {
+          "nome": "ANA BEATRIZ DE SOUZA AUGUSTINHO",
+          "nomeCurto": "Ana Augustinho",
+          "crm": "242928",
+          "uf": "SP",
+          "totalHoras": 51.0,
+          "totalPlantoes": 9,
+          "manha": 0,
+          "tarde": 6,
+          "noite": 3
         },
         {
           "nome": "ANA CRISTINA LUCATO DE SOUZA",
@@ -2035,17 +2131,6 @@
           "noite": 1
         },
         {
-          "nome": "CAMILA CAROLINE LEITE BEZERRA",
-          "nomeCurto": "Camila Bezerra",
-          "crm": "189860",
-          "uf": "SP",
-          "totalHoras": 33.0,
-          "totalPlantoes": 6,
-          "manha": 3,
-          "tarde": 0,
-          "noite": 3
-        },
-        {
           "nome": "MARINA MARTINS DE MEIRELES",
           "nomeCurto": "Marina Meireles",
           "crm": "221999",
@@ -2060,17 +2145,6 @@
           "nome": "AMANDA CANDIDO MARTINS",
           "nomeCurto": "Amanda Martins",
           "crm": "196176",
-          "uf": "SP",
-          "totalHoras": 0.0,
-          "totalPlantoes": 0,
-          "manha": 0,
-          "tarde": 0,
-          "noite": 0
-        },
-        {
-          "nome": "ANA BEATRIZ DE SOUZA AUGUSTINHO",
-          "nomeCurto": "Ana Augustinho",
-          "crm": "242928",
           "uf": "SP",
           "totalHoras": 0.0,
           "totalPlantoes": 0,
@@ -2249,6 +2323,20 @@
           "fim": "19:00",
           "horas": 6.0,
           "periodo": "tarde",
+          "medico": "ANA BEATRIZ DE SOUZA AUGUSTINHO",
+          "medicoCurto": "Ana Augustinho",
+          "crm": "242928",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-01",
+          "ddmm": "01/12",
+          "weekdayFull": "Terça-feira",
+          "weekdayShort": "TER",
+          "inicio": "13:00",
+          "fim": "19:00",
+          "horas": 6.0,
+          "periodo": "tarde",
           "medico": "BRUNA DE PAULA ALVES",
           "medicoCurto": "Bruna Alves",
           "crm": "222834",
@@ -2332,6 +2420,20 @@
           "inicio": "19:00",
           "fim": "00:00",
           "horas": 5.0,
+          "periodo": "noite",
+          "medico": "ANA BEATRIZ DE SOUZA AUGUSTINHO",
+          "medicoCurto": "Ana Augustinho",
+          "crm": "242928",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-03",
+          "ddmm": "03/12",
+          "weekdayFull": "Quinta-feira",
+          "weekdayShort": "QUI",
+          "inicio": "19:00",
+          "fim": "07:00",
+          "horas": 12.0,
           "periodo": "noite",
           "medico": "CAMILA CAROLINE LEITE BEZERRA",
           "medicoCurto": "Camila Bezerra",
@@ -2448,6 +2550,20 @@
           "medico": "BRUNA DE PAULA ALVES",
           "medicoCurto": "Bruna Alves",
           "crm": "222834",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-08",
+          "ddmm": "08/12",
+          "weekdayFull": "Terça-feira",
+          "weekdayShort": "TER",
+          "inicio": "19:00",
+          "fim": "00:00",
+          "horas": 5.0,
+          "periodo": "noite",
+          "medico": "ANA BEATRIZ DE SOUZA AUGUSTINHO",
+          "medicoCurto": "Ana Augustinho",
+          "crm": "242928",
           "uf": "SP"
         },
         {
@@ -2613,6 +2729,20 @@
           "fim": "19:00",
           "horas": 6.0,
           "periodo": "tarde",
+          "medico": "ANA BEATRIZ DE SOUZA AUGUSTINHO",
+          "medicoCurto": "Ana Augustinho",
+          "crm": "242928",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-13",
+          "ddmm": "13/12",
+          "weekdayFull": "Domingo",
+          "weekdayShort": "DOM",
+          "inicio": "13:00",
+          "fim": "19:00",
+          "horas": 6.0,
+          "periodo": "tarde",
           "medico": "JULIANA MARIA DE ANDRADE SOUTO",
           "medicoCurto": "Juliana Souto",
           "crm": "229571",
@@ -2683,6 +2813,20 @@
           "fim": "19:00",
           "horas": 6.0,
           "periodo": "tarde",
+          "medico": "ANA BEATRIZ DE SOUZA AUGUSTINHO",
+          "medicoCurto": "Ana Augustinho",
+          "crm": "242928",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-14",
+          "ddmm": "14/12",
+          "weekdayFull": "Segunda-feira",
+          "weekdayShort": "SEG",
+          "inicio": "13:00",
+          "fim": "19:00",
+          "horas": 6.0,
+          "periodo": "tarde",
           "medico": "JULIANA MARIA DE ANDRADE SOUTO",
           "medicoCurto": "Juliana Souto",
           "crm": "229571",
@@ -2728,6 +2872,20 @@
           "medico": "MARIA LUIZA GARBIERE DA SILVA FINAZZI",
           "medicoCurto": "Maria Finazzi",
           "crm": "217449",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-15",
+          "ddmm": "15/12",
+          "weekdayFull": "Terça-feira",
+          "weekdayShort": "TER",
+          "inicio": "13:00",
+          "fim": "19:00",
+          "horas": 6.0,
+          "periodo": "tarde",
+          "medico": "ANA BEATRIZ DE SOUZA AUGUSTINHO",
+          "medicoCurto": "Ana Augustinho",
+          "crm": "242928",
           "uf": "SP"
         },
         {
@@ -2851,6 +3009,20 @@
           "fim": "00:00",
           "horas": 5.0,
           "periodo": "noite",
+          "medico": "ANA BEATRIZ DE SOUZA AUGUSTINHO",
+          "medicoCurto": "Ana Augustinho",
+          "crm": "242928",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-17",
+          "ddmm": "17/12",
+          "weekdayFull": "Quinta-feira",
+          "weekdayShort": "QUI",
+          "inicio": "19:00",
+          "fim": "07:00",
+          "horas": 12.0,
+          "periodo": "noite",
           "medico": "CAMILA CAROLINE LEITE BEZERRA",
           "medicoCurto": "Camila Bezerra",
           "crm": "189860",
@@ -2935,6 +3107,20 @@
           "fim": "19:00",
           "horas": 6.0,
           "periodo": "tarde",
+          "medico": "ANA BEATRIZ DE SOUZA AUGUSTINHO",
+          "medicoCurto": "Ana Augustinho",
+          "crm": "242928",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-18",
+          "ddmm": "18/12",
+          "weekdayFull": "Sexta-feira",
+          "weekdayShort": "SEX",
+          "inicio": "13:00",
+          "fim": "19:00",
+          "horas": 6.0,
+          "periodo": "tarde",
           "medico": "ANA CRISTINA LUCATO DE SOUZA",
           "medicoCurto": "Ana Souza",
           "crm": "225497",
@@ -3033,6 +3219,20 @@
           "fim": "19:00",
           "horas": 6.0,
           "periodo": "tarde",
+          "medico": "ANA BEATRIZ DE SOUZA AUGUSTINHO",
+          "medicoCurto": "Ana Augustinho",
+          "crm": "242928",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-21",
+          "ddmm": "21/12",
+          "weekdayFull": "Segunda-feira",
+          "weekdayShort": "SEG",
+          "inicio": "13:00",
+          "fim": "19:00",
+          "horas": 6.0,
+          "periodo": "tarde",
           "medico": "BRUNA DE PAULA ALVES",
           "medicoCurto": "Bruna Alves",
           "crm": "222834",
@@ -3061,6 +3261,48 @@
           "fim": "19:00",
           "horas": 6.0,
           "periodo": "tarde",
+          "medico": "JULIANA MARIA DE ANDRADE SOUTO",
+          "medicoCurto": "Juliana Souto",
+          "crm": "229571",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-21",
+          "ddmm": "21/12",
+          "weekdayFull": "Segunda-feira",
+          "weekdayShort": "SEG",
+          "inicio": "19:00",
+          "fim": "07:00",
+          "horas": 12.0,
+          "periodo": "noite",
+          "medico": "CAMILA CAROLINE LEITE BEZERRA",
+          "medicoCurto": "Camila Bezerra",
+          "crm": "189860",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-21",
+          "ddmm": "21/12",
+          "weekdayFull": "Segunda-feira",
+          "weekdayShort": "SEG",
+          "inicio": "19:00",
+          "fim": "07:00",
+          "horas": 12.0,
+          "periodo": "noite",
+          "medico": "FERNANDA CAROLINE GUEDES DE ANDRADE CARVALHO",
+          "medicoCurto": "Fernanda Carvalho",
+          "crm": "233188",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-21",
+          "ddmm": "21/12",
+          "weekdayFull": "Segunda-feira",
+          "weekdayShort": "SEG",
+          "inicio": "19:00",
+          "fim": "07:00",
+          "horas": 12.0,
+          "periodo": "noite",
           "medico": "JULIANA MARIA DE ANDRADE SOUTO",
           "medicoCurto": "Juliana Souto",
           "crm": "229571",
@@ -3176,7 +3418,7 @@
       "mesAnoLabel": "Dezembro/2026",
       "refYear": 2026,
       "refMonth": 12,
-      "exportRef": "26/11/2026 - 13:18:06",
+      "exportRef": "26/11/2026 - 13:26:06",
       "kpis": {
         "totalVagas": 31,
         "preenchidas": 16,
