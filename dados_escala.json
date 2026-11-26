@@ -1,8 +1,8 @@
 {
   "hospital": "HOSPITAL CRUZEIRO DO SUL",
   "municipio": "SÃO PAULO",
-  "geradoEm": "26/11/2026 às 13:55",
-  "planilhaModificadaEm": "26/11/2026 às 13:55",
+  "geradoEm": "26/11/2026 às 13:57",
+  "planilhaModificadaEm": "26/11/2026 às 13:57",
   "arquivoFonte": "Escalas_Hospital_Cruzeiro_Do_Sul_11_26.xlsx",
   "escalas": [
     {
@@ -15,13 +15,13 @@
       "mesAnoLabel": "Dezembro/2026",
       "refYear": 2026,
       "refMonth": 12,
-      "exportRef": "26/11/2026 - 13:54:50",
+      "exportRef": "26/11/2026 - 13:55:15",
       "kpis": {
         "totalVagas": 387,
         "preenchidas": 80,
         "abertas": 307,
         "coberturaPct": 20.7,
-        "medicosEscalados": 9,
+        "medicosEscalados": 11,
         "medicosCadastrados": 22,
         "totalHoras": 572.0
       },
@@ -37,7 +37,98 @@
               "weekdayShort": "SEG",
               "isWeekend": false,
               "inMonth": false,
-              "grupos": []
+              "grupos": [
+                {
+                  "inicio": "07:00",
+                  "fim": "13:00",
+                  "horas": 6.0,
+                  "periodo": "manha",
+                  "medicos": [
+                    {
+                      "nome": "ANA CRISTINA LUCATO DE SOUZA",
+                      "nomeCurto": "Ana Souza",
+                      "crm": "225497",
+                      "uf": "SP"
+                    },
+                    {
+                      "nome": "BRUNA DE PAULA ALVES",
+                      "nomeCurto": "Bruna Alves",
+                      "crm": "222834",
+                      "uf": "SP"
+                    },
+                    {
+                      "nome": "JULIANA MARIA DE ANDRADE SOUTO",
+                      "nomeCurto": "Juliana Souto",
+                      "crm": "229571",
+                      "uf": "SP"
+                    },
+                    {
+                      "nome": "MAIRA DUTRA ULIANA",
+                      "nomeCurto": "Maira Uliana",
+                      "crm": "246245",
+                      "uf": "SP"
+                    },
+                    {
+                      "nome": "MARIA LUCIA MENDES FRAGOSO",
+                      "nomeCurto": "Maria Fragoso",
+                      "crm": "33849",
+                      "uf": "SP"
+                    }
+                  ],
+                  "vagasAbertas": 0,
+                  "totalVagas": 5
+                },
+                {
+                  "inicio": "13:00",
+                  "fim": "19:00",
+                  "horas": 6.0,
+                  "periodo": "tarde",
+                  "medicos": [
+                    {
+                      "nome": "ANA CRISTINA LUCATO DE SOUZA",
+                      "nomeCurto": "Ana Souza",
+                      "crm": "225497",
+                      "uf": "SP"
+                    },
+                    {
+                      "nome": "BRUNA DE PAULA ALVES",
+                      "nomeCurto": "Bruna Alves",
+                      "crm": "222834",
+                      "uf": "SP"
+                    },
+                    {
+                      "nome": "JULIANA MARIA DE ANDRADE SOUTO",
+                      "nomeCurto": "Juliana Souto",
+                      "crm": "229571",
+                      "uf": "SP"
+                    },
+                    {
+                      "nome": "MAIRA DUTRA ULIANA",
+                      "nomeCurto": "Maira Uliana",
+                      "crm": "246245",
+                      "uf": "SP"
+                    }
+                  ],
+                  "vagasAbertas": 0,
+                  "totalVagas": 4
+                },
+                {
+                  "inicio": "19:00",
+                  "fim": "07:00",
+                  "horas": 12.0,
+                  "periodo": "noite",
+                  "medicos": [
+                    {
+                      "nome": "BRAULIO SANCHES DE OLIVEIRA ZORZELLA",
+                      "nomeCurto": "Braulio Zorzella",
+                      "crm": "107775",
+                      "uf": "SP"
+                    }
+                  ],
+                  "vagasAbertas": 0,
+                  "totalVagas": 1
+                }
+              ]
             },
             {
               "iso": "2026-12-01",
@@ -2047,11 +2138,22 @@
           "nomeCurto": "Juliana Souto",
           "crm": "229571",
           "uf": "SP",
-          "totalHoras": 114.0,
-          "totalPlantoes": 18,
-          "manha": 10,
-          "tarde": 7,
+          "totalHoras": 126.0,
+          "totalPlantoes": 20,
+          "manha": 11,
+          "tarde": 8,
           "noite": 1
+        },
+        {
+          "nome": "MAIRA DUTRA ULIANA",
+          "nomeCurto": "Maira Uliana",
+          "crm": "246245",
+          "uf": "SP",
+          "totalHoras": 90.0,
+          "totalPlantoes": 9,
+          "manha": 2,
+          "tarde": 1,
+          "noite": 6
         },
         {
           "nome": "FERNANDA CAROLINE GUEDES DE ANDRADE CARVALHO",
@@ -2065,25 +2167,25 @@
           "noite": 3
         },
         {
-          "nome": "MAIRA DUTRA ULIANA",
-          "nomeCurto": "Maira Uliana",
-          "crm": "246245",
-          "uf": "SP",
-          "totalHoras": 78.0,
-          "totalPlantoes": 7,
-          "manha": 1,
-          "tarde": 0,
-          "noite": 6
-        },
-        {
           "nome": "BRUNA DE PAULA ALVES",
           "nomeCurto": "Bruna Alves",
           "crm": "222834",
           "uf": "SP",
-          "totalHoras": 66.0,
-          "totalPlantoes": 11,
-          "manha": 0,
-          "tarde": 11,
+          "totalHoras": 78.0,
+          "totalPlantoes": 13,
+          "manha": 1,
+          "tarde": 12,
+          "noite": 0
+        },
+        {
+          "nome": "ANA CRISTINA LUCATO DE SOUZA",
+          "nomeCurto": "Ana Souza",
+          "crm": "225497",
+          "uf": "SP",
+          "totalHoras": 60.0,
+          "totalPlantoes": 10,
+          "manha": 7,
+          "tarde": 3,
           "noite": 0
         },
         {
@@ -2109,17 +2211,6 @@
           "noite": 3
         },
         {
-          "nome": "ANA CRISTINA LUCATO DE SOUZA",
-          "nomeCurto": "Ana Souza",
-          "crm": "225497",
-          "uf": "SP",
-          "totalHoras": 48.0,
-          "totalPlantoes": 8,
-          "manha": 6,
-          "tarde": 2,
-          "noite": 0
-        },
-        {
           "nome": "MARIA LUIZA GARBIERE DA SILVA FINAZZI",
           "nomeCurto": "Maria Finazzi",
           "crm": "217449",
@@ -2142,20 +2233,31 @@
           "noite": 2
         },
         {
-          "nome": "AMANDA CANDIDO MARTINS",
-          "nomeCurto": "Amanda Martins",
-          "crm": "196176",
+          "nome": "BRAULIO SANCHES DE OLIVEIRA ZORZELLA",
+          "nomeCurto": "Braulio Zorzella",
+          "crm": "107775",
           "uf": "SP",
-          "totalHoras": 0.0,
-          "totalPlantoes": 0,
+          "totalHoras": 12.0,
+          "totalPlantoes": 1,
           "manha": 0,
+          "tarde": 0,
+          "noite": 1
+        },
+        {
+          "nome": "MARIA LUCIA MENDES FRAGOSO",
+          "nomeCurto": "Maria Fragoso",
+          "crm": "33849",
+          "uf": "SP",
+          "totalHoras": 6.0,
+          "totalPlantoes": 1,
+          "manha": 1,
           "tarde": 0,
           "noite": 0
         },
         {
-          "nome": "BRAULIO SANCHES DE OLIVEIRA ZORZELLA",
-          "nomeCurto": "Braulio Zorzella",
-          "crm": "107775",
+          "nome": "AMANDA CANDIDO MARTINS",
+          "nomeCurto": "Amanda Martins",
+          "crm": "196176",
           "uf": "SP",
           "totalHoras": 0.0,
           "totalPlantoes": 0,
@@ -2230,17 +2332,6 @@
           "noite": 0
         },
         {
-          "nome": "MARIA LUCIA MENDES FRAGOSO",
-          "nomeCurto": "Maria Fragoso",
-          "crm": "33849",
-          "uf": "SP",
-          "totalHoras": 0.0,
-          "totalPlantoes": 0,
-          "manha": 0,
-          "tarde": 0,
-          "noite": 0
-        },
-        {
           "nome": "MARIANA OLIVEIRA SOBRAL",
           "nomeCurto": "Mariana Sobral",
           "crm": "216235",
@@ -2286,6 +2377,146 @@
         }
       ],
       "plantoes": [
+        {
+          "iso": "2026-11-30",
+          "ddmm": "30/11",
+          "weekdayFull": "Segunda-feira",
+          "weekdayShort": "SEG",
+          "inicio": "07:00",
+          "fim": "13:00",
+          "horas": 6.0,
+          "periodo": "manha",
+          "medico": "ANA CRISTINA LUCATO DE SOUZA",
+          "medicoCurto": "Ana Souza",
+          "crm": "225497",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-11-30",
+          "ddmm": "30/11",
+          "weekdayFull": "Segunda-feira",
+          "weekdayShort": "SEG",
+          "inicio": "07:00",
+          "fim": "13:00",
+          "horas": 6.0,
+          "periodo": "manha",
+          "medico": "BRUNA DE PAULA ALVES",
+          "medicoCurto": "Bruna Alves",
+          "crm": "222834",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-11-30",
+          "ddmm": "30/11",
+          "weekdayFull": "Segunda-feira",
+          "weekdayShort": "SEG",
+          "inicio": "07:00",
+          "fim": "13:00",
+          "horas": 6.0,
+          "periodo": "manha",
+          "medico": "JULIANA MARIA DE ANDRADE SOUTO",
+          "medicoCurto": "Juliana Souto",
+          "crm": "229571",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-11-30",
+          "ddmm": "30/11",
+          "weekdayFull": "Segunda-feira",
+          "weekdayShort": "SEG",
+          "inicio": "07:00",
+          "fim": "13:00",
+          "horas": 6.0,
+          "periodo": "manha",
+          "medico": "MAIRA DUTRA ULIANA",
+          "medicoCurto": "Maira Uliana",
+          "crm": "246245",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-11-30",
+          "ddmm": "30/11",
+          "weekdayFull": "Segunda-feira",
+          "weekdayShort": "SEG",
+          "inicio": "07:00",
+          "fim": "13:00",
+          "horas": 6.0,
+          "periodo": "manha",
+          "medico": "MARIA LUCIA MENDES FRAGOSO",
+          "medicoCurto": "Maria Fragoso",
+          "crm": "33849",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-11-30",
+          "ddmm": "30/11",
+          "weekdayFull": "Segunda-feira",
+          "weekdayShort": "SEG",
+          "inicio": "13:00",
+          "fim": "19:00",
+          "horas": 6.0,
+          "periodo": "tarde",
+          "medico": "ANA CRISTINA LUCATO DE SOUZA",
+          "medicoCurto": "Ana Souza",
+          "crm": "225497",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-11-30",
+          "ddmm": "30/11",
+          "weekdayFull": "Segunda-feira",
+          "weekdayShort": "SEG",
+          "inicio": "13:00",
+          "fim": "19:00",
+          "horas": 6.0,
+          "periodo": "tarde",
+          "medico": "BRUNA DE PAULA ALVES",
+          "medicoCurto": "Bruna Alves",
+          "crm": "222834",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-11-30",
+          "ddmm": "30/11",
+          "weekdayFull": "Segunda-feira",
+          "weekdayShort": "SEG",
+          "inicio": "13:00",
+          "fim": "19:00",
+          "horas": 6.0,
+          "periodo": "tarde",
+          "medico": "JULIANA MARIA DE ANDRADE SOUTO",
+          "medicoCurto": "Juliana Souto",
+          "crm": "229571",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-11-30",
+          "ddmm": "30/11",
+          "weekdayFull": "Segunda-feira",
+          "weekdayShort": "SEG",
+          "inicio": "13:00",
+          "fim": "19:00",
+          "horas": 6.0,
+          "periodo": "tarde",
+          "medico": "MAIRA DUTRA ULIANA",
+          "medicoCurto": "Maira Uliana",
+          "crm": "246245",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-11-30",
+          "ddmm": "30/11",
+          "weekdayFull": "Segunda-feira",
+          "weekdayShort": "SEG",
+          "inicio": "19:00",
+          "fim": "07:00",
+          "horas": 12.0,
+          "periodo": "noite",
+          "medico": "BRAULIO SANCHES DE OLIVEIRA ZORZELLA",
+          "medicoCurto": "Braulio Zorzella",
+          "crm": "107775",
+          "uf": "SP"
+        },
         {
           "iso": "2026-12-01",
           "ddmm": "01/12",
@@ -3418,7 +3649,7 @@
       "mesAnoLabel": "Dezembro/2026",
       "refYear": 2026,
       "refMonth": 12,
-      "exportRef": "26/11/2026 - 13:54:50",
+      "exportRef": "26/11/2026 - 13:55:15",
       "kpis": {
         "totalVagas": 31,
         "preenchidas": 16,
