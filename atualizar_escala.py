@@ -163,6 +163,25 @@ def parse_date_ddmm(val, ref_year, ref_month):
     return None
 
 
+def get_standard_slots(sheet_name, weekday):
+    """Retorna o dimensionamento padrão por aba e dia da semana (0=Seg .. 6=Dom)."""
+    norm = re.sub(r'[_\-\s]+', ' ', sheet_name).upper()
+    if "GO PORTA" in norm:
+        manha_vagas = 5 if weekday < 5 else (4 if weekday == 5 else 3)
+        tarde_vagas = 4 if weekday < 5 else (4 if weekday == 5 else 3)
+        return {
+            "07:00-13:00": ("07:00", "13:00", 6.0, "manha", manha_vagas),
+            "13:00-19:00": ("13:00", "19:00", 6.0, "tarde", tarde_vagas),
+            "19:00-00:00": ("19:00", "00:00", 5.0, "noite", 1),
+            "19:00-07:00": ("19:00", "07:00", 12.0, "noite", 3),
+        }
+    if "GO PRESCRITOR" in norm:
+        return {
+            "07:00-13:00": ("07:00", "13:00", 6.0, "manha", 1),
+        }
+    return None
+
+
 def parse_workbook(excel_path):
     """Lê o arquivo Excel via cópia temporária segura (não trava com Excel aberto)."""
     if not os.path.exists(excel_path):
@@ -254,6 +273,7 @@ def parse_workbook(excel_path):
                         day_obj = {
                             "iso": iso,
                             "ddmm": dt.strftime("%d/%m"),
+                            "weekday": dt.weekday(),
                             "weekdayFull": DIAS_SEMANA_FULL[dt.weekday()],
                             "weekdayShort": DIAS_SEMANA_CURTO[dt.weekday()],
                             "isWeekend": dt.weekday() >= 5,
@@ -298,10 +318,12 @@ def parse_workbook(excel_path):
                                 }
 
                             grp = day_obj["timeGroups"][time_key]
-                            grp["totalVagas"] += 1
+                            std_for_day = get_standard_slots(sheet_name, dt.weekday())
 
-                            if day_obj["inMonth"]:
-                                total_slots_month += 1
+                            if std_for_day is None:
+                                grp["totalVagas"] += 1
+                                if day_obj["inMonth"]:
+                                    total_slots_month += 1
 
                             if doc_name:
                                 doc_key = doc_name.upper()
@@ -313,7 +335,7 @@ def parse_workbook(excel_path):
                                     "uf": crm_info["uf"],
                                 })
 
-                                if day_obj["inMonth"]:
+                                if std_for_day is None and day_obj["inMonth"]:
                                     filled_slots_month += 1
                                     total_hours_month += hrs
 
@@ -347,16 +369,59 @@ def parse_workbook(excel_path):
                                     "crm": crm_info["crm"],
                                     "uf": crm_info["uf"],
                                 })
-                            else:
+                            elif std_for_day is None:
                                 grp["vagasAbertas"] += 1
                                 if day_obj["inMonth"]:
                                     open_slots_month += 1
 
                         rr += 1
 
-                    # Converte timeGroups dict em lista ordenada por horário
+                    # Aplica dimensionamento padrão (quando definido para a aba) e converte em lista ordenada
                     days_final = []
                     for d_obj in ordered_days:
+                        wkday = d_obj.pop("weekday", 0)
+                        std_slots = get_standard_slots(sheet_name, wkday)
+                        if std_slots is not None:
+                            if d_obj["inMonth"]:
+                                for tkey, (s_i, s_f, s_h, s_p, target_vagas) in std_slots.items():
+                                    if tkey not in d_obj["timeGroups"]:
+                                        d_obj["timeGroups"][tkey] = {
+                                            "inicio": s_i,
+                                            "fim": s_f,
+                                            "horas": s_h,
+                                            "periodo": s_p,
+                                            "medicos": [],
+                                            "vagasAbertas": 0,
+                                            "totalVagas": 0,
+                                        }
+                                cleaned = {}
+                                for tkey, grp in d_obj["timeGroups"].items():
+                                    n_meds = len(grp["medicos"])
+                                    if tkey in std_slots:
+                                        target_vagas = std_slots[tkey][4]
+                                        grp["vagasAbertas"] = max(0, target_vagas - n_meds)
+                                        grp["totalVagas"] = max(target_vagas, n_meds)
+                                        cleaned[tkey] = grp
+                                    elif n_meds > 0:
+                                        grp["vagasAbertas"] = 0
+                                        grp["totalVagas"] = n_meds
+                                        cleaned[tkey] = grp
+                                d_obj["timeGroups"] = cleaned
+                                for grp in d_obj["timeGroups"].values():
+                                    n_meds = len(grp["medicos"])
+                                    total_slots_month += grp["totalVagas"]
+                                    filled_slots_month += n_meds
+                                    open_slots_month += grp["vagasAbertas"]
+                                    total_hours_month += n_meds * grp["horas"]
+                            else:
+                                cleaned = {}
+                                for tkey, grp in d_obj["timeGroups"].items():
+                                    if len(grp["medicos"]) > 0:
+                                        grp["vagasAbertas"] = 0
+                                        grp["totalVagas"] = len(grp["medicos"])
+                                        cleaned[tkey] = grp
+                                d_obj["timeGroups"] = cleaned
+
                         groups_list = sorted(
                             d_obj["timeGroups"].values(),
                             key=lambda g: (g["inicio"], g["fim"])
@@ -1834,12 +1899,14 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
             });
 
             if (rowHasVisible) {
+              const isReforco = slot.inicio === "19:00" && slot.fim === "00:00";
+              const slotMetaText = isReforco ? `Reforço · ${slot.horas}h` : `${shiftLabel[slot.periodo] || ""} · ${slot.horas}h`;
               rowsHtml += `
                 <tr>
                   <th class="col-slot-cell" scope="row">
                     <div class="slot-cell-wrap">
                       <span class="shift-chip shift-${slot.periodo} slot-time">${slot.inicio} – ${slot.fim}</span>
-                      <span class="slot-meta">${shiftLabel[slot.periodo] || ""} · ${slot.horas}h</span>
+                      <span class="slot-meta">${slotMetaText}</span>
                     </div>
                   </th>
                   ${cellsHtml}

@@ -1,7 +1,7 @@
 {
   "hospital": "HOSPITAL CRUZEIRO DO SUL",
   "municipio": "SÃO PAULO",
-  "geradoEm": "26/11/2026 às 12:23",
+  "geradoEm": "26/11/2026 às 12:32",
   "planilhaModificadaEm": "26/11/2026 às 12:23",
   "arquivoFonte": "Escalas_Hospital_Cruzeiro_Do_Sul_11_26.xlsx",
   "escalas": [
@@ -17,10 +17,10 @@
       "refMonth": 12,
       "exportRef": "26/11/2026 - 12:22:38",
       "kpis": {
-        "totalVagas": 403,
+        "totalVagas": 387,
         "preenchidas": 44,
-        "abertas": 359,
-        "coberturaPct": 10.9,
+        "abertas": 343,
+        "coberturaPct": 11.4,
         "medicosEscalados": 4,
         "medicosCadastrados": 22,
         "totalHoras": 273.0
@@ -276,8 +276,8 @@
                   "horas": 6.0,
                   "periodo": "manha",
                   "medicos": [],
-                  "vagasAbertas": 5,
-                  "totalVagas": 5
+                  "vagasAbertas": 4,
+                  "totalVagas": 4
                 },
                 {
                   "inicio": "13:00",
@@ -322,8 +322,8 @@
                   "horas": 6.0,
                   "periodo": "manha",
                   "medicos": [],
-                  "vagasAbertas": 5,
-                  "totalVagas": 5
+                  "vagasAbertas": 3,
+                  "totalVagas": 3
                 },
                 {
                   "inicio": "13:00",
@@ -331,8 +331,8 @@
                   "horas": 6.0,
                   "periodo": "tarde",
                   "medicos": [],
-                  "vagasAbertas": 4,
-                  "totalVagas": 4
+                  "vagasAbertas": 3,
+                  "totalVagas": 3
                 },
                 {
                   "inicio": "19:00",
@@ -679,8 +679,8 @@
                   "horas": 6.0,
                   "periodo": "manha",
                   "medicos": [],
-                  "vagasAbertas": 5,
-                  "totalVagas": 5
+                  "vagasAbertas": 4,
+                  "totalVagas": 4
                 },
                 {
                   "inicio": "13:00",
@@ -732,8 +732,8 @@
                       "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 4,
-                  "totalVagas": 5
+                  "vagasAbertas": 2,
+                  "totalVagas": 3
                 },
                 {
                   "inicio": "13:00",
@@ -748,8 +748,8 @@
                       "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 3,
-                  "totalVagas": 4
+                  "vagasAbertas": 2,
+                  "totalVagas": 3
                 },
                 {
                   "inicio": "19:00",
@@ -1117,8 +1117,8 @@
                   "horas": 6.0,
                   "periodo": "manha",
                   "medicos": [],
-                  "vagasAbertas": 5,
-                  "totalVagas": 5
+                  "vagasAbertas": 4,
+                  "totalVagas": 4
                 },
                 {
                   "inicio": "13:00",
@@ -1163,8 +1163,8 @@
                   "horas": 6.0,
                   "periodo": "manha",
                   "medicos": [],
-                  "vagasAbertas": 5,
-                  "totalVagas": 5
+                  "vagasAbertas": 3,
+                  "totalVagas": 3
                 },
                 {
                   "inicio": "13:00",
@@ -1172,8 +1172,8 @@
                   "horas": 6.0,
                   "periodo": "tarde",
                   "medicos": [],
-                  "vagasAbertas": 4,
-                  "totalVagas": 4
+                  "vagasAbertas": 3,
+                  "totalVagas": 3
                 },
                 {
                   "inicio": "19:00",
@@ -1510,8 +1510,8 @@
                   "horas": 6.0,
                   "periodo": "manha",
                   "medicos": [],
-                  "vagasAbertas": 5,
-                  "totalVagas": 5
+                  "vagasAbertas": 4,
+                  "totalVagas": 4
                 },
                 {
                   "inicio": "13:00",
@@ -1556,8 +1556,8 @@
                   "horas": 6.0,
                   "periodo": "manha",
                   "medicos": [],
-                  "vagasAbertas": 5,
-                  "totalVagas": 5
+                  "vagasAbertas": 3,
+                  "totalVagas": 3
                 },
                 {
                   "inicio": "13:00",
@@ -1565,8 +1565,8 @@
                   "horas": 6.0,
                   "periodo": "tarde",
                   "medicos": [],
-                  "vagasAbertas": 4,
-                  "totalVagas": 4
+                  "vagasAbertas": 3,
+                  "totalVagas": 3
                 },
                 {
                   "inicio": "19:00",
