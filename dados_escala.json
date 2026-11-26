@@ -1,8 +1,8 @@
 {
   "hospital": "HOSPITAL CRUZEIRO DO SUL",
   "municipio": "SÃO PAULO",
-  "geradoEm": "26/11/2026 às 14:28",
-  "planilhaModificadaEm": "26/11/2026 às 14:28",
+  "geradoEm": "26/11/2026 às 14:30",
+  "planilhaModificadaEm": "26/11/2026 às 14:30",
   "arquivoFonte": "Escalas_Hospital_Cruzeiro_Do_Sul_11_26.xlsx",
   "escalas": [
     {
@@ -15,15 +15,15 @@
       "mesAnoLabel": "Dezembro/2026",
       "refYear": 2026,
       "refMonth": 12,
-      "exportRef": "26/11/2026 - 14:26:24",
+      "exportRef": "26/11/2026 - 14:28:09",
       "kpis": {
-        "totalVagas": 387,
-        "preenchidas": 81,
-        "abertas": 306,
-        "coberturaPct": 20.9,
+        "totalVagas": 388,
+        "preenchidas": 109,
+        "abertas": 279,
+        "coberturaPct": 28.1,
         "medicosEscalados": 11,
         "medicosCadastrados": 22,
-        "totalHoras": 571.0
+        "totalHoras": 739.0
       },
       "semanas": [
         {
@@ -228,8 +228,15 @@
                   "fim": "13:00",
                   "horas": 6.0,
                   "periodo": "manha",
-                  "medicos": [],
-                  "vagasAbertas": 5,
+                  "medicos": [
+                    {
+                      "nome": "MARIA LUCIA MENDES FRAGOSO",
+                      "nomeCurto": "Maria Fragoso",
+                      "crm": "33849",
+                      "uf": "SP"
+                    }
+                  ],
+                  "vagasAbertas": 4,
                   "totalVagas": 5
                 },
                 {
@@ -239,13 +246,19 @@
                   "periodo": "tarde",
                   "medicos": [
                     {
+                      "nome": "MARIA LUCIA MENDES FRAGOSO",
+                      "nomeCurto": "Maria Fragoso",
+                      "crm": "33849",
+                      "uf": "SP"
+                    },
+                    {
                       "nome": "BRUNA FERREIRA ALVES MELONE",
                       "nomeCurto": "Bruna Melone",
                       "crm": "222834",
                       "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 3,
+                  "vagasAbertas": 2,
                   "totalVagas": 4
                 },
                 {
@@ -287,9 +300,15 @@
                       "nomeCurto": "Fernanda Carvalho",
                       "crm": "233188",
                       "uf": "SP"
+                    },
+                    {
+                      "nome": "MARIA LUCIA MENDES FRAGOSO",
+                      "nomeCurto": "Maria Fragoso",
+                      "crm": "33849",
+                      "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 4,
+                  "vagasAbertas": 3,
                   "totalVagas": 5
                 },
                 {
@@ -299,13 +318,19 @@
                   "periodo": "tarde",
                   "medicos": [
                     {
+                      "nome": "MARIA LUCIA MENDES FRAGOSO",
+                      "nomeCurto": "Maria Fragoso",
+                      "crm": "33849",
+                      "uf": "SP"
+                    },
+                    {
                       "nome": "FERNANDA CAROLINE GUEDES DE ANDRADE CARVALHO",
                       "nomeCurto": "Fernanda Carvalho",
                       "crm": "233188",
                       "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 3,
+                  "vagasAbertas": 2,
                   "totalVagas": 4
                 },
                 {
@@ -530,9 +555,15 @@
                       "nomeCurto": "Camila Bezerra",
                       "crm": "189860",
                       "uf": "SP"
+                    },
+                    {
+                      "nome": "MARIA LUCIA MENDES FRAGOSO",
+                      "nomeCurto": "Maria Fragoso",
+                      "crm": "33849",
+                      "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 3,
+                  "vagasAbertas": 2,
                   "totalVagas": 5
                 },
                 {
@@ -542,13 +573,19 @@
                   "periodo": "tarde",
                   "medicos": [
                     {
+                      "nome": "MARIA LUCIA MENDES FRAGOSO",
+                      "nomeCurto": "Maria Fragoso",
+                      "crm": "33849",
+                      "uf": "SP"
+                    },
+                    {
                       "nome": "BRUNA FERREIRA ALVES MELONE",
                       "nomeCurto": "Bruna Melone",
                       "crm": "222834",
                       "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 3,
+                  "vagasAbertas": 2,
                   "totalVagas": 4
                 },
                 {
@@ -664,8 +701,15 @@
                   "fim": "13:00",
                   "horas": 6.0,
                   "periodo": "manha",
-                  "medicos": [],
-                  "vagasAbertas": 5,
+                  "medicos": [
+                    {
+                      "nome": "MARIA LUCIA MENDES FRAGOSO",
+                      "nomeCurto": "Maria Fragoso",
+                      "crm": "33849",
+                      "uf": "SP"
+                    }
+                  ],
+                  "vagasAbertas": 4,
                   "totalVagas": 5
                 },
                 {
@@ -675,13 +719,19 @@
                   "periodo": "tarde",
                   "medicos": [
                     {
+                      "nome": "MARIA LUCIA MENDES FRAGOSO",
+                      "nomeCurto": "Maria Fragoso",
+                      "crm": "33849",
+                      "uf": "SP"
+                    },
+                    {
                       "nome": "BRUNA FERREIRA ALVES MELONE",
                       "nomeCurto": "Bruna Melone",
                       "crm": "222834",
                       "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 3,
+                  "vagasAbertas": 2,
                   "totalVagas": 4
                 },
                 {
@@ -729,9 +779,15 @@
                       "nomeCurto": "Camila Bezerra",
                       "crm": "189860",
                       "uf": "SP"
+                    },
+                    {
+                      "nome": "MARIA LUCIA MENDES FRAGOSO",
+                      "nomeCurto": "Maria Fragoso",
+                      "crm": "33849",
+                      "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 3,
+                  "vagasAbertas": 2,
                   "totalVagas": 5
                 },
                 {
@@ -740,6 +796,12 @@
                   "horas": 6.0,
                   "periodo": "tarde",
                   "medicos": [
+                    {
+                      "nome": "MARIA LUCIA MENDES FRAGOSO",
+                      "nomeCurto": "Maria Fragoso",
+                      "crm": "33849",
+                      "uf": "SP"
+                    },
                     {
                       "nome": "BRUNA FERREIRA ALVES MELONE",
                       "nomeCurto": "Bruna Melone",
@@ -753,7 +815,7 @@
                       "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 2,
+                  "vagasAbertas": 1,
                   "totalVagas": 4
                 },
                 {
@@ -998,9 +1060,15 @@
                       "nomeCurto": "Ana Souza",
                       "crm": "225497",
                       "uf": "SP"
+                    },
+                    {
+                      "nome": "MARIA LUCIA MENDES FRAGOSO",
+                      "nomeCurto": "Maria Fragoso",
+                      "crm": "33849",
+                      "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 3,
+                  "vagasAbertas": 2,
                   "totalVagas": 5
                 },
                 {
@@ -1009,6 +1077,12 @@
                   "horas": 6.0,
                   "periodo": "tarde",
                   "medicos": [
+                    {
+                      "nome": "MARIA LUCIA MENDES FRAGOSO",
+                      "nomeCurto": "Maria Fragoso",
+                      "crm": "33849",
+                      "uf": "SP"
+                    },
                     {
                       "nome": "JULIANA MARIA DE ANDRADE SOUTO",
                       "nomeCurto": "Juliana Souto",
@@ -1022,7 +1096,7 @@
                       "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 2,
+                  "vagasAbertas": 1,
                   "totalVagas": 4
                 },
                 {
@@ -1143,8 +1217,15 @@
                   "fim": "13:00",
                   "horas": 6.0,
                   "periodo": "manha",
-                  "medicos": [],
-                  "vagasAbertas": 5,
+                  "medicos": [
+                    {
+                      "nome": "MARIA LUCIA MENDES FRAGOSO",
+                      "nomeCurto": "Maria Fragoso",
+                      "crm": "33849",
+                      "uf": "SP"
+                    }
+                  ],
+                  "vagasAbertas": 4,
                   "totalVagas": 5
                 },
                 {
@@ -1154,13 +1235,19 @@
                   "periodo": "tarde",
                   "medicos": [
                     {
+                      "nome": "MARIA LUCIA MENDES FRAGOSO",
+                      "nomeCurto": "Maria Fragoso",
+                      "crm": "33849",
+                      "uf": "SP"
+                    },
+                    {
                       "nome": "BRUNA FERREIRA ALVES MELONE",
                       "nomeCurto": "Bruna Melone",
                       "crm": "222834",
                       "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 3,
+                  "vagasAbertas": 2,
                   "totalVagas": 4
                 },
                 {
@@ -1208,9 +1295,15 @@
                       "nomeCurto": "Ana Souza",
                       "crm": "225497",
                       "uf": "SP"
+                    },
+                    {
+                      "nome": "MARIA LUCIA MENDES FRAGOSO",
+                      "nomeCurto": "Maria Fragoso",
+                      "crm": "33849",
+                      "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 3,
+                  "vagasAbertas": 2,
                   "totalVagas": 5
                 },
                 {
@@ -1219,6 +1312,12 @@
                   "horas": 6.0,
                   "periodo": "tarde",
                   "medicos": [
+                    {
+                      "nome": "MARIA LUCIA MENDES FRAGOSO",
+                      "nomeCurto": "Maria Fragoso",
+                      "crm": "33849",
+                      "uf": "SP"
+                    },
                     {
                       "nome": "JULIANA MARIA DE ANDRADE SOUTO",
                       "nomeCurto": "Juliana Souto",
@@ -1238,7 +1337,7 @@
                       "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 1,
+                  "vagasAbertas": 0,
                   "totalVagas": 4
                 },
                 {
@@ -1519,9 +1618,15 @@
                       "nomeCurto": "Fernanda Carvalho",
                       "crm": "233188",
                       "uf": "SP"
+                    },
+                    {
+                      "nome": "MARIA LUCIA MENDES FRAGOSO",
+                      "nomeCurto": "Maria Fragoso",
+                      "crm": "33849",
+                      "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 2,
+                  "vagasAbertas": 1,
                   "totalVagas": 5
                 },
                 {
@@ -1530,6 +1635,12 @@
                   "horas": 6.0,
                   "periodo": "tarde",
                   "medicos": [
+                    {
+                      "nome": "MARIA LUCIA MENDES FRAGOSO",
+                      "nomeCurto": "Maria Fragoso",
+                      "crm": "33849",
+                      "uf": "SP"
+                    },
                     {
                       "nome": "JULIANA MARIA DE ANDRADE SOUTO",
                       "nomeCurto": "Juliana Souto",
@@ -1556,7 +1667,7 @@
                     }
                   ],
                   "vagasAbertas": 0,
-                  "totalVagas": 4
+                  "totalVagas": 5
                 },
                 {
                   "inicio": "19:00",
@@ -1694,8 +1805,15 @@
                   "fim": "13:00",
                   "horas": 6.0,
                   "periodo": "manha",
-                  "medicos": [],
-                  "vagasAbertas": 5,
+                  "medicos": [
+                    {
+                      "nome": "MARIA LUCIA MENDES FRAGOSO",
+                      "nomeCurto": "Maria Fragoso",
+                      "crm": "33849",
+                      "uf": "SP"
+                    }
+                  ],
+                  "vagasAbertas": 4,
                   "totalVagas": 5
                 },
                 {
@@ -1705,13 +1823,19 @@
                   "periodo": "tarde",
                   "medicos": [
                     {
+                      "nome": "MARIA LUCIA MENDES FRAGOSO",
+                      "nomeCurto": "Maria Fragoso",
+                      "crm": "33849",
+                      "uf": "SP"
+                    },
+                    {
                       "nome": "BRUNA FERREIRA ALVES MELONE",
                       "nomeCurto": "Bruna Melone",
                       "crm": "222834",
                       "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 3,
+                  "vagasAbertas": 2,
                   "totalVagas": 4
                 },
                 {
@@ -1747,8 +1871,15 @@
                   "fim": "13:00",
                   "horas": 6.0,
                   "periodo": "manha",
-                  "medicos": [],
-                  "vagasAbertas": 5,
+                  "medicos": [
+                    {
+                      "nome": "MARIA LUCIA MENDES FRAGOSO",
+                      "nomeCurto": "Maria Fragoso",
+                      "crm": "33849",
+                      "uf": "SP"
+                    }
+                  ],
+                  "vagasAbertas": 4,
                   "totalVagas": 5
                 },
                 {
@@ -1756,8 +1887,15 @@
                   "fim": "19:00",
                   "horas": 6.0,
                   "periodo": "tarde",
-                  "medicos": [],
-                  "vagasAbertas": 4,
+                  "medicos": [
+                    {
+                      "nome": "MARIA LUCIA MENDES FRAGOSO",
+                      "nomeCurto": "Maria Fragoso",
+                      "crm": "33849",
+                      "uf": "SP"
+                    }
+                  ],
+                  "vagasAbertas": 3,
                   "totalVagas": 4
                 },
                 {
@@ -1937,8 +2075,15 @@
                   "fim": "13:00",
                   "horas": 6.0,
                   "periodo": "manha",
-                  "medicos": [],
-                  "vagasAbertas": 5,
+                  "medicos": [
+                    {
+                      "nome": "MARIA LUCIA MENDES FRAGOSO",
+                      "nomeCurto": "Maria Fragoso",
+                      "crm": "33849",
+                      "uf": "SP"
+                    }
+                  ],
+                  "vagasAbertas": 4,
                   "totalVagas": 5
                 },
                 {
@@ -1946,8 +2091,15 @@
                   "fim": "19:00",
                   "horas": 6.0,
                   "periodo": "tarde",
-                  "medicos": [],
-                  "vagasAbertas": 4,
+                  "medicos": [
+                    {
+                      "nome": "MARIA LUCIA MENDES FRAGOSO",
+                      "nomeCurto": "Maria Fragoso",
+                      "crm": "33849",
+                      "uf": "SP"
+                    }
+                  ],
+                  "vagasAbertas": 3,
                   "totalVagas": 4
                 },
                 {
@@ -2029,8 +2181,15 @@
                   "fim": "13:00",
                   "horas": 6.0,
                   "periodo": "manha",
-                  "medicos": [],
-                  "vagasAbertas": 5,
+                  "medicos": [
+                    {
+                      "nome": "MARIA LUCIA MENDES FRAGOSO",
+                      "nomeCurto": "Maria Fragoso",
+                      "crm": "33849",
+                      "uf": "SP"
+                    }
+                  ],
+                  "vagasAbertas": 4,
                   "totalVagas": 5
                 },
                 {
@@ -2038,8 +2197,15 @@
                   "fim": "19:00",
                   "horas": 6.0,
                   "periodo": "tarde",
-                  "medicos": [],
-                  "vagasAbertas": 4,
+                  "medicos": [
+                    {
+                      "nome": "MARIA LUCIA MENDES FRAGOSO",
+                      "nomeCurto": "Maria Fragoso",
+                      "crm": "33849",
+                      "uf": "SP"
+                    }
+                  ],
+                  "vagasAbertas": 3,
                   "totalVagas": 4
                 },
                 {
@@ -2075,8 +2241,15 @@
                   "fim": "13:00",
                   "horas": 6.0,
                   "periodo": "manha",
-                  "medicos": [],
-                  "vagasAbertas": 5,
+                  "medicos": [
+                    {
+                      "nome": "MARIA LUCIA MENDES FRAGOSO",
+                      "nomeCurto": "Maria Fragoso",
+                      "crm": "33849",
+                      "uf": "SP"
+                    }
+                  ],
+                  "vagasAbertas": 4,
                   "totalVagas": 5
                 },
                 {
@@ -2084,8 +2257,15 @@
                   "fim": "19:00",
                   "horas": 6.0,
                   "periodo": "tarde",
-                  "medicos": [],
-                  "vagasAbertas": 4,
+                  "medicos": [
+                    {
+                      "nome": "MARIA LUCIA MENDES FRAGOSO",
+                      "nomeCurto": "Maria Fragoso",
+                      "crm": "33849",
+                      "uf": "SP"
+                    }
+                  ],
+                  "vagasAbertas": 3,
                   "totalVagas": 4
                 },
                 {
@@ -2139,6 +2319,17 @@
         }
       ],
       "medicos": [
+        {
+          "nome": "MARIA LUCIA MENDES FRAGOSO",
+          "nomeCurto": "Maria Fragoso",
+          "crm": "33849",
+          "uf": "SP",
+          "totalHoras": 180.0,
+          "totalPlantoes": 30,
+          "manha": 15,
+          "tarde": 15,
+          "noite": 0
+        },
         {
           "nome": "JULIANA MARIA DE ANDRADE SOUTO",
           "nomeCurto": "Juliana Souto",
@@ -2248,17 +2439,6 @@
           "manha": 0,
           "tarde": 0,
           "noite": 1
-        },
-        {
-          "nome": "MARIA LUCIA MENDES FRAGOSO",
-          "nomeCurto": "Maria Fragoso",
-          "crm": "33849",
-          "uf": "SP",
-          "totalHoras": 12.0,
-          "totalPlantoes": 2,
-          "manha": 1,
-          "tarde": 1,
-          "noite": 0
         },
         {
           "nome": "AMANDA CANDIDO MARTINS",
@@ -2612,6 +2792,20 @@
           "ddmm": "02/12",
           "weekdayFull": "Quarta-feira",
           "weekdayShort": "QUA",
+          "inicio": "07:00",
+          "fim": "13:00",
+          "horas": 6.0,
+          "periodo": "manha",
+          "medico": "MARIA LUCIA MENDES FRAGOSO",
+          "medicoCurto": "Maria Fragoso",
+          "crm": "33849",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-02",
+          "ddmm": "02/12",
+          "weekdayFull": "Quarta-feira",
+          "weekdayShort": "QUA",
           "inicio": "13:00",
           "fim": "19:00",
           "horas": 6.0,
@@ -2619,6 +2813,20 @@
           "medico": "BRUNA FERREIRA ALVES MELONE",
           "medicoCurto": "Bruna Melone",
           "crm": "222834",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-02",
+          "ddmm": "02/12",
+          "weekdayFull": "Quarta-feira",
+          "weekdayShort": "QUA",
+          "inicio": "13:00",
+          "fim": "19:00",
+          "horas": 6.0,
+          "periodo": "tarde",
+          "medico": "MARIA LUCIA MENDES FRAGOSO",
+          "medicoCurto": "Maria Fragoso",
+          "crm": "33849",
           "uf": "SP"
         },
         {
@@ -2640,6 +2848,20 @@
           "ddmm": "03/12",
           "weekdayFull": "Quinta-feira",
           "weekdayShort": "QUI",
+          "inicio": "07:00",
+          "fim": "13:00",
+          "horas": 6.0,
+          "periodo": "manha",
+          "medico": "MARIA LUCIA MENDES FRAGOSO",
+          "medicoCurto": "Maria Fragoso",
+          "crm": "33849",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-03",
+          "ddmm": "03/12",
+          "weekdayFull": "Quinta-feira",
+          "weekdayShort": "QUI",
           "inicio": "13:00",
           "fim": "19:00",
           "horas": 6.0,
@@ -2647,6 +2869,20 @@
           "medico": "FERNANDA CAROLINE GUEDES DE ANDRADE CARVALHO",
           "medicoCurto": "Fernanda Carvalho",
           "crm": "233188",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-03",
+          "ddmm": "03/12",
+          "weekdayFull": "Quinta-feira",
+          "weekdayShort": "QUI",
+          "inicio": "13:00",
+          "fim": "19:00",
+          "horas": 6.0,
+          "periodo": "tarde",
+          "medico": "MARIA LUCIA MENDES FRAGOSO",
+          "medicoCurto": "Maria Fragoso",
+          "crm": "33849",
           "uf": "SP"
         },
         {
@@ -2752,6 +2988,20 @@
           "ddmm": "07/12",
           "weekdayFull": "Segunda-feira",
           "weekdayShort": "SEG",
+          "inicio": "07:00",
+          "fim": "13:00",
+          "horas": 6.0,
+          "periodo": "manha",
+          "medico": "MARIA LUCIA MENDES FRAGOSO",
+          "medicoCurto": "Maria Fragoso",
+          "crm": "33849",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-07",
+          "ddmm": "07/12",
+          "weekdayFull": "Segunda-feira",
+          "weekdayShort": "SEG",
           "inicio": "13:00",
           "fim": "19:00",
           "horas": 6.0,
@@ -2759,6 +3009,20 @@
           "medico": "BRUNA FERREIRA ALVES MELONE",
           "medicoCurto": "Bruna Melone",
           "crm": "222834",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-07",
+          "ddmm": "07/12",
+          "weekdayFull": "Segunda-feira",
+          "weekdayShort": "SEG",
+          "inicio": "13:00",
+          "fim": "19:00",
+          "horas": 6.0,
+          "periodo": "tarde",
+          "medico": "MARIA LUCIA MENDES FRAGOSO",
+          "medicoCurto": "Maria Fragoso",
+          "crm": "33849",
           "uf": "SP"
         },
         {
@@ -2836,6 +3100,20 @@
           "ddmm": "09/12",
           "weekdayFull": "Quarta-feira",
           "weekdayShort": "QUA",
+          "inicio": "07:00",
+          "fim": "13:00",
+          "horas": 6.0,
+          "periodo": "manha",
+          "medico": "MARIA LUCIA MENDES FRAGOSO",
+          "medicoCurto": "Maria Fragoso",
+          "crm": "33849",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-09",
+          "ddmm": "09/12",
+          "weekdayFull": "Quarta-feira",
+          "weekdayShort": "QUA",
           "inicio": "13:00",
           "fim": "19:00",
           "horas": 6.0,
@@ -2843,6 +3121,20 @@
           "medico": "BRUNA FERREIRA ALVES MELONE",
           "medicoCurto": "Bruna Melone",
           "crm": "222834",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-09",
+          "ddmm": "09/12",
+          "weekdayFull": "Quarta-feira",
+          "weekdayShort": "QUA",
+          "inicio": "13:00",
+          "fim": "19:00",
+          "horas": 6.0,
+          "periodo": "tarde",
+          "medico": "MARIA LUCIA MENDES FRAGOSO",
+          "medicoCurto": "Maria Fragoso",
+          "crm": "33849",
           "uf": "SP"
         },
         {
@@ -2878,6 +3170,20 @@
           "ddmm": "10/12",
           "weekdayFull": "Quinta-feira",
           "weekdayShort": "QUI",
+          "inicio": "07:00",
+          "fim": "13:00",
+          "horas": 6.0,
+          "periodo": "manha",
+          "medico": "MARIA LUCIA MENDES FRAGOSO",
+          "medicoCurto": "Maria Fragoso",
+          "crm": "33849",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-10",
+          "ddmm": "10/12",
+          "weekdayFull": "Quinta-feira",
+          "weekdayShort": "QUI",
           "inicio": "13:00",
           "fim": "19:00",
           "horas": 6.0,
@@ -2899,6 +3205,20 @@
           "medico": "FERNANDA CAROLINE GUEDES DE ANDRADE CARVALHO",
           "medicoCurto": "Fernanda Carvalho",
           "crm": "233188",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-10",
+          "ddmm": "10/12",
+          "weekdayFull": "Quinta-feira",
+          "weekdayShort": "QUI",
+          "inicio": "13:00",
+          "fim": "19:00",
+          "horas": 6.0,
+          "periodo": "tarde",
+          "medico": "MARIA LUCIA MENDES FRAGOSO",
+          "medicoCurto": "Maria Fragoso",
+          "crm": "33849",
           "uf": "SP"
         },
         {
@@ -3046,6 +3366,20 @@
           "ddmm": "14/12",
           "weekdayFull": "Segunda-feira",
           "weekdayShort": "SEG",
+          "inicio": "07:00",
+          "fim": "13:00",
+          "horas": 6.0,
+          "periodo": "manha",
+          "medico": "MARIA LUCIA MENDES FRAGOSO",
+          "medicoCurto": "Maria Fragoso",
+          "crm": "33849",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-14",
+          "ddmm": "14/12",
+          "weekdayFull": "Segunda-feira",
+          "weekdayShort": "SEG",
           "inicio": "13:00",
           "fim": "19:00",
           "horas": 6.0,
@@ -3067,6 +3401,20 @@
           "medico": "JULIANA MARIA DE ANDRADE SOUTO",
           "medicoCurto": "Juliana Souto",
           "crm": "229571",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-14",
+          "ddmm": "14/12",
+          "weekdayFull": "Segunda-feira",
+          "weekdayShort": "SEG",
+          "inicio": "13:00",
+          "fim": "19:00",
+          "horas": 6.0,
+          "periodo": "tarde",
+          "medico": "MARIA LUCIA MENDES FRAGOSO",
+          "medicoCurto": "Maria Fragoso",
+          "crm": "33849",
           "uf": "SP"
         },
         {
@@ -3158,6 +3506,20 @@
           "ddmm": "16/12",
           "weekdayFull": "Quarta-feira",
           "weekdayShort": "QUA",
+          "inicio": "07:00",
+          "fim": "13:00",
+          "horas": 6.0,
+          "periodo": "manha",
+          "medico": "MARIA LUCIA MENDES FRAGOSO",
+          "medicoCurto": "Maria Fragoso",
+          "crm": "33849",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-16",
+          "ddmm": "16/12",
+          "weekdayFull": "Quarta-feira",
+          "weekdayShort": "QUA",
           "inicio": "13:00",
           "fim": "19:00",
           "horas": 6.0,
@@ -3165,6 +3527,20 @@
           "medico": "BRUNA FERREIRA ALVES MELONE",
           "medicoCurto": "Bruna Melone",
           "crm": "222834",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-16",
+          "ddmm": "16/12",
+          "weekdayFull": "Quarta-feira",
+          "weekdayShort": "QUA",
+          "inicio": "13:00",
+          "fim": "19:00",
+          "horas": 6.0,
+          "periodo": "tarde",
+          "medico": "MARIA LUCIA MENDES FRAGOSO",
+          "medicoCurto": "Maria Fragoso",
+          "crm": "33849",
           "uf": "SP"
         },
         {
@@ -3193,6 +3569,20 @@
           "medico": "JULIANA MARIA DE ANDRADE SOUTO",
           "medicoCurto": "Juliana Souto",
           "crm": "229571",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-17",
+          "ddmm": "17/12",
+          "weekdayFull": "Quinta-feira",
+          "weekdayShort": "QUI",
+          "inicio": "07:00",
+          "fim": "13:00",
+          "horas": 6.0,
+          "periodo": "manha",
+          "medico": "MARIA LUCIA MENDES FRAGOSO",
+          "medicoCurto": "Maria Fragoso",
+          "crm": "33849",
           "uf": "SP"
         },
         {
@@ -3235,6 +3625,20 @@
           "medico": "JULIANA MARIA DE ANDRADE SOUTO",
           "medicoCurto": "Juliana Souto",
           "crm": "229571",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-17",
+          "ddmm": "17/12",
+          "weekdayFull": "Quinta-feira",
+          "weekdayShort": "QUI",
+          "inicio": "13:00",
+          "fim": "19:00",
+          "horas": 6.0,
+          "periodo": "tarde",
+          "medico": "MARIA LUCIA MENDES FRAGOSO",
+          "medicoCurto": "Maria Fragoso",
+          "crm": "33849",
           "uf": "SP"
         },
         {
@@ -3466,6 +3870,20 @@
           "ddmm": "21/12",
           "weekdayFull": "Segunda-feira",
           "weekdayShort": "SEG",
+          "inicio": "07:00",
+          "fim": "13:00",
+          "horas": 6.0,
+          "periodo": "manha",
+          "medico": "MARIA LUCIA MENDES FRAGOSO",
+          "medicoCurto": "Maria Fragoso",
+          "crm": "33849",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-21",
+          "ddmm": "21/12",
+          "weekdayFull": "Segunda-feira",
+          "weekdayShort": "SEG",
           "inicio": "13:00",
           "fim": "19:00",
           "horas": 6.0,
@@ -3515,6 +3933,20 @@
           "medico": "JULIANA MARIA DE ANDRADE SOUTO",
           "medicoCurto": "Juliana Souto",
           "crm": "229571",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-21",
+          "ddmm": "21/12",
+          "weekdayFull": "Segunda-feira",
+          "weekdayShort": "SEG",
+          "inicio": "13:00",
+          "fim": "19:00",
+          "horas": 6.0,
+          "periodo": "tarde",
+          "medico": "MARIA LUCIA MENDES FRAGOSO",
+          "medicoCurto": "Maria Fragoso",
+          "crm": "33849",
           "uf": "SP"
         },
         {
@@ -3648,6 +4080,20 @@
           "ddmm": "23/12",
           "weekdayFull": "Quarta-feira",
           "weekdayShort": "QUA",
+          "inicio": "07:00",
+          "fim": "13:00",
+          "horas": 6.0,
+          "periodo": "manha",
+          "medico": "MARIA LUCIA MENDES FRAGOSO",
+          "medicoCurto": "Maria Fragoso",
+          "crm": "33849",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-23",
+          "ddmm": "23/12",
+          "weekdayFull": "Quarta-feira",
+          "weekdayShort": "QUA",
           "inicio": "13:00",
           "fim": "19:00",
           "horas": 6.0,
@@ -3655,6 +4101,132 @@
           "medico": "BRUNA FERREIRA ALVES MELONE",
           "medicoCurto": "Bruna Melone",
           "crm": "222834",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-23",
+          "ddmm": "23/12",
+          "weekdayFull": "Quarta-feira",
+          "weekdayShort": "QUA",
+          "inicio": "13:00",
+          "fim": "19:00",
+          "horas": 6.0,
+          "periodo": "tarde",
+          "medico": "MARIA LUCIA MENDES FRAGOSO",
+          "medicoCurto": "Maria Fragoso",
+          "crm": "33849",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-24",
+          "ddmm": "24/12",
+          "weekdayFull": "Quinta-feira",
+          "weekdayShort": "QUI",
+          "inicio": "07:00",
+          "fim": "13:00",
+          "horas": 6.0,
+          "periodo": "manha",
+          "medico": "MARIA LUCIA MENDES FRAGOSO",
+          "medicoCurto": "Maria Fragoso",
+          "crm": "33849",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-24",
+          "ddmm": "24/12",
+          "weekdayFull": "Quinta-feira",
+          "weekdayShort": "QUI",
+          "inicio": "13:00",
+          "fim": "19:00",
+          "horas": 6.0,
+          "periodo": "tarde",
+          "medico": "MARIA LUCIA MENDES FRAGOSO",
+          "medicoCurto": "Maria Fragoso",
+          "crm": "33849",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-28",
+          "ddmm": "28/12",
+          "weekdayFull": "Segunda-feira",
+          "weekdayShort": "SEG",
+          "inicio": "07:00",
+          "fim": "13:00",
+          "horas": 6.0,
+          "periodo": "manha",
+          "medico": "MARIA LUCIA MENDES FRAGOSO",
+          "medicoCurto": "Maria Fragoso",
+          "crm": "33849",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-28",
+          "ddmm": "28/12",
+          "weekdayFull": "Segunda-feira",
+          "weekdayShort": "SEG",
+          "inicio": "13:00",
+          "fim": "19:00",
+          "horas": 6.0,
+          "periodo": "tarde",
+          "medico": "MARIA LUCIA MENDES FRAGOSO",
+          "medicoCurto": "Maria Fragoso",
+          "crm": "33849",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-30",
+          "ddmm": "30/12",
+          "weekdayFull": "Quarta-feira",
+          "weekdayShort": "QUA",
+          "inicio": "07:00",
+          "fim": "13:00",
+          "horas": 6.0,
+          "periodo": "manha",
+          "medico": "MARIA LUCIA MENDES FRAGOSO",
+          "medicoCurto": "Maria Fragoso",
+          "crm": "33849",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-30",
+          "ddmm": "30/12",
+          "weekdayFull": "Quarta-feira",
+          "weekdayShort": "QUA",
+          "inicio": "13:00",
+          "fim": "19:00",
+          "horas": 6.0,
+          "periodo": "tarde",
+          "medico": "MARIA LUCIA MENDES FRAGOSO",
+          "medicoCurto": "Maria Fragoso",
+          "crm": "33849",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-31",
+          "ddmm": "31/12",
+          "weekdayFull": "Quinta-feira",
+          "weekdayShort": "QUI",
+          "inicio": "07:00",
+          "fim": "13:00",
+          "horas": 6.0,
+          "periodo": "manha",
+          "medico": "MARIA LUCIA MENDES FRAGOSO",
+          "medicoCurto": "Maria Fragoso",
+          "crm": "33849",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-31",
+          "ddmm": "31/12",
+          "weekdayFull": "Quinta-feira",
+          "weekdayShort": "QUI",
+          "inicio": "13:00",
+          "fim": "19:00",
+          "horas": 6.0,
+          "periodo": "tarde",
+          "medico": "MARIA LUCIA MENDES FRAGOSO",
+          "medicoCurto": "Maria Fragoso",
+          "crm": "33849",
           "uf": "SP"
         }
       ]
@@ -3669,7 +4241,7 @@
       "mesAnoLabel": "Dezembro/2026",
       "refYear": 2026,
       "refMonth": 12,
-      "exportRef": "26/11/2026 - 14:26:24",
+      "exportRef": "26/11/2026 - 14:28:09",
       "kpis": {
         "totalVagas": 31,
         "preenchidas": 16,
