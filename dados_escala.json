@@ -1,8 +1,8 @@
 {
   "hospital": "HOSPITAL CRUZEIRO DO SUL",
   "municipio": "SÃO PAULO",
-  "geradoEm": "26/11/2026 às 14:20",
-  "planilhaModificadaEm": "26/11/2026 às 14:20",
+  "geradoEm": "26/11/2026 às 14:23",
+  "planilhaModificadaEm": "26/11/2026 às 14:23",
   "arquivoFonte": "Escalas_Hospital_Cruzeiro_Do_Sul_11_26.xlsx",
   "escalas": [
     {
@@ -15,14 +15,14 @@
       "mesAnoLabel": "Dezembro/2026",
       "refYear": 2026,
       "refMonth": 12,
-      "exportRef": "26/11/2026 - 14:19:47",
+      "exportRef": "26/11/2026 - 14:22:11",
       "kpis": {
         "totalVagas": 387,
         "preenchidas": 81,
         "abertas": 306,
         "coberturaPct": 20.9,
         "medicosEscalados": 11,
-        "medicosCadastrados": 22,
+        "medicosCadastrados": 23,
         "totalHoras": 571.0
       },
       "semanas": [
@@ -87,8 +87,8 @@
                     {
                       "nome": "BRUNA DE PAULA ALVES",
                       "nomeCurto": "Bruna Alves",
-                      "crm": "222834",
-                      "uf": "SP"
+                      "crm": "",
+                      "uf": ""
                     },
                     {
                       "nome": "JULIANA MARIA DE ANDRADE SOUTO",
@@ -169,8 +169,8 @@
                     {
                       "nome": "BRUNA DE PAULA ALVES",
                       "nomeCurto": "Bruna Alves",
-                      "crm": "222834",
-                      "uf": "SP"
+                      "crm": "",
+                      "uf": ""
                     },
                     {
                       "nome": "ANA BEATRIZ DE SOUZA AUGUSTINHO",
@@ -235,8 +235,8 @@
                     {
                       "nome": "BRUNA DE PAULA ALVES",
                       "nomeCurto": "Bruna Alves",
-                      "crm": "222834",
-                      "uf": "SP"
+                      "crm": "",
+                      "uf": ""
                     }
                   ],
                   "vagasAbertas": 3,
@@ -538,8 +538,8 @@
                     {
                       "nome": "BRUNA DE PAULA ALVES",
                       "nomeCurto": "Bruna Alves",
-                      "crm": "222834",
-                      "uf": "SP"
+                      "crm": "",
+                      "uf": ""
                     }
                   ],
                   "vagasAbertas": 3,
@@ -598,8 +598,8 @@
                     {
                       "nome": "BRUNA DE PAULA ALVES",
                       "nomeCurto": "Bruna Alves",
-                      "crm": "222834",
-                      "uf": "SP"
+                      "crm": "",
+                      "uf": ""
                     }
                   ],
                   "vagasAbertas": 3,
@@ -671,8 +671,8 @@
                     {
                       "nome": "BRUNA DE PAULA ALVES",
                       "nomeCurto": "Bruna Alves",
-                      "crm": "222834",
-                      "uf": "SP"
+                      "crm": "",
+                      "uf": ""
                     }
                   ],
                   "vagasAbertas": 3,
@@ -737,8 +737,8 @@
                     {
                       "nome": "BRUNA DE PAULA ALVES",
                       "nomeCurto": "Bruna Alves",
-                      "crm": "222834",
-                      "uf": "SP"
+                      "crm": "",
+                      "uf": ""
                     },
                     {
                       "nome": "FERNANDA CAROLINE GUEDES DE ANDRADE CARVALHO",
@@ -1091,8 +1091,8 @@
                     {
                       "nome": "BRUNA DE PAULA ALVES",
                       "nomeCurto": "Bruna Alves",
-                      "crm": "222834",
-                      "uf": "SP"
+                      "crm": "",
+                      "uf": ""
                     },
                     {
                       "nome": "ANA BEATRIZ DE SOUZA AUGUSTINHO",
@@ -1150,8 +1150,8 @@
                     {
                       "nome": "BRUNA DE PAULA ALVES",
                       "nomeCurto": "Bruna Alves",
-                      "crm": "222834",
-                      "uf": "SP"
+                      "crm": "",
+                      "uf": ""
                     }
                   ],
                   "vagasAbertas": 3,
@@ -1539,8 +1539,8 @@
                     {
                       "nome": "BRUNA DE PAULA ALVES",
                       "nomeCurto": "Bruna Alves",
-                      "crm": "222834",
-                      "uf": "SP"
+                      "crm": "",
+                      "uf": ""
                     },
                     {
                       "nome": "ANA BEATRIZ DE SOUZA AUGUSTINHO",
@@ -1642,8 +1642,8 @@
                     {
                       "nome": "BRUNA DE PAULA ALVES",
                       "nomeCurto": "Bruna Alves",
-                      "crm": "222834",
-                      "uf": "SP"
+                      "crm": "",
+                      "uf": ""
                     },
                     {
                       "nome": "MARIA LUIZA GARBIERE DA SILVA FINAZZI",
@@ -1701,8 +1701,8 @@
                     {
                       "nome": "BRUNA DE PAULA ALVES",
                       "nomeCurto": "Bruna Alves",
-                      "crm": "222834",
-                      "uf": "SP"
+                      "crm": "",
+                      "uf": ""
                     }
                   ],
                   "vagasAbertas": 3,
@@ -2169,8 +2169,8 @@
         {
           "nome": "BRUNA DE PAULA ALVES",
           "nomeCurto": "Bruna Alves",
-          "crm": "222834",
-          "uf": "SP",
+          "crm": "",
+          "uf": "",
           "totalHoras": 72.0,
           "totalPlantoes": 12,
           "manha": 0,
@@ -2258,6 +2258,17 @@
           "nome": "AMANDA CANDIDO MARTINS",
           "nomeCurto": "Amanda Martins",
           "crm": "196176",
+          "uf": "SP",
+          "totalHoras": 0.0,
+          "totalPlantoes": 0,
+          "manha": 0,
+          "tarde": 0,
+          "noite": 0
+        },
+        {
+          "nome": "BRUNA FERREIRA ALVES MELONE",
+          "nomeCurto": "Bruna Melone",
+          "crm": "222834",
           "uf": "SP",
           "totalHoras": 0.0,
           "totalPlantoes": 0,
@@ -2444,8 +2455,8 @@
           "periodo": "tarde",
           "medico": "BRUNA DE PAULA ALVES",
           "medicoCurto": "Bruna Alves",
-          "crm": "222834",
-          "uf": "SP"
+          "crm": "",
+          "uf": ""
         },
         {
           "iso": "2026-11-30",
@@ -2556,8 +2567,8 @@
           "periodo": "tarde",
           "medico": "BRUNA DE PAULA ALVES",
           "medicoCurto": "Bruna Alves",
-          "crm": "222834",
-          "uf": "SP"
+          "crm": "",
+          "uf": ""
         },
         {
           "iso": "2026-12-01",
@@ -2598,8 +2609,8 @@
           "periodo": "tarde",
           "medico": "BRUNA DE PAULA ALVES",
           "medicoCurto": "Bruna Alves",
-          "crm": "222834",
-          "uf": "SP"
+          "crm": "",
+          "uf": ""
         },
         {
           "iso": "2026-12-03",
@@ -2738,8 +2749,8 @@
           "periodo": "tarde",
           "medico": "BRUNA DE PAULA ALVES",
           "medicoCurto": "Bruna Alves",
-          "crm": "222834",
-          "uf": "SP"
+          "crm": "",
+          "uf": ""
         },
         {
           "iso": "2026-12-08",
@@ -2766,8 +2777,8 @@
           "periodo": "tarde",
           "medico": "BRUNA DE PAULA ALVES",
           "medicoCurto": "Bruna Alves",
-          "crm": "222834",
-          "uf": "SP"
+          "crm": "",
+          "uf": ""
         },
         {
           "iso": "2026-12-08",
@@ -2822,8 +2833,8 @@
           "periodo": "tarde",
           "medico": "BRUNA DE PAULA ALVES",
           "medicoCurto": "Bruna Alves",
-          "crm": "222834",
-          "uf": "SP"
+          "crm": "",
+          "uf": ""
         },
         {
           "iso": "2026-12-10",
@@ -2864,8 +2875,8 @@
           "periodo": "tarde",
           "medico": "BRUNA DE PAULA ALVES",
           "medicoCurto": "Bruna Alves",
-          "crm": "222834",
-          "uf": "SP"
+          "crm": "",
+          "uf": ""
         },
         {
           "iso": "2026-12-10",
@@ -3116,8 +3127,8 @@
           "periodo": "tarde",
           "medico": "BRUNA DE PAULA ALVES",
           "medicoCurto": "Bruna Alves",
-          "crm": "222834",
-          "uf": "SP"
+          "crm": "",
+          "uf": ""
         },
         {
           "iso": "2026-12-15",
@@ -3144,8 +3155,8 @@
           "periodo": "tarde",
           "medico": "BRUNA DE PAULA ALVES",
           "medicoCurto": "Bruna Alves",
-          "crm": "222834",
-          "uf": "SP"
+          "crm": "",
+          "uf": ""
         },
         {
           "iso": "2026-12-17",
@@ -3466,8 +3477,8 @@
           "periodo": "tarde",
           "medico": "BRUNA DE PAULA ALVES",
           "medicoCurto": "Bruna Alves",
-          "crm": "222834",
-          "uf": "SP"
+          "crm": "",
+          "uf": ""
         },
         {
           "iso": "2026-12-21",
@@ -3592,8 +3603,8 @@
           "periodo": "tarde",
           "medico": "BRUNA DE PAULA ALVES",
           "medicoCurto": "Bruna Alves",
-          "crm": "222834",
-          "uf": "SP"
+          "crm": "",
+          "uf": ""
         },
         {
           "iso": "2026-12-22",
@@ -3634,8 +3645,8 @@
           "periodo": "tarde",
           "medico": "BRUNA DE PAULA ALVES",
           "medicoCurto": "Bruna Alves",
-          "crm": "222834",
-          "uf": "SP"
+          "crm": "",
+          "uf": ""
         }
       ]
     },
@@ -3649,7 +3660,7 @@
       "mesAnoLabel": "Dezembro/2026",
       "refYear": 2026,
       "refMonth": 12,
-      "exportRef": "26/11/2026 - 14:19:47",
+      "exportRef": "26/11/2026 - 14:22:11",
       "kpis": {
         "totalVagas": 31,
         "preenchidas": 16,
