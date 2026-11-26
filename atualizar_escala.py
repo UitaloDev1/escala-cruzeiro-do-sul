@@ -2183,14 +2183,16 @@ def generate_html(excel_path, output_dir):
 def git_publish(repo_dir):
     """Faz commit e push apenas se houver alteração real no index.html / dados_escala.json."""
     def run_git(args):
-        return subprocess.run(
-            ["git"] + args,
-            cwd=repo_dir,
-            capture_output=True,
-            text=True,
-            encoding="utf-8",
-            errors="replace",
-        )
+        kwargs = {
+            "cwd": repo_dir,
+            "capture_output": True,
+            "text": True,
+            "encoding": "utf-8",
+            "errors": "replace",
+        }
+        if os.name == "nt":
+            kwargs["creationflags"] = getattr(subprocess, "CREATE_NO_WINDOW", 0)
+        return subprocess.run(["git"] + args, **kwargs)
 
     status = run_git(["status", "--porcelain", "index.html", "dados_escala.json"])
     if status.returncode != 0:
@@ -2225,6 +2227,14 @@ def main():
     parser.add_argument("--interval", type=int, default=DEFAULT_WATCH_INTERVAL, help="Intervalo em segundos no modo --watch")
     parser.add_argument("--git-push", action="store_true", help="Faz git commit + push automaticamente após gerar")
     args = parser.parse_args()
+
+    if sys.stdout is None or sys.stderr is None:
+        log_path = os.path.join(args.saida, "monitor_escala.log")
+        log_fh = open(log_path, "a", encoding="utf-8", buffering=1)
+        if sys.stdout is None:
+            sys.stdout = log_fh
+        if sys.stderr is None:
+            sys.stderr = log_fh
 
     def run_once():
         html_path, payload = generate_html(args.excel, args.saida)
