@@ -1,8 +1,8 @@
 {
   "hospital": "HOSPITAL CRUZEIRO DO SUL",
   "municipio": "SÃO PAULO",
-  "geradoEm": "26/11/2026 às 12:04",
-  "planilhaModificadaEm": "26/11/2026 às 11:46",
+  "geradoEm": "26/11/2026 às 12:23",
+  "planilhaModificadaEm": "26/11/2026 às 12:23",
   "arquivoFonte": "Escalas_Hospital_Cruzeiro_Do_Sul_11_26.xlsx",
   "escalas": [
     {
@@ -15,7 +15,7 @@
       "mesAnoLabel": "Dezembro/2026",
       "refYear": 2026,
       "refMonth": 12,
-      "exportRef": "26/11/2026 - 10:43:52",
+      "exportRef": "26/11/2026 - 12:22:38",
       "kpis": {
         "totalVagas": 403,
         "preenchidas": 44,
@@ -2690,15 +2690,15 @@
       "mesAnoLabel": "Dezembro/2026",
       "refYear": 2026,
       "refMonth": 12,
-      "exportRef": "26/11/2026 - 10:43:52",
+      "exportRef": "26/11/2026 - 12:22:38",
       "kpis": {
         "totalVagas": 31,
-        "preenchidas": 15,
-        "abertas": 16,
-        "coberturaPct": 48.4,
-        "medicosEscalados": 1,
+        "preenchidas": 16,
+        "abertas": 15,
+        "coberturaPct": 51.6,
+        "medicosEscalados": 2,
         "medicosCadastrados": 22,
-        "totalHoras": 90.0
+        "totalHoras": 96.0
       },
       "semanas": [
         {
@@ -3008,8 +3008,15 @@
                   "fim": "13:00",
                   "horas": 6.0,
                   "periodo": "manha",
-                  "medicos": [],
-                  "vagasAbertas": 1,
+                  "medicos": [
+                    {
+                      "nome": "LUCIANO DELLA FLORA",
+                      "nomeCurto": "Luciano Flora",
+                      "crm": "114136",
+                      "uf": "SP"
+                    }
+                  ],
+                  "vagasAbertas": 0,
                   "totalVagas": 1
                 }
               ]
@@ -3475,6 +3482,17 @@
           "noite": 0
         },
         {
+          "nome": "LUCIANO DELLA FLORA",
+          "nomeCurto": "Luciano Flora",
+          "crm": "114136",
+          "uf": "SP",
+          "totalHoras": 6.0,
+          "totalPlantoes": 1,
+          "manha": 1,
+          "tarde": 0,
+          "noite": 0
+        },
+        {
           "nome": "AMANDA CANDIDO MARTINS",
           "nomeCurto": "Amanda Martins",
           "crm": "196176",
@@ -3577,17 +3595,6 @@
           "nome": "LISABETH APARECIDA BLASI",
           "nomeCurto": "Lisabeth Blasi",
           "crm": "40552",
-          "uf": "SP",
-          "totalHoras": 0.0,
-          "totalPlantoes": 0,
-          "manha": 0,
-          "tarde": 0,
-          "noite": 0
-        },
-        {
-          "nome": "LUCIANO DELLA FLORA",
-          "nomeCurto": "Luciano Flora",
-          "crm": "114136",
           "uf": "SP",
           "totalHoras": 0.0,
           "totalPlantoes": 0,
@@ -3817,6 +3824,20 @@
           "medico": "BRUNA DE PAULA ALVES",
           "medicoCurto": "Bruna Alves",
           "crm": "222834",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-13",
+          "ddmm": "13/12",
+          "weekdayFull": "Domingo",
+          "weekdayShort": "DOM",
+          "inicio": "07:00",
+          "fim": "13:00",
+          "horas": 6.0,
+          "periodo": "manha",
+          "medico": "LUCIANO DELLA FLORA",
+          "medicoCurto": "Luciano Flora",
+          "crm": "114136",
           "uf": "SP"
         },
         {

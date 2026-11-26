@@ -658,10 +658,8 @@ class EscalaHandler(BaseHTTPRequestHandler):
             return
 
         if path == "/api/requests":
-            sess = self.current_session()
-            if not sess:
-                self.send_json(401, {"error": "Não autenticado"})
-                return
+            self.send_json(403, {"error": "Painel em modo somente visualização; alterações via planilha."})
+            return
             all_reqs = fetch_requests()
             if sess["role"] == "diretor":
                 self.send_json(200, {"solicitacoes": all_reqs})
@@ -735,10 +733,8 @@ class EscalaHandler(BaseHTTPRequestHandler):
             return
 
         if path == "/api/requests":
-            sess = self.current_session()
-            if not sess:
-                self.send_json(401, {"error": "Não autenticado"})
-                return
+            self.send_json(403, {"error": "Painel em modo somente visualização; alterações via planilha."})
+            return
             body = self.read_json_body()
             if not body:
                 self.send_json(400, {"error": "Corpo JSON inválido."})

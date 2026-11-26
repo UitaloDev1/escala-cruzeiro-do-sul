@@ -1268,79 +1268,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       text-align: center;
     }
 
-    /* ==================== ABA DE SOLICITAÇÕES DE PLANTÃO ==================== */
-    .req-workspace {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .req-grid-3 {
-      display: grid;
-      grid-template-columns: 2fr 1fr 0.7fr auto;
-      gap: 12px;
-      align-items: end;
-    }
-
-    .req-grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      align-items: end;
-    }
-
-    .mode-switch {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 14px;
-    }
-
-    .feedback-box {
-      border-radius: 2px 2px 10px 2px;
-      padding: 10px 12px;
-      font-size: 12.5px;
-      margin-bottom: 12px;
-      display: none;
-    }
-
-    .feedback-box.is-error {
-      display: block;
-      background: rgba(239, 68, 68, 0.15);
-      border: 1px solid rgba(248, 113, 113, 0.5);
-      color: #fecaca;
-    }
-
-    .feedback-box.is-ok {
-      display: block;
-      background: rgba(52, 211, 153, 0.14);
-      border: 1px solid rgba(52, 211, 153, 0.48);
-      color: #6ee7b7;
-    }
-
-    [data-theme="light"] .feedback-box.is-error { color: #991b1b; }
-    [data-theme="light"] .feedback-box.is-ok { color: #065f46; }
-
-    .req-item-card {
-      background: var(--bg-card-inner);
-      border: 1px solid var(--border-subtle);
-      border-radius: 2px 2px 10px 2px;
-      padding: 10px 12px;
-      margin-bottom: 8px;
-    }
-
-    .status-pill {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 600;
-      padding: 2px 7px;
-      border-radius: 2px;
-    }
-
-    .status-pending { background: rgba(253, 185, 19, 0.16); color: var(--accent-yellow); }
-    .status-approved { background: rgba(52, 211, 153, 0.15); color: var(--ok-color); }
-    .status-rejected { background: rgba(239, 68, 68, 0.15); color: #fca5a5; }
-
     /* ==================== LISTA CRONOLÓGICA (MOBILE-FIRST) ==================== */
     .list-view {
       display: flex;
@@ -1469,7 +1396,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
     @media (max-width: 820px) {
       .grid-4 { grid-template-columns: repeat(2, 1fr); }
-      .req-grid-3, .req-grid-2 { grid-template-columns: 1fr; }
       .header-right { display: none; }
       .subnav-meta { display: none; }
     }
@@ -1544,7 +1470,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         <div class="eyebrow" id="heroEyebrow">ESCALA MÉDICA · HOSPITAL CRUZEIRO DO SUL</div>
         <h1 id="heroTitle">Carregando escala...</h1>
         <p class="hero-desc" id="heroDesc">
-          Consulte o preenchimento da escala por semana, aplique filtros específicos e solicite novos plantões ou desistências para aprovação da Diretoria.
+          Visualização somente leitura dos plantões escalados por semana. Filtre pelo seu nome e exporte seus horários para a agenda.
         </p>
       </div>
       <div class="sync-pill" title="Data da última sincronização da escala">
@@ -1636,7 +1562,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     <!-- RODAPÉ -->
     <footer class="page-footer">
       <div>
-        <strong id="footerHospital">Hospital Cruzeiro do Sul</strong> · Sistema de plantões médicos (dados pessoais sensíveis omitidos conforme LGPD).
+        <strong id="footerHospital">Hospital Cruzeiro do Sul</strong> · Visualização somente leitura da escala médica (dados pessoais sensíveis omitidos conforme LGPD).
       </div>
       <div>
         Planilha atualizada em <span id="footerMtime">--</span> · Publicado em <span id="footerGen">--</span>
@@ -1651,10 +1577,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     (function () {
       let DATA = JSON.parse(document.getElementById("escala-data").textContent);
       let SESSION = { authenticated: false, role: null };
-      let REQUESTS = [];
 
       const state = {
-        activeTab: "scale", // "scale" | "requests"
         scaleIndex: 0,
         view: window.innerWidth <= 640 ? "list" : "grid",
         selectedDoctor: "",
@@ -1662,18 +1586,13 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         shiftFilter: "todos",
         onlyDoctor: false,
         onlyOpen: false,
-        showOpen: true,
-        verifiedDoctor: null, // { nome, crm, uf, scheduledShifts }
-        reqMode: "solicitar", // "solicitar" | "desistir"
-        reqFeedback: null     // { type: "ok" | "error", text }
+        showOpen: true
       };
 
       const todayIso = new Date().toISOString().slice(0, 10);
 
       // Elementos DOM
       const tabsEl = document.getElementById("scaleTabs");
-      const filterCard = document.getElementById("filterCard");
-      const legendBar = document.getElementById("legendBar");
       const doctorSelect = document.getElementById("doctorSelect");
       const shiftSelect = document.getElementById("shiftSelect");
       const searchInput = document.getElementById("searchInput");
@@ -1740,28 +1659,15 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         DATA.escalas.forEach((sc, idx) => {
           const btn = document.createElement("button");
           btn.type = "button";
-          const active = state.activeTab === "scale" && idx === state.scaleIndex;
-          btn.className = "subnav-tab" + (active ? " is-active" : "");
+          btn.className = "subnav-tab" + (idx === state.scaleIndex ? " is-active" : "");
           btn.textContent = sc.tabLabel;
           btn.addEventListener("click", () => {
-            state.activeTab = "scale";
             state.scaleIndex = idx;
             populateDoctors();
             renderAll();
           });
           tabsEl.appendChild(btn);
         });
-
-        const reqBtn = document.createElement("button");
-        reqBtn.type = "button";
-        reqBtn.className = "subnav-tab" + (state.activeTab === "requests" ? " is-active" : "");
-        reqBtn.textContent = "PEGAR / DESISTIR PLANTÃO";
-        reqBtn.addEventListener("click", () => {
-          state.activeTab = "requests";
-          state.reqFeedback = null;
-          renderAll();
-        });
-        tabsEl.appendChild(reqBtn);
       }
 
       function populateDoctors() {
@@ -1838,435 +1744,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
           medicos: meds,
           vagasAbertasVisiveis: showOpenHere ? grp.vagasAbertas : 0
         };
-      }
-
-      function namesMatch(aNorm, bNorm) {
-        if (aNorm === bNorm) return true;
-        const preps = new Set(["DE", "DA", "DO", "DAS", "DOS", "E"]);
-        const tokA = aNorm.split(" ").filter(w => w && !preps.has(w));
-        const tokB = bNorm.split(" ").filter(w => w && !preps.has(w));
-        if (tokA.length < 2 || tokB.length < 2) return false;
-        if (tokA[0] !== tokB[0] || tokA[tokA.length - 1] !== tokB[tokB.length - 1]) return false;
-        const setB = new Set(tokB);
-        const setA = new Set(tokA);
-        const shorter = tokA.length <= tokB.length ? tokA : tokB;
-        const longerSet = tokA.length <= tokB.length ? setB : setA;
-        return shorter.every(w => longerSet.has(w));
-      }
-
-      function validateDoctorIdentity(rawNome, rawCrm, rawUf) {
-        const nomeClean = String(rawNome || "").trim().replace(/\s+/g, " ");
-        const nomeNorm = normalize(nomeClean);
-        const crmDigits = String(rawCrm || "").replace(/\D/g, "");
-        const ufClean = String(rawUf || "SP").trim().toUpperCase() || "SP";
-
-        if (nomeClean.split(" ").filter(Boolean).length < 2) {
-          return { ok: false, error: "Informe seu nome completo (nome e sobrenome)." };
-        }
-        if (crmDigits.length < 4) {
-          return { ok: false, error: "Informe um número de CRM válido." };
-        }
-
-        const catalog = [];
-        DATA.escalas.forEach(sc => {
-          sc.medicos.forEach(m => {
-            catalog.push(m);
-          });
-        });
-
-        const byCrm = catalog.find(m => String(m.crm || "").replace(/\D/g, "") === crmDigits);
-        if (byCrm) {
-          if (!namesMatch(nomeNorm, normalize(byCrm.nome))) {
-            return { ok: false, error: "O CRM informado não confere com o nome cadastrado na unidade. Verifique os dados." };
-          }
-          return { ok: true, nome: byCrm.nome, crm: byCrm.crm, uf: byCrm.uf || ufClean };
-        }
-
-        const byName = catalog.find(m => namesMatch(nomeNorm, normalize(m.nome)));
-        if (byName && String(byName.crm || "").replace(/\D/g, "")) {
-          return { ok: false, error: "Este nome já possui outro CRM cadastrado na unidade. Confira seu CRM." };
-        }
-
-        return { ok: true, nome: nomeClean.toUpperCase(), crm: crmDigits, uf: ufClean };
-      }
-
-      function collectScheduledShifts(docNameNorm) {
-        const shifts = [];
-        DATA.escalas.forEach(sc => {
-          sc.semanas.forEach(wk => {
-            wk.dias.forEach(dia => {
-              dia.grupos.forEach(g => {
-                if (g.medicos.some(m => normalize(m.nome) === docNameNorm)) {
-                  shifts.push({
-                    scaleId: sc.id,
-                    scaleTitle: sc.tabLabel,
-                    titulo: sc.titulo,
-                    iso: dia.iso,
-                    ddmm: dia.ddmm,
-                    weekdayFull: dia.weekdayFull,
-                    inicio: g.inicio,
-                    fim: g.fim,
-                    horas: g.horas,
-                    periodo: g.periodo
-                  });
-                }
-              });
-            });
-          });
-        });
-        return shifts.sort((a, b) => a.iso.localeCompare(b.iso) || a.inicio.localeCompare(b.inicio));
-      }
-
-      function renderRequestsWorkspace() {
-        document.getElementById("heroEyebrow").textContent = `${DATA.hospital} · ${DATA.municipio}`;
-        document.getElementById("heroTitle").textContent = "Pegar Nova Vaga ou Desistir de Plantão";
-
-        const fbHtml = state.reqFeedback
-          ? `<div class="feedback-box ${state.reqFeedback.type === 'ok' ? 'is-ok' : 'is-error'}">${escapeHtml(state.reqFeedback.text)}</div>`
-          : "";
-
-        if (!state.verifiedDoctor) {
-          contentArea.innerHTML = `
-            <div class="req-workspace">
-              <section class="card">
-                <div class="eyebrow">ETAPA 1 · IDENTIFICAÇÃO DO MÉDICO</div>
-                <h2 class="section-title" style="margin:6px 0 6px;">Valide seu Nome Completo e CRM</h2>
-                <p class="hero-desc" style="margin-bottom:14px;">
-                  Após a validação, o sistema verifica automaticamente se você já possui plantões escalados para liberar as opções disponíveis.
-                </p>
-                ${fbHtml}
-                <form id="verifyDocForm">
-                  <div class="req-grid-3">
-                    <div class="field-group">
-                      <label class="field-label" for="valNomeInput">Nome Completo</label>
-                      <input id="valNomeInput" type="text" class="input-control" placeholder="Digite seu nome completo..." required />
-                    </div>
-                    <div class="field-group">
-                      <label class="field-label" for="valCrmInput">CRM</label>
-                      <input id="valCrmInput" type="text" inputmode="numeric" class="input-control" placeholder="Ex.: 229571" required />
-                    </div>
-                    <div class="field-group">
-                      <label class="field-label" for="valUfInput">UF</label>
-                      <input id="valUfInput" type="text" maxlength="2" class="input-control" value="SP" required />
-                    </div>
-                    <div class="field-group">
-                      <button type="submit" class="btn-accent" style="height:36px;">Validar</button>
-                    </div>
-                  </div>
-                </form>
-              </section>
-            </div>
-          `;
-
-          document.getElementById("verifyDocForm").addEventListener("submit", async (e) => {
-            e.preventDefault();
-            const res = validateDoctorIdentity(
-              document.getElementById("valNomeInput").value,
-              document.getElementById("valCrmInput").value,
-              document.getElementById("valUfInput").value
-            );
-            if (!res.ok) {
-              state.reqFeedback = { type: "error", text: res.error };
-              renderAll();
-              return;
-            }
-            state.verifiedDoctor = { nome: res.nome, crm: res.crm, uf: res.uf };
-            state.reqMode = "solicitar";
-            state.reqFeedback = null;
-            await refreshDoctorRequests();
-            renderAll();
-          });
-          return;
-        }
-
-        const doc = state.verifiedDoctor;
-        const docNorm = normalize(doc.nome);
-        const scheduledShifts = collectScheduledShifts(docNorm);
-        if (scheduledShifts.length === 0) {
-          state.reqMode = "solicitar";
-        }
-
-        const modeSwitchHtml = scheduledShifts.length > 0
-          ? `
-            <div class="mode-switch">
-              <button type="button" class="btn-outline ${state.reqMode === 'solicitar' ? 'is-active' : ''}" data-req-mode="solicitar">Solicitar Novo Plantão</button>
-              <button type="button" class="btn-outline ${state.reqMode === 'desistir' ? 'is-active' : ''}" data-req-mode="desistir">Desistir de Plantão (${scheduledShifts.length})</button>
-            </div>
-          `
-          : `
-            <div style="font-size:12.5px; color:var(--text-secondary); margin-bottom:12px;">
-              Você ainda não possui plantões escalados. Utilize o formulário abaixo para solicitar uma nova vaga.
-            </div>
-          `;
-
-        let actionFormHtml = "";
-        if (state.reqMode === "solicitar") {
-          const scaleOpts = DATA.escalas.map(sc => `<option value="${escapeHtml(sc.id)}">${escapeHtml(sc.tabLabel)} — ${escapeHtml(sc.titulo)}</option>`).join("");
-          actionFormHtml = `
-            <form id="solicitarForm">
-              <div class="req-grid-2" style="margin-bottom:12px;">
-                <div class="field-group">
-                  <label class="field-label" for="solScaleSelect">Escala / Setor</label>
-                  <select id="solScaleSelect" class="select-control">${scaleOpts}</select>
-                </div>
-                <div class="field-group">
-                  <label class="field-label" for="solDaySelect">Dia com vaga aberta</label>
-                  <select id="solDaySelect" class="select-control"></select>
-                </div>
-              </div>
-              <div class="req-grid-2" style="margin-bottom:14px;">
-                <div class="field-group">
-                  <label class="field-label" for="solSlotSelect">Horário / Turno disponível</label>
-                  <select id="solSlotSelect" class="select-control"></select>
-                </div>
-                <div class="field-group">
-                  <label class="field-label" for="solMotivoInput">Observação (opcional)</label>
-                  <input id="solMotivoInput" type="text" class="input-control" placeholder="Ex.: disponibilidade confirmada..." />
-                </div>
-              </div>
-              <div style="display:flex; justify-content:flex-end;">
-                <button type="submit" class="btn-accent" id="solSubmitBtn">Enviar Solicitação de Plantão</button>
-              </div>
-            </form>
-          `;
-        } else {
-          const shiftOpts = scheduledShifts.map((s, idx) =>
-            `<option value="${idx}">${escapeHtml(s.scaleTitle)} · ${escapeHtml(s.ddmm)} (${escapeHtml(s.weekdayFull)}) · ${escapeHtml(s.inicio)}–${escapeHtml(s.fim)} (${s.horas}h)</option>`
-          ).join("");
-          actionFormHtml = `
-            <form id="desistirForm">
-              <div class="req-grid-2" style="margin-bottom:14px;">
-                <div class="field-group">
-                  <label class="field-label" for="desShiftSelect">Selecione o plantão que deseja desistir</label>
-                  <select id="desShiftSelect" class="select-control">${shiftOpts}</select>
-                </div>
-                <div class="field-group">
-                  <label class="field-label" for="desMotivoInput">Motivo da desistência (opcional)</label>
-                  <input id="desMotivoInput" type="text" class="input-control" placeholder="Informe o motivo..." />
-                </div>
-              </div>
-              <div style="display:flex; justify-content:flex-end;">
-                <button type="submit" class="btn-accent" id="desSubmitBtn">Enviar Pedido de Desistência</button>
-              </div>
-            </form>
-          `;
-        }
-
-        const myRequests = REQUESTS.filter(r =>
-          normalize(r.medicoNome) === docNorm ||
-          (doc.crm && String(r.medicoCrm || "").replace(/\D/g, "") === doc.crm)
-        );
-        const statusLabel = { pending: "Pendente", approved: "Aprovada", rejected: "Recusada" };
-        const histHtml = myRequests.length === 0
-          ? `<div style="font-size:12.5px; color:var(--text-muted);">Nenhuma solicitação enviada ainda para este CRM.</div>`
-          : myRequests.map(r => {
-              const tipoLabel = r.tipo === "solicitar" ? "Solicitação de Plantão" : "Desistência de Plantão";
-              const noteHtml = r.directorNote ? `<div style="font-size:12px; color:var(--text-secondary); margin-top:4px;">Diretoria: ${escapeHtml(r.directorNote)}</div>` : "";
-              return `
-                <div class="req-item-card">
-                  <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:4px;">
-                    <span class="eyebrow">${tipoLabel} · ${escapeHtml(r.scaleTitle)} · ${escapeHtml(r.ddmm)} (${escapeHtml(r.inicio)}–${escapeHtml(r.fim)})</span>
-                    <span class="status-pill status-${r.status}">${statusLabel[r.status] || r.status}</span>
-                  </div>
-                  <div style="font-size:12px; color:var(--text-muted);">Enviada em ${escapeHtml(r.createdAt)}${r.motivo ? ' · Obs.: ' + escapeHtml(r.motivo) : ''}</div>
-                  ${noteHtml}
-                </div>
-              `;
-            }).join("");
-
-        contentArea.innerHTML = `
-          <div class="req-workspace">
-            <section class="card" style="border-color: var(--accent-orange);">
-              <div class="doctor-banner-grid">
-                <div>
-                  <div class="eyebrow">MÉDICO VALIDADO</div>
-                  <div class="doctor-banner-name">${escapeHtml(doc.nome)}</div>
-                  <div class="doctor-banner-tags">
-                    <span class="tech-tag">CRM ${escapeHtml(doc.crm)}/${escapeHtml(doc.uf)}</span>
-                    <span class="tech-tag">${scheduledShifts.length} plantão(ões) escalado(s)</span>
-                  </div>
-                </div>
-                <button type="button" class="btn-outline" id="changeVerifiedDocBtn">Trocar médico</button>
-              </div>
-            </section>
-
-            <section class="card">
-              ${fbHtml}
-              ${modeSwitchHtml}
-              ${actionFormHtml}
-            </section>
-
-            <section class="card">
-              <div class="eyebrow" style="margin-bottom:10px;">MINHAS SOLICITAÇÕES ENVIADAS</div>
-              ${histHtml}
-            </section>
-          </div>
-        `;
-
-        document.getElementById("changeVerifiedDocBtn").addEventListener("click", () => {
-          state.verifiedDoctor = null;
-          state.reqFeedback = null;
-          renderAll();
-        });
-
-        contentArea.querySelectorAll("[data-req-mode]").forEach(btn => {
-          btn.addEventListener("click", () => {
-            state.reqMode = btn.getAttribute("data-req-mode");
-            state.reqFeedback = null;
-            renderAll();
-          });
-        });
-
-        if (state.reqMode === "solicitar") {
-          const solScaleSelect = document.getElementById("solScaleSelect");
-          const solDaySelect = document.getElementById("solDaySelect");
-          const solSlotSelect = document.getElementById("solSlotSelect");
-          const solSubmitBtn = document.getElementById("solSubmitBtn");
-          const shiftName = { manha: "Manhã", tarde: "Tarde", noite: "Noite" };
-
-          function getOpenDaysForScale(scaleId) {
-            const sc = DATA.escalas.find(x => x.id === scaleId);
-            if (!sc) return [];
-            const days = [];
-            sc.semanas.forEach(wk => {
-              wk.dias.forEach(dia => {
-                if (!dia.inMonth) return;
-                const openSlots = dia.grupos.filter(g =>
-                  g.vagasAbertas > 0 && !g.medicos.some(m => normalize(m.nome) === docNorm)
-                );
-                if (openSlots.length > 0) {
-                  days.push({ dia, openSlots });
-                }
-              });
-            });
-            return days;
-          }
-
-          function populateOpenSlots() {
-            const days = getOpenDaysForScale(solScaleSelect.value);
-            const chosen = days.find(d => d.dia.iso === solDaySelect.value);
-            solSlotSelect.innerHTML = "";
-            if (!chosen) {
-              solSlotSelect.innerHTML = `<option value="">Sem horários disponíveis</option>`;
-              solSubmitBtn.disabled = true;
-              return;
-            }
-            chosen.openSlots.forEach(g => {
-              const opt = document.createElement("option");
-              opt.value = `${g.inicio}|${g.fim}|${g.horas}|${g.periodo}`;
-              opt.textContent = `${g.inicio} – ${g.fim} (${shiftName[g.periodo] || ""} · ${g.horas}h · ${g.vagasAbertas} vaga${g.vagasAbertas > 1 ? 's' : ''})`;
-              solSlotSelect.appendChild(opt);
-            });
-            solSubmitBtn.disabled = false;
-          }
-
-          function populateOpenDays() {
-            const days = getOpenDaysForScale(solScaleSelect.value);
-            solDaySelect.innerHTML = "";
-            if (days.length === 0) {
-              solDaySelect.innerHTML = `<option value="">Nenhum dia com vaga aberta nesta escala</option>`;
-              populateOpenSlots();
-              return;
-            }
-            days.forEach(d => {
-              const opt = document.createElement("option");
-              opt.value = d.dia.iso;
-              opt.textContent = `${d.dia.ddmm} · ${d.dia.weekdayFull} (${d.openSlots.length} faixa${d.openSlots.length > 1 ? 's' : ''})`;
-              solDaySelect.appendChild(opt);
-            });
-            populateOpenSlots();
-          }
-
-          solScaleSelect.addEventListener("change", populateOpenDays);
-          solDaySelect.addEventListener("change", populateOpenSlots);
-          populateOpenDays();
-
-          document.getElementById("solicitarForm").addEventListener("submit", async (e) => {
-            e.preventDefault();
-            if (!solDaySelect.value || !solSlotSelect.value) return;
-            const sc = DATA.escalas.find(x => x.id === solScaleSelect.value);
-            const [inicio, fim, horasStr, periodo] = solSlotSelect.value.split("|");
-            const dayObj = sc.semanas.flatMap(w => w.dias).find(d => d.iso === solDaySelect.value);
-            solSubmitBtn.disabled = true;
-
-            try {
-              const res = await fetch("/api/requests", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                  tipo: "solicitar",
-                  scaleId: sc.id,
-                  scaleTitle: sc.tabLabel,
-                  iso: dayObj.iso,
-                  ddmm: dayObj.ddmm,
-                  inicio,
-                  fim,
-                  horas: Number(horasStr),
-                  periodo,
-                  medicoNome: doc.nome,
-                  medicoCrm: doc.crm,
-                  medicoUf: doc.uf,
-                  motivo: document.getElementById("solMotivoInput").value.trim()
-                })
-              });
-              const data = await res.json().catch(() => ({}));
-              if (!res.ok) {
-                state.reqFeedback = { type: "error", text: data.error || "Erro ao enviar solicitação." };
-                renderAll();
-                return;
-              }
-              await refreshLiveServerData();
-              state.reqFeedback = { type: "ok", text: "Solicitação de plantão enviada para aprovação da Diretoria." };
-              renderAll();
-            } catch (err) {
-              state.reqFeedback = { type: "error", text: "Erro de conexão com o servidor." };
-              renderAll();
-            }
-          });
-        } else {
-          document.getElementById("desistirForm").addEventListener("submit", async (e) => {
-            e.preventDefault();
-            const idx = Number(document.getElementById("desShiftSelect").value);
-            const chosen = scheduledShifts[idx];
-            if (!chosen) return;
-            const btn = document.getElementById("desSubmitBtn");
-            btn.disabled = true;
-
-            try {
-              const res = await fetch("/api/requests", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                  tipo: "desistir",
-                  scaleId: chosen.scaleId,
-                  scaleTitle: chosen.scaleTitle,
-                  iso: chosen.iso,
-                  ddmm: chosen.ddmm,
-                  inicio: chosen.inicio,
-                  fim: chosen.fim,
-                  horas: chosen.horas,
-                  periodo: chosen.periodo,
-                  medicoNome: doc.nome,
-                  medicoCrm: doc.crm,
-                  medicoUf: doc.uf,
-                  motivo: document.getElementById("desMotivoInput").value.trim()
-                })
-              });
-              const data = await res.json().catch(() => ({}));
-              if (!res.ok) {
-                state.reqFeedback = { type: "error", text: data.error || "Erro ao enviar pedido de desistência." };
-                renderAll();
-                return;
-              }
-              await refreshLiveServerData();
-              state.reqFeedback = { type: "ok", text: "Pedido de desistência enviado para aprovação da Diretoria." };
-              renderAll();
-            } catch (err) {
-              state.reqFeedback = { type: "error", text: "Erro de conexão com o servidor." };
-              renderAll();
-            }
-          });
-        }
       }
 
       function bindDoctorPills() {
@@ -2549,16 +2026,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
       function renderAll() {
         renderTabs();
-        if (state.activeTab === "requests") {
-          filterCard.style.display = "none";
-          doctorBanner.classList.remove("is-visible");
-          legendBar.style.display = "none";
-          renderRequestsWorkspace();
-          return;
-        }
-        filterCard.style.display = "";
-        legendBar.style.display = "";
-
         const sc = getActiveScale();
         if (!sc) {
           contentArea.innerHTML = `<div class="empty-state">Nenhuma escala válida encontrada na planilha.</div>`;
@@ -2632,26 +2099,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       document.getElementById("exportIcsBtn").addEventListener("click", exportICS);
       document.getElementById("printBtn").addEventListener("click", () => window.print());
 
-      async function refreshDoctorRequests() {
-        if (window.location.protocol === "file:" || !state.verifiedDoctor) {
-          REQUESTS = [];
-          return;
-        }
-        try {
-          const qs = new URLSearchParams({
-            nome: state.verifiedDoctor.nome,
-            crm: state.verifiedDoctor.crm || ""
-          });
-          const rRes = await fetch(`/api/requests?${qs.toString()}`, { cache: "no-store" });
-          if (rRes.ok) {
-            const rJson = await rRes.json();
-            REQUESTS = rJson.solicitacoes || [];
-          }
-        } catch (err) {
-          // silencioso
-        }
-      }
-
       async function refreshLiveServerData() {
         if (window.location.protocol === "file:") return;
         try {
@@ -2673,7 +2120,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
             updateMetaTexts();
             populateDoctors();
           }
-          await refreshDoctorRequests();
         } catch (err) {
           // Fallback silencioso para arquivo local sem backend
         }
