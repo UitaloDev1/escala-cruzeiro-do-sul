@@ -1,8 +1,8 @@
 {
   "hospital": "HOSPITAL CRUZEIRO DO SUL",
   "municipio": "SÃO PAULO",
-  "geradoEm": "26/11/2026 às 14:30",
-  "planilhaModificadaEm": "26/11/2026 às 14:30",
+  "geradoEm": "26/11/2026 às 14:32",
+  "planilhaModificadaEm": "26/11/2026 às 14:32",
   "arquivoFonte": "Escalas_Hospital_Cruzeiro_Do_Sul_11_26.xlsx",
   "escalas": [
     {
@@ -15,15 +15,15 @@
       "mesAnoLabel": "Dezembro/2026",
       "refYear": 2026,
       "refMonth": 12,
-      "exportRef": "26/11/2026 - 14:28:09",
+      "exportRef": "26/11/2026 - 14:31:34",
       "kpis": {
         "totalVagas": 388,
-        "preenchidas": 109,
-        "abertas": 279,
-        "coberturaPct": 28.1,
+        "preenchidas": 112,
+        "abertas": 276,
+        "coberturaPct": 28.9,
         "medicosEscalados": 11,
         "medicosCadastrados": 22,
-        "totalHoras": 739.0
+        "totalHoras": 764.0
       },
       "semanas": [
         {
@@ -579,13 +579,19 @@
                       "uf": "SP"
                     },
                     {
+                      "nome": "CAMILA CAROLINE LEITE BEZERRA",
+                      "nomeCurto": "Camila Bezerra",
+                      "crm": "189860",
+                      "uf": "SP"
+                    },
+                    {
                       "nome": "BRUNA FERREIRA ALVES MELONE",
                       "nomeCurto": "Bruna Melone",
                       "crm": "222834",
                       "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 2,
+                  "vagasAbertas": 1,
                   "totalVagas": 4
                 },
                 {
@@ -639,13 +645,19 @@
                   "periodo": "tarde",
                   "medicos": [
                     {
+                      "nome": "CAMILA CAROLINE LEITE BEZERRA",
+                      "nomeCurto": "Camila Bezerra",
+                      "crm": "189860",
+                      "uf": "SP"
+                    },
+                    {
                       "nome": "BRUNA FERREIRA ALVES MELONE",
                       "nomeCurto": "Bruna Melone",
                       "crm": "222834",
                       "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 3,
+                  "vagasAbertas": 2,
                   "totalVagas": 4
                 },
                 {
@@ -813,9 +825,15 @@
                       "nomeCurto": "Fernanda Carvalho",
                       "crm": "233188",
                       "uf": "SP"
+                    },
+                    {
+                      "nome": "CAMILA CAROLINE LEITE BEZERRA",
+                      "nomeCurto": "Camila Bezerra",
+                      "crm": "189860",
+                      "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 1,
+                  "vagasAbertas": 0,
                   "totalVagas": 4
                 },
                 {
@@ -1000,15 +1018,8 @@
                   "fim": "00:00",
                   "horas": 5.0,
                   "periodo": "noite",
-                  "medicos": [
-                    {
-                      "nome": "CAMILA CAROLINE LEITE BEZERRA",
-                      "nomeCurto": "Camila Bezerra",
-                      "crm": "189860",
-                      "uf": "SP"
-                    }
-                  ],
-                  "vagasAbertas": 0,
+                  "medicos": [],
+                  "vagasAbertas": 1,
                   "totalVagas": 1
                 },
                 {
@@ -1022,9 +1033,15 @@
                       "nomeCurto": "Maira Uliana",
                       "crm": "246245",
                       "uf": "SP"
+                    },
+                    {
+                      "nome": "CAMILA CAROLINE LEITE BEZERRA",
+                      "nomeCurto": "Camila Bezerra",
+                      "crm": "189860",
+                      "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 2,
+                  "vagasAbertas": 1,
                   "totalVagas": 3
                 }
               ]
@@ -2353,6 +2370,17 @@
           "noite": 6
         },
         {
+          "nome": "CAMILA CAROLINE LEITE BEZERRA",
+          "nomeCurto": "Camila Bezerra",
+          "crm": "189860",
+          "uf": "SP",
+          "totalHoras": 84.0,
+          "totalPlantoes": 10,
+          "manha": 3,
+          "tarde": 3,
+          "noite": 4
+        },
+        {
           "nome": "FERNANDA CAROLINE GUEDES DE ANDRADE CARVALHO",
           "nomeCurto": "Fernanda Carvalho",
           "crm": "233188",
@@ -2384,17 +2412,6 @@
           "manha": 7,
           "tarde": 3,
           "noite": 0
-        },
-        {
-          "nome": "CAMILA CAROLINE LEITE BEZERRA",
-          "nomeCurto": "Camila Bezerra",
-          "crm": "189860",
-          "uf": "SP",
-          "totalHoras": 59.0,
-          "totalPlantoes": 7,
-          "manha": 3,
-          "tarde": 0,
-          "noite": 4
         },
         {
           "nome": "ANA BEATRIZ DE SOUZA AUGUSTINHO",
@@ -3020,6 +3037,20 @@
           "fim": "19:00",
           "horas": 6.0,
           "periodo": "tarde",
+          "medico": "CAMILA CAROLINE LEITE BEZERRA",
+          "medicoCurto": "Camila Bezerra",
+          "crm": "189860",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-07",
+          "ddmm": "07/12",
+          "weekdayFull": "Segunda-feira",
+          "weekdayShort": "SEG",
+          "inicio": "13:00",
+          "fim": "19:00",
+          "horas": 6.0,
+          "periodo": "tarde",
           "medico": "MARIA LUCIA MENDES FRAGOSO",
           "medicoCurto": "Maria Fragoso",
           "crm": "33849",
@@ -3051,6 +3082,20 @@
           "medico": "BRUNA FERREIRA ALVES MELONE",
           "medicoCurto": "Bruna Melone",
           "crm": "222834",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-08",
+          "ddmm": "08/12",
+          "weekdayFull": "Terça-feira",
+          "weekdayShort": "TER",
+          "inicio": "13:00",
+          "fim": "19:00",
+          "horas": 6.0,
+          "periodo": "tarde",
+          "medico": "CAMILA CAROLINE LEITE BEZERRA",
+          "medicoCurto": "Camila Bezerra",
+          "crm": "189860",
           "uf": "SP"
         },
         {
@@ -3202,6 +3247,20 @@
           "fim": "19:00",
           "horas": 6.0,
           "periodo": "tarde",
+          "medico": "CAMILA CAROLINE LEITE BEZERRA",
+          "medicoCurto": "Camila Bezerra",
+          "crm": "189860",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-10",
+          "ddmm": "10/12",
+          "weekdayFull": "Quinta-feira",
+          "weekdayShort": "QUI",
+          "inicio": "13:00",
+          "fim": "19:00",
+          "horas": 6.0,
+          "periodo": "tarde",
           "medico": "FERNANDA CAROLINE GUEDES DE ANDRADE CARVALHO",
           "medicoCurto": "Fernanda Carvalho",
           "crm": "233188",
@@ -3311,8 +3370,8 @@
           "weekdayFull": "Domingo",
           "weekdayShort": "DOM",
           "inicio": "19:00",
-          "fim": "00:00",
-          "horas": 5.0,
+          "fim": "07:00",
+          "horas": 12.0,
           "periodo": "noite",
           "medico": "CAMILA CAROLINE LEITE BEZERRA",
           "medicoCurto": "Camila Bezerra",
@@ -4241,7 +4300,7 @@
       "mesAnoLabel": "Dezembro/2026",
       "refYear": 2026,
       "refMonth": 12,
-      "exportRef": "26/11/2026 - 14:28:09",
+      "exportRef": "26/11/2026 - 14:31:34",
       "kpis": {
         "totalVagas": 31,
         "preenchidas": 16,
