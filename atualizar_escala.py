@@ -1447,10 +1447,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         <div class="header-sub">Visualização de Plantões · Sincronização Integrada</div>
       </div>
     </div>
-    <div class="header-right">
-      <div class="header-credit-label">Torre de Inteligência Hospitalar</div>
-      <div class="header-credit-name">Diretoria de Estratégia &amp; Melhoria Contínua</div>
-    </div>
   </header>
 
   <!-- BARRA DE SUB-NAVEGAÇÃO (ABAS DE ESCALAS) -->
