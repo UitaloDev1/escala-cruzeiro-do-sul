@@ -1,8 +1,8 @@
 {
   "hospital": "HOSPITAL CRUZEIRO DO SUL",
   "municipio": "SÃO PAULO",
-  "geradoEm": "26/11/2026 às 14:32",
-  "planilhaModificadaEm": "26/11/2026 às 14:32",
+  "geradoEm": "26/11/2026 às 14:35",
+  "planilhaModificadaEm": "26/11/2026 às 14:35",
   "arquivoFonte": "Escalas_Hospital_Cruzeiro_Do_Sul_11_26.xlsx",
   "escalas": [
     {
@@ -15,15 +15,15 @@
       "mesAnoLabel": "Dezembro/2026",
       "refYear": 2026,
       "refMonth": 12,
-      "exportRef": "26/11/2026 - 14:31:34",
+      "exportRef": "26/11/2026 - 14:34:48",
       "kpis": {
         "totalVagas": 388,
-        "preenchidas": 112,
-        "abertas": 276,
-        "coberturaPct": 28.9,
+        "preenchidas": 113,
+        "abertas": 275,
+        "coberturaPct": 29.1,
         "medicosEscalados": 11,
         "medicosCadastrados": 22,
-        "totalHoras": 764.0
+        "totalHoras": 770.0
       },
       "semanas": [
         {
@@ -155,9 +155,15 @@
                       "nomeCurto": "Ana Souza",
                       "crm": "225497",
                       "uf": "SP"
+                    },
+                    {
+                      "nome": "MARIA LUIZA GARBIERE DA SILVA FINAZZI",
+                      "nomeCurto": "Maria Finazzi",
+                      "crm": "217449",
+                      "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 3,
+                  "vagasAbertas": 2,
                   "totalVagas": 5
                 },
                 {
@@ -2414,6 +2420,17 @@
           "noite": 0
         },
         {
+          "nome": "MARIA LUIZA GARBIERE DA SILVA FINAZZI",
+          "nomeCurto": "Maria Finazzi",
+          "crm": "217449",
+          "uf": "SP",
+          "totalHoras": 54.0,
+          "totalPlantoes": 8,
+          "manha": 5,
+          "tarde": 2,
+          "noite": 1
+        },
+        {
           "nome": "ANA BEATRIZ DE SOUZA AUGUSTINHO",
           "nomeCurto": "Ana Augustinho",
           "crm": "242928",
@@ -2423,17 +2440,6 @@
           "manha": 0,
           "tarde": 6,
           "noite": 3
-        },
-        {
-          "nome": "MARIA LUIZA GARBIERE DA SILVA FINAZZI",
-          "nomeCurto": "Maria Finazzi",
-          "crm": "217449",
-          "uf": "SP",
-          "totalHoras": 48.0,
-          "totalPlantoes": 7,
-          "manha": 4,
-          "tarde": 2,
-          "noite": 1
         },
         {
           "nome": "MARINA MARTINS DE MEIRELES",
@@ -2746,6 +2752,20 @@
           "medico": "JULIANA MARIA DE ANDRADE SOUTO",
           "medicoCurto": "Juliana Souto",
           "crm": "229571",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-01",
+          "ddmm": "01/12",
+          "weekdayFull": "Terça-feira",
+          "weekdayShort": "TER",
+          "inicio": "07:00",
+          "fim": "13:00",
+          "horas": 6.0,
+          "periodo": "manha",
+          "medico": "MARIA LUIZA GARBIERE DA SILVA FINAZZI",
+          "medicoCurto": "Maria Finazzi",
+          "crm": "217449",
           "uf": "SP"
         },
         {
@@ -4300,7 +4320,7 @@
       "mesAnoLabel": "Dezembro/2026",
       "refYear": 2026,
       "refMonth": 12,
-      "exportRef": "26/11/2026 - 14:31:34",
+      "exportRef": "26/11/2026 - 14:34:48",
       "kpis": {
         "totalVagas": 31,
         "preenchidas": 16,
