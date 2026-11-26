@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Dashboard Diretoria · Escala Médica — Hospital Cruzeiro do Sul</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-header: #0044c4;
+      --bg-body: #041538;
+      --bg-subnav: #061a42;
+      --bg-card: #082152;
+      --bg-card-inner: #061a42;
+      --tag-bg: #0e3b8c;
+      --border-subtle: #16336b;
+      --border-card: #1c3f82;
+      --border-dashed: #3d5e9e;
+      --accent-orange: #f37021;
+      --accent-yellow: #fdb913;
+      --text-primary: #ffffff;
+      --text-secondary: #c5d4ee;
+      --text-muted: #7d9fdf;
+      --text-on-yellow: #041538;
+      --ok-color: #34d399;
+      --ok-bg: rgba(52, 211, 153, 0.14);
+      --ok-border: rgba(52, 211, 153, 0.45);
+      --danger-color: #fca5a5;
+      --danger-bg: rgba(239, 68, 68, 0.15);
+      --danger-border: rgba(248, 113, 113, 0.48);
+      --warn-bg: rgba(243, 112, 33, 0.16);
+      --warn-border: rgba(243, 112, 33, 0.50);
+      --warn-text: #fdba74;
+      --font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    [data-theme="light"] {
+      --bg-header: #0044c4;
+      --bg-body: #f1f5fb;
+      --bg-subnav: #ffffff;
+      --bg-card: #ffffff;
+      --bg-card-inner: #f5f8fd;
+      --tag-bg: #e5eefb;
+      --border-subtle: #d5e1f5;
+      --border-card: #c7d7f0;
+      --border-dashed: #8da9d8;
+      --text-primary: #061a42;
+      --text-secondary: #354c77;
+      --text-muted: #445f94;
+      --ok-color: #059669;
+      --ok-bg: rgba(5, 150, 105, 0.10);
+      --ok-border: rgba(5, 150, 105, 0.35);
+      --danger-color: #b91c1c;
+      --danger-bg: rgba(220, 38, 38, 0.10);
+      --danger-border: rgba(220, 38, 38, 0.35);
+      --warn-bg: rgba(243, 112, 33, 0.12);
+      --warn-border: rgba(243, 112, 33, 0.45);
+      --warn-text: #b84a08;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background-color: var(--bg-body);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    .top-header {
+      background-color: var(--bg-header);
+      min-height: 56px;
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      border-bottom: 3px solid transparent;
+      border-image: linear-gradient(90deg, var(--accent-orange), var(--accent-yellow)) 1;
+      color: #ffffff;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      min-width: 0;
+    }
+
+    .header-divider {
+      width: 1px;
+      height: 30px;
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .header-title {
+      font-size: 14.5px;
+      font-weight: 600;
+    }
+
+    .header-sub {
+      font-size: 11.5px;
+      color: rgba(255, 255, 255, 0.8);
+      margin-top: 2px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn-header {
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 2px 2px 10px 2px;
+      padding: 7px 12px;
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .btn-header:hover { background: rgba(255, 255, 255, 0.22); }
+
+    .subnav {
+      background-color: var(--bg-subnav);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 0 24px;
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      position: sticky;
+      top: 0;
+      z-index: 30;
+    }
+
+    .subnav-tabs {
+      display: flex;
+      align-items: stretch;
+      gap: 20px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .subnav-tab {
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      padding: 11px 0 9px;
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .subnav-tab.is-active {
+      color: var(--text-primary);
+      border-bottom-color: var(--accent-orange);
+    }
+
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--tag-bg);
+      border: 1px solid var(--border-card);
+      color: var(--text-primary);
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .container {
+      max-width: 1520px;
+      margin: 0 auto;
+      padding: 20px 24px 48px;
+    }
+
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 14px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+    }
+
+    .hero h1 {
+      margin: 3px 0 4px;
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-desc {
+      margin: 0;
+      font-size: 12.5px;
+      color: var(--text-secondary);
+    }
+
+    .sync-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 2px 2px 10px 2px;
+      padding: 7px 12px;
+      font-size: 11.5px;
+      color: var(--text-secondary);
+    }
+
+    .sync-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--ok-color);
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 3px 3px 18px 3px;
+      padding: 14px 16px;
+    }
+
+    .kpi-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .kpi-value {
+      font-size: 26px;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      line-height: 1.1;
+    }
+
+    .kpi-sub {
+      font-size: 11.5px;
+      color: var(--text-secondary);
+      margin-top: 5px;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 5px;
+      background: var(--tag-bg);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent-orange), var(--accent-yellow));
+    }
+
+    .badge-yellow {
+      background: var(--accent-yellow);
+      color: var(--text-on-yellow);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 3px;
+      white-space: nowrap;
+    }
+
+    .badge-status {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--ok-color);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 22px 0 10px;
+      flex-wrap: wrap;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--border-card);
+      border-radius: 2px 2px 10px 2px;
+      padding: 7px 12px;
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .btn-outline.is-active {
+      background: var(--tag-bg);
+      border-color: var(--accent-orange);
+    }
+
+    .btn-approve {
+      background: var(--ok-bg);
+      color: var(--ok-color);
+      border: 1px solid var(--ok-border);
+      border-radius: 2px 2px 10px 2px;
+      padding: 7px 12px;
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .btn-reject {
+      background: var(--danger-bg);
+      color: var(--danger-color);
+      border: 1px solid var(--danger-border);
+      border-radius: 2px 2px 10px 2px;
+      padding: 7px 12px;
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .input-control {
+      height: 34px;
+      padding: 0 10px;
+      background: var(--bg-card-inner);
+      color: var(--text-primary);
+      border: 1px solid var(--border-card);
+      border-radius: 2px 2px 10px 2px;
+      font-family: inherit;
+      font-size: 12.5px;
+      outline: none;
+    }
+
+    .requests-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .req-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 3px 3px 16px 3px;
+      padding: 14px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .req-card.is-pending { border-left: 3px solid var(--accent-orange); }
+
+    .req-badges {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 6px;
+    }
+
+    .pill {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 2px;
+      border: 1px solid transparent;
+    }
+
+    .pill-solicitar { background: var(--ok-bg); border-color: var(--ok-border); color: var(--ok-color); }
+    .pill-desistir { background: var(--warn-bg); border-color: var(--warn-border); color: var(--warn-text); }
+    .pill-pending { background: rgba(253, 185, 19, 0.15); border-color: var(--accent-yellow); color: var(--accent-yellow); }
+    .pill-approved { background: var(--ok-bg); border-color: var(--ok-border); color: var(--ok-color); }
+    .pill-rejected { background: var(--danger-bg); border-color: var(--danger-border); color: var(--danger-color); }
+
+    .req-title {
+      font-size: 14.5px;
+      font-weight: 600;
+    }
+
+    .req-meta {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    .req-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .table-card {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .table-scroll {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    thead th {
+      text-align: left;
+      padding: 10px 14px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      background: var(--bg-subnav);
+      border-bottom: 1px solid var(--border-subtle);
+      white-space: nowrap;
+    }
+
+    tbody td {
+      padding: 9px 14px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .num-col { text-align: right; font-variant-numeric: tabular-nums; }
+
+    .empty-state {
+      text-align: center;
+      padding: 28px 16px;
+      border: 1px dashed var(--border-dashed);
+      border-radius: 3px 3px 16px 3px;
+      color: var(--text-secondary);
+      font-size: 13px;
+    }
+
+    @media (max-width: 1180px) {
+      .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 640px) {
+      .kpi-grid { grid-template-columns: 1fr; }
+      .container { padding: 14px 12px 36px; }
+      .header-divider { display: none; }
+      .header-left { flex-direction: column; align-items: flex-start; gap: 6px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="top-header">
+    <div class="header-left">
+      <svg viewBox="0 0 195 43" width="134" height="30" aria-label="Hapvida" xmlns="http://www.w3.org/2000/svg"><g transform="translate(-1024 -635)"><path d="M1025.15 649.234C1023.13 652.725 1025.52 656.944 1031.55 659.268 1034.71 660.485 1040 660.734 1043.44 659.807 1042.52 656.355 1039.67 651.907 1037.04 649.772 1032.02 645.703 1027.16 645.742 1025.15 649.234Z" fill="#FF4D00"/><path d="M1045.79 635C1041.41 635 1038.75 639.528 1039.85 646.461 1040.43 650.091 1043.05 655.188 1045.79 657.921 1048.54 655.188 1051.17 650.091 1051.74 646.461 1052.84 639.538 1050.16 635 1045.79 635Z" fill="#F32735"/><path d="M1066.45 649.244C1064.44 645.753 1059.59 645.703 1054.56 649.772 1051.93 651.907 1049.07 656.345 1048.15 659.797 1051.59 660.734 1056.88 660.485 1060.04 659.268 1066.07 656.954 1068.47 652.735 1066.45 649.244Z" fill="#FF4D00"/><path d="M1045.79 677.701C1048.49 677.701 1050.13 674.908 1049.45 670.649 1049.11 668.415 1047.48 665.273 1045.79 663.597 1044.11 665.283 1042.49 668.415 1042.13 670.649 1041.45 674.908 1043.1 677.701 1045.79 677.701Z" fill="#FFC62B"/><path d="M1031.23 669.382C1032.58 671.716 1035.82 671.746 1039.17 669.033 1040.93 667.607 1042.84 664.644 1043.45 662.34 1041.15 661.722 1037.62 661.881 1035.51 662.689 1031.48 664.235 1029.88 667.048 1031.23 669.382Z" fill="#FF8200"/><path d="M1060.36 669.382C1061.7 667.048 1060.11 664.235 1056.09 662.679 1053.97 661.871 1050.45 661.702 1048.15 662.32 1048.76 664.624 1050.67 667.597 1052.42 669.023 1055.77 671.736 1059.01 671.716 1060.36 669.382Z" fill="#FF8200"/><path d="M1210.98 657.153 1210.09 663.278C1209.75 665.532 1208.18 667.058 1206.27 667.058 1204.06 667.058 1203.3 665.831 1203.3 663.447 1203.3 662.599 1203.39 661.532 1203.56 660.305 1204.45 654.52 1206.02 653.373 1208.32 653.373 1210.35 653.373 1211.29 655.158 1210.99 657.153ZM1188.12 657.153 1187.23 663.278C1186.89 665.532 1185.32 667.058 1183.41 667.058 1181.2 667.058 1180.44 665.831 1180.44 663.447 1180.44 662.599 1180.53 661.532 1180.7 660.305 1181.6 654.52 1183.16 653.373 1185.46 653.373 1187.49 653.373 1188.43 655.158 1188.14 657.153M1111.49 657.153 1110.6 663.278C1110.26 665.532 1108.68 667.058 1106.78 667.058 1104.56 667.058 1103.81 665.831 1103.81 663.447 1103.81 662.599 1103.9 661.532 1104.06 660.305 1104.95 654.52 1106.53 653.373 1108.82 653.373 1110.86 653.373 1111.79 655.158 1111.51 657.153M1134.31 660.086C1133.42 665.871 1131.84 667.018 1129.55 667.018 1127.51 667.018 1126.58 665.233 1126.87 663.238L1127.76 657.113C1128.1 654.859 1129.68 653.333 1131.58 653.333 1133.8 653.333 1134.56 654.56 1134.56 656.944 1134.56 657.792 1134.47 658.859 1134.3 660.086M1166.52 649.204 1163.21 671.177C1163.51 671.267 1164.53 671.477 1166.32 671.477 1168.1 671.477 1169.29 671.217 1169.63 671.177L1172.94 649.204C1172.56 649.114 1171.49 648.904 1169.8 648.904 1167.88 648.904 1166.82 649.164 1166.52 649.204ZM1161.64 648.914C1159.81 648.914 1158.45 649.174 1158.11 649.254L1154.87 656.565C1153.56 659.577 1152.41 661.243 1151.34 665.572L1151.25 665.572C1151.16 662.38 1150.66 658.6 1150.11 654.989L1149.64 651.927C1149.34 649.892 1148.19 648.904 1146.16 648.904 1144.8 648.904 1143.52 649.074 1142.72 649.204L1146.37 671.138C1147.34 671.347 1148.79 671.517 1150.41 671.517 1152.19 671.517 1153.77 671.347 1154.58 671.138L1164.65 649.204C1164.31 649.114 1163.2 648.904 1161.64 648.904M1215.53 648.914C1213.61 648.914 1212.34 649.852 1211.71 651.378 1210.77 649.762 1208.69 648.535 1206.44 648.535 1200.5 648.535 1198.19 653.164 1197.22 659.667 1197.01 660.984 1196.88 662.43 1196.88 663.836 1196.88 668.764 1199 671.866 1203.63 671.866 1205.88 671.866 1208.18 670.759 1209.37 669.232 1209.7 670.639 1210.98 671.487 1212.34 671.487 1213.4 671.487 1214.42 671.397 1215.23 671.187L1218.54 649.214C1217.65 649.044 1216.55 648.914 1215.52 648.914M1134.23 648.525C1131.97 648.525 1129.68 649.633 1128.49 651.159 1128.15 649.752 1126.88 648.904 1125.52 648.904 1124.45 648.904 1123.44 648.994 1122.63 649.204L1118.34 677.701C1119.24 677.87 1120.33 678 1121.36 678 1123.82 678 1124.76 677.152 1125.14 674.688L1125.99 669.103C1126.88 670.679 1128.88 671.866 1131.42 671.866 1137.37 671.866 1139.67 667.238 1140.65 660.734 1140.86 659.418 1140.99 657.971 1140.99 656.565 1140.99 651.637 1138.87 648.535 1134.24 648.535M1116.03 648.914C1114.12 648.914 1112.84 649.852 1112.21 651.378 1111.28 649.762 1109.2 648.535 1106.95 648.535 1101 648.535 1098.7 653.164 1097.72 659.667 1097.51 660.984 1097.38 662.43 1097.38 663.836 1097.38 668.764 1099.51 671.866 1104.13 671.866 1106.39 671.866 1108.68 670.759 1109.87 669.232 1110.21 670.639 1111.49 671.487 1112.84 671.487 1113.91 671.487 1114.93 671.397 1115.73 671.187L1119.05 649.214C1118.15 649.044 1117.05 648.914 1116.02 648.914ZM1190.02 644.536 1189.01 651.288C1188.12 649.712 1186.11 648.525 1183.57 648.525 1177.63 648.525 1175.32 653.154 1174.34 659.657 1174.14 660.974 1174.01 662.42 1174.01 663.826 1174.01 668.754 1176.13 671.856 1180.76 671.856 1183.01 671.856 1185.31 670.749 1186.49 669.222 1186.83 670.629 1188.11 671.477 1189.47 671.477 1190.53 671.477 1191.55 671.387 1192.36 671.177L1196.82 641.513C1195.93 641.344 1194.82 641.214 1193.8 641.214 1191.33 641.214 1190.39 642.062 1190.01 644.526M1171.03 639.479C1168.95 639.479 1167.25 641.055 1167.03 643.049 1166.82 645.084 1168.27 646.7 1170.27 646.7 1172.26 646.7 1174.01 645.084 1174.22 643.049 1174.42 641.055 1172.99 639.479 1171.02 639.479Z" fill="#FFFFFF"/><path d="M1091.01 641.513 1089.19 653.533 1079.75 653.533 1079.75 653.453C1079.75 653.453 1081.08 644.675 1081.08 644.675 1081.33 643.01 1080.05 641.513 1078.37 641.513L1075.16 641.513 1070.69 671.177C1070.69 671.177 1072.16 671.347 1073.76 671.347 1075.68 671.347 1077.09 671.177 1077.09 671.177L1078.93 659.029 1078.93 658.939 1088.38 658.939 1087.02 668.026C1086.77 669.691 1088.06 671.187 1089.73 671.187L1092.94 671.187 1097.41 641.523C1097.41 641.523 1095.96 641.354 1094.25 641.354 1092.42 641.354 1091.01 641.523 1091.01 641.523Z" fill="#FFFFFF"/></g></svg>
+      <div class="header-divider"></div>
+      <div>
+        <div class="header-title">Hospital Cruzeiro do Sul — Dashboard da Diretoria</div>
+        <div class="header-sub">Gestão de Horas, Cobertura &amp; Aprovação de Plantões</div>
+      </div>
+    </div>
+    <div class="header-actions">
+      <a class="btn-header" href="/">Visão do Médico →</a>
+      <a class="btn-header" href="/logout">Sair</a>
+    </div>
+  </header>
+
+  <nav class="subnav">
+    <div class="subnav-tabs" id="scaleTabs"></div>
+    <button class="theme-toggle" id="themeToggle" type="button">
+      <span id="themeIcon">☀</span>
+      <span id="themeLabel">Claro</span>
+    </button>
+  </nav>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <div class="eyebrow" id="heroEyebrow">PAINEL GERENCIAL · HOSPITAL CRUZEIRO DO SUL</div>
+        <h1 id="heroTitle">Carregando indicadores...</h1>
+        <p class="hero-desc">Controle de cobertura da escala, horas já efetuadas, horas pendentes de médico e aprovações de plantões/desistências.</p>
+      </div>
+      <div class="sync-pill">
+        <span class="sync-dot"></span>
+        <span>Referência: <strong id="refNow">--</strong></span>
+      </div>
+    </section>
+
+    <section class="kpi-grid">
+      <div class="card">
+        <div class="kpi-top">
+          <span class="eyebrow">COBERTURA DA ESCALA</span>
+          <span class="badge-status">✓ ATIVA</span>
+        </div>
+        <div class="kpi-value" id="kpiCobertura">0%</div>
+        <div class="kpi-sub" id="kpiSlots">0 de 0 plantões preenchidos</div>
+        <div class="progress-track"><div class="progress-fill" id="kpiBar" style="width:0%;"></div></div>
+      </div>
+
+      <div class="card">
+        <div class="kpi-top"><span class="eyebrow">MÉDICOS ESCALADOS</span></div>
+        <div class="kpi-value" id="kpiMedicos">0</div>
+        <div class="kpi-sub" id="kpiMedicosSub">0 cadastrados na lista</div>
+      </div>
+
+      <div class="card">
+        <div class="kpi-top">
+          <span class="eyebrow">HORAS JÁ EFETUADAS</span>
+        </div>
+        <div class="kpi-value" id="kpiEfetuadas">0h</div>
+        <div class="kpi-sub" id="kpiFuturas">0h agendadas futuras · Total 0h</div>
+      </div>
+
+      <div class="card">
+        <div class="kpi-top">
+          <span class="eyebrow">HORAS PENDENTES (MÉDICO)</span>
+          <span class="badge-yellow" id="kpiVagasAbertas">0 VAGAS</span>
+        </div>
+        <div class="kpi-value" id="kpiPendentesHora">0h</div>
+        <div class="kpi-sub">Carga descoberta aguardando médico</div>
+      </div>
+
+      <div class="card">
+        <div class="kpi-top">
+          <span class="eyebrow">SOLICITAÇÕES PENDENTES</span>
+        </div>
+        <div class="kpi-value" id="kpiSolicitacoes">0</div>
+        <div class="kpi-sub" id="kpiSolicitacoesSub">0 aprovadas · 0 recusadas</div>
+      </div>
+    </section>
+
+    <div class="section-head">
+      <h2>Solicitações de Plantão &amp; Desistências</h2>
+      <div class="toolbar">
+        <button type="button" class="btn-outline is-active" data-req-status="pending">Pendentes</button>
+        <button type="button" class="btn-outline" data-req-status="approved">Aprovadas</button>
+        <button type="button" class="btn-outline" data-req-status="rejected">Recusadas</button>
+        <button type="button" class="btn-outline" data-req-status="all">Todas</button>
+        <input type="search" class="input-control" id="reqSearch" placeholder="Buscar médico..." />
+      </div>
+    </div>
+
+    <div id="requestsArea" class="requests-list"></div>
+
+    <div class="section-head">
+      <h2>Quadro de Horas por Médico</h2>
+    </div>
+
+    <div class="card table-card">
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Médico</th>
+              <th>CRM / UF</th>
+              <th class="num-col">Manhã</th>
+              <th class="num-col">Tarde</th>
+              <th class="num-col">Noite</th>
+              <th class="num-col">Plantões</th>
+              <th class="num-col">Efetuadas</th>
+              <th class="num-col">Agendadas</th>
+              <th class="num-col">Total Mês</th>
+            </tr>
+          </thead>
+          <tbody id="doctorsTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      let OVERVIEW = null;
+      const state = {
+        scaleFilter: "all",
+        reqStatus: "pending",
+        reqSearch: ""
+      };
+
+      const savedTheme = localStorage.getItem("hapvida_escala_theme") || "dark";
+      applyTheme(savedTheme);
+      document.getElementById("themeToggle").addEventListener("click", () => {
+        const next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        applyTheme(next);
+        localStorage.setItem("hapvida_escala_theme", next);
+      });
+
+      function applyTheme(theme) {
+        document.documentElement.setAttribute("data-theme", theme);
+        document.getElementById("themeIcon").textContent = theme === "dark" ? "☀" : "☾";
+        document.getElementById("themeLabel").textContent = theme === "dark" ? "Claro" : "Escuro";
+      }
+
+      function esc(s) {
+        return String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+      }
+
+      async function loadOverview() {
+        const res = await fetch("/api/director/overview", { cache: "no-store" });
+        if (res.status === 401) { window.location.href = "/login"; return; }
+        if (res.status === 403) { window.location.href = "/"; return; }
+        OVERVIEW = await res.json();
+        renderAll();
+      }
+
+      function getSelectedData() {
+        if (state.scaleFilter === "all") {
+          const c = OVERVIEW.consolidado;
+          const docMap = new Map();
+          OVERVIEW.escalas.forEach(sc => {
+            sc.medicos.forEach(m => {
+              const key = m.nome.toUpperCase();
+              const prev = docMap.get(key) || {
+                nome: m.nome, crm: m.crm, uf: m.uf,
+                manha: 0, tarde: 0, noite: 0, totalPlantoes: 0,
+                horasEfetuadas: 0, horasFuturas: 0, totalHoras: 0
+              };
+              prev.manha += m.manha;
+              prev.tarde += m.tarde;
+              prev.noite += m.noite;
+              prev.totalPlantoes += m.totalPlantoes;
+              prev.horasEfetuadas = Math.round((prev.horasEfetuadas + m.horasEfetuadas) * 10) / 10;
+              prev.horasFuturas = Math.round((prev.horasFuturas + m.horasFuturas) * 10) / 10;
+              prev.totalHoras = Math.round((prev.totalHoras + m.totalHoras) * 10) / 10;
+              docMap.set(key, prev);
+            });
+          });
+          return {
+            titulo: "Visão Consolidada (Todas as Escalas)",
+            kpis: c,
+            medicos: Array.from(docMap.values()).sort((a, b) => b.totalHoras - a.totalHoras || a.nome.localeCompare(b.nome, "pt-BR"))
+          };
+        }
+        const sc = OVERVIEW.escalas.find(x => x.id === state.scaleFilter) || OVERVIEW.escalas[0];
+        return {
+          titulo: `${sc.titulo} — ${sc.mesAnoLabel}`,
+          kpis: sc.kpis,
+          medicos: sc.medicos
+        };
+      }
+
+      function renderTabs() {
+        const tabs = document.getElementById("scaleTabs");
+        tabs.innerHTML = "";
+        const items = [{ id: "all", label: "TODAS AS ESCALAS" }, ...OVERVIEW.escalas.map(s => ({ id: s.id, label: s.tabLabel }))];
+        items.forEach(it => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "subnav-tab" + (state.scaleFilter === it.id ? " is-active" : "");
+          btn.textContent = it.label;
+          btn.addEventListener("click", () => { state.scaleFilter = it.id; renderAll(); });
+          tabs.appendChild(btn);
+        });
+      }
+
+      function renderKPIs(sel) {
+        const k = sel.kpis;
+        const c = OVERVIEW.consolidado;
+        document.getElementById("heroTitle").textContent = sel.titulo;
+        document.getElementById("refNow").textContent = OVERVIEW.referenciaAgora;
+        document.getElementById("kpiCobertura").textContent = `${k.coberturaPct}%`;
+        document.getElementById("kpiSlots").textContent = `${k.preenchidas} de ${k.totalVagas} plantões preenchidos`;
+        document.getElementById("kpiBar").style.width = `${Math.min(100, k.coberturaPct)}%`;
+        document.getElementById("kpiMedicos").textContent = k.medicosEscalados;
+        document.getElementById("kpiMedicosSub").textContent = `${k.medicosCadastrados} médicos cadastrados`;
+        document.getElementById("kpiEfetuadas").textContent = `${k.horasEfetuadas}h`;
+        document.getElementById("kpiFuturas").textContent = `${k.horasFuturas}h futuras · Total ${k.totalHoras}h`;
+        document.getElementById("kpiPendentesHora").textContent = `${k.horasPendentesMedico}h`;
+        document.getElementById("kpiVagasAbertas").textContent = `${k.abertas} VAGAS`;
+        document.getElementById("kpiSolicitacoes").textContent = c.solicitacoesPendentes;
+        document.getElementById("kpiSolicitacoesSub").textContent = `${c.solicitacoesAprovadas} aprovadas · ${c.solicitacoesRecusadas} recusadas`;
+      }
+
+      function renderRequests() {
+        const area = document.getElementById("requestsArea");
+        const q = state.reqSearch.trim().toUpperCase();
+        const filtered = OVERVIEW.solicitacoes.filter(r => {
+          if (state.scaleFilter !== "all" && r.scaleId !== state.scaleFilter) return false;
+          if (state.reqStatus !== "all" && r.status !== state.reqStatus) return false;
+          if (q && !r.medicoNome.toUpperCase().includes(q) && !(r.medicoCrm || "").toUpperCase().includes(q)) return false;
+          return true;
+        });
+
+        if (filtered.length === 0) {
+          area.innerHTML = `<div class="empty-state">Nenhuma solicitação nesta categoria.</div>`;
+          return;
+        }
+
+        const statusMap = { pending: "Pendente", approved: "Aprovada", rejected: "Recusada" };
+        area.innerHTML = filtered.map(r => {
+          const tipoLabel = r.tipo === "solicitar" ? "Solicitação de Plantão" : "Desistência de Plantão";
+          const crmTxt = r.medicoCrm ? ` · CRM ${esc(r.medicoCrm)}/${esc(r.medicoUf)}` : "";
+          const motivoTxt = r.motivo ? `<div>Motivo/Obs.: ${esc(r.motivo)}</div>` : "";
+          const decTxt = r.decidedAt ? `<div>Decisão (${esc(r.decidedAt)} por ${esc(r.decidedBy)})${r.directorNote ? ': ' + esc(r.directorNote) : ''}</div>` : "";
+          const actionsHtml = r.status === "pending"
+            ? `
+              <div class="req-actions">
+                <input type="text" class="input-control" placeholder="Obs. opcional..." data-note-for="${r.id}" style="width:170px;" />
+                <button type="button" class="btn-approve" data-decide="approve" data-id="${r.id}">Aprovar</button>
+                <button type="button" class="btn-reject" data-decide="reject" data-id="${r.id}">Recusar</button>
+              </div>
+            `
+            : "";
+
+          return `
+            <article class="req-card ${r.status === 'pending' ? 'is-pending' : ''}">
+              <div>
+                <div class="req-badges">
+                  <span class="pill pill-${r.tipo}">${tipoLabel}</span>
+                  <span class="pill pill-${r.status}">${statusMap[r.status] || r.status}</span>
+                  <span class="eyebrow">${esc(r.scaleTitle)} · ${esc(r.ddmm)} · ${esc(r.inicio)}–${esc(r.fim)} (${r.horas}h)</span>
+                </div>
+                <div class="req-title">${esc(r.medicoNome)}${crmTxt}</div>
+                <div class="req-meta">
+                  <div>Enviado em ${esc(r.createdAt)}</div>
+                  ${motivoTxt}
+                  ${decTxt}
+                </div>
+              </div>
+              ${actionsHtml}
+            </article>
+          `;
+        }).join("");
+
+        area.querySelectorAll("[data-decide]").forEach(btn => {
+          btn.addEventListener("click", async () => {
+            const id = btn.getAttribute("data-id");
+            const action = btn.getAttribute("data-decide");
+            const noteEl = area.querySelector(`[data-note-for="${id}"]`);
+            const note = noteEl ? noteEl.value.trim() : "";
+            btn.disabled = true;
+            const res = await fetch(`/api/director/requests/${id}/decision`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ action, note })
+            });
+            if (!res.ok) {
+              const err = await res.json().catch(() => ({}));
+              alert(err.error || "Falha ao registrar decisão.");
+              btn.disabled = false;
+              return;
+            }
+            await loadOverview();
+          });
+        });
+      }
+
+      function renderDoctorsTable(sel) {
+        const tbody = document.getElementById("doctorsTableBody");
+        tbody.innerHTML = sel.medicos.map(m => `
+          <tr>
+            <td><strong>${esc(m.nome)}</strong></td>
+            <td>${m.crm ? `${esc(m.crm)}/${esc(m.uf)}` : "—"}</td>
+            <td class="num-col">${m.manha}</td>
+            <td class="num-col">${m.tarde}</td>
+            <td class="num-col">${m.noite}</td>
+            <td class="num-col"><strong>${m.totalPlantoes}</strong></td>
+            <td class="num-col"><strong>${m.horasEfetuadas}h</strong></td>
+            <td class="num-col">${m.horasFuturas}h</td>
+            <td class="num-col"><strong>${m.totalHoras}h</strong></td>
+          </tr>
+        `).join("");
+      }
+
+      function renderAll() {
+        const sel = getSelectedData();
+        renderTabs();
+        renderKPIs(sel);
+        renderRequests();
+        renderDoctorsTable(sel);
+      }
+
+      document.querySelectorAll("[data-req-status]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          state.reqStatus = btn.getAttribute("data-req-status");
+          document.querySelectorAll("[data-req-status]").forEach(b => b.classList.toggle("is-active", b === btn));
+          renderRequests();
+        });
+      });
+
+      document.getElementById("reqSearch").addEventListener("input", (e) => {
+        state.reqSearch = e.target.value;
+        renderRequests();
+      });
+
+      loadOverview();
+    })();
+  </script>
+</body>
+</html>
