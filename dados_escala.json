@@ -1,8 +1,8 @@
 {
   "hospital": "HOSPITAL CRUZEIRO DO SUL",
   "municipio": "SÃO PAULO",
-  "geradoEm": "27/11/2026 às 09:54",
-  "planilhaModificadaEm": "27/11/2026 às 09:53",
+  "geradoEm": "27/11/2026 às 10:09",
+  "planilhaModificadaEm": "27/11/2026 às 09:57",
   "arquivoFonte": "Escalas_Hospital_Cruzeiro_Do_Sul_11_26.xlsx",
   "escalas": [
     {
@@ -15,7 +15,7 @@
       "mesAnoLabel": "Dezembro/2026",
       "refYear": 2026,
       "refMonth": 12,
-      "exportRef": "27/11/2026 - 09:04:49",
+      "exportRef": "27/11/2026 - 09:55:55",
       "kpis": {
         "totalVagas": 393,
         "preenchidas": 136,
@@ -23,7 +23,7 @@
         "coberturaPct": 34.6,
         "medicosEscalados": 15,
         "medicosCadastrados": 23,
-        "totalHoras": 920.0
+        "totalHoras": 914.0
       },
       "semanas": [
         {
@@ -1160,9 +1160,15 @@
                       "nomeCurto": "Maria Fragoso",
                       "crm": "33849",
                       "uf": "SP"
+                    },
+                    {
+                      "nome": "MAIRA DUTRA ULIANA",
+                      "nomeCurto": "Maira Uliana",
+                      "crm": "246245",
+                      "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 2,
+                  "vagasAbertas": 1,
                   "totalVagas": 5
                 },
                 {
@@ -1219,15 +1225,8 @@
                   "fim": "07:00",
                   "horas": 12.0,
                   "periodo": "noite",
-                  "medicos": [
-                    {
-                      "nome": "MAIRA DUTRA ULIANA",
-                      "nomeCurto": "Maira Uliana",
-                      "crm": "246245",
-                      "uf": "SP"
-                    }
-                  ],
-                  "vagasAbertas": 2,
+                  "medicos": [],
+                  "vagasAbertas": 3,
                   "totalVagas": 3
                 }
               ]
@@ -2507,11 +2506,11 @@
           "nomeCurto": "Maira Uliana",
           "crm": "246245",
           "uf": "SP",
-          "totalHoras": 102.0,
+          "totalHoras": 96.0,
           "totalPlantoes": 11,
-          "manha": 2,
+          "manha": 3,
           "tarde": 3,
-          "noite": 6
+          "noite": 5
         },
         {
           "nome": "CAMILA CAROLINE LEITE BEZERRA",
@@ -3766,6 +3765,20 @@
           "fim": "13:00",
           "horas": 6.0,
           "periodo": "manha",
+          "medico": "MAIRA DUTRA ULIANA",
+          "medicoCurto": "Maira Uliana",
+          "crm": "246245",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-14",
+          "ddmm": "14/12",
+          "weekdayFull": "Segunda-feira",
+          "weekdayShort": "SEG",
+          "inicio": "07:00",
+          "fim": "13:00",
+          "horas": 6.0,
+          "periodo": "manha",
           "medico": "MARIA LUCIA MENDES FRAGOSO",
           "medicoCurto": "Maria Fragoso",
           "crm": "33849",
@@ -3839,20 +3852,6 @@
           "medico": "MARIA LUCIA MENDES FRAGOSO",
           "medicoCurto": "Maria Fragoso",
           "crm": "33849",
-          "uf": "SP"
-        },
-        {
-          "iso": "2026-12-14",
-          "ddmm": "14/12",
-          "weekdayFull": "Segunda-feira",
-          "weekdayShort": "SEG",
-          "inicio": "19:00",
-          "fim": "07:00",
-          "horas": 12.0,
-          "periodo": "noite",
-          "medico": "MAIRA DUTRA ULIANA",
-          "medicoCurto": "Maira Uliana",
-          "crm": "246245",
           "uf": "SP"
         },
         {
@@ -4791,7 +4790,7 @@
       "mesAnoLabel": "Dezembro/2026",
       "refYear": 2026,
       "refMonth": 12,
-      "exportRef": "27/11/2026 - 09:04:49",
+      "exportRef": "27/11/2026 - 09:55:55",
       "kpis": {
         "totalVagas": 31,
         "preenchidas": 16,
