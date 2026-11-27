@@ -1,8 +1,8 @@
 {
   "hospital": "HOSPITAL CRUZEIRO DO SUL",
   "municipio": "SÃO PAULO",
-  "geradoEm": "27/11/2026 às 08:35",
-  "planilhaModificadaEm": "27/11/2026 às 08:34",
+  "geradoEm": "27/11/2026 às 08:42",
+  "planilhaModificadaEm": "27/11/2026 às 08:42",
   "arquivoFonte": "Escalas_Hospital_Cruzeiro_Do_Sul_11_26.xlsx",
   "escalas": [
     {
@@ -15,15 +15,15 @@
       "mesAnoLabel": "Dezembro/2026",
       "refYear": 2026,
       "refMonth": 12,
-      "exportRef": "27/11/2026 - 08:10:41",
+      "exportRef": "27/11/2026 - 08:36:25",
       "kpis": {
-        "totalVagas": 389,
-        "preenchidas": 116,
-        "abertas": 273,
-        "coberturaPct": 29.8,
-        "medicosEscalados": 11,
+        "totalVagas": 390,
+        "preenchidas": 127,
+        "abertas": 263,
+        "coberturaPct": 32.6,
+        "medicosEscalados": 13,
         "medicosCadastrados": 22,
-        "totalHoras": 782.0
+        "totalHoras": 848.0
       },
       "semanas": [
         {
@@ -161,9 +161,15 @@
                       "nomeCurto": "Maria Finazzi",
                       "crm": "217449",
                       "uf": "SP"
+                    },
+                    {
+                      "nome": "RENAN DOS SANTOS MOURA",
+                      "nomeCurto": "Renan Moura",
+                      "crm": "238618",
+                      "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 2,
+                  "vagasAbertas": 1,
                   "totalVagas": 5
                 },
                 {
@@ -172,6 +178,12 @@
                   "horas": 6.0,
                   "periodo": "tarde",
                   "medicos": [
+                    {
+                      "nome": "RENAN DOS SANTOS MOURA",
+                      "nomeCurto": "Renan Moura",
+                      "crm": "238618",
+                      "uf": "SP"
+                    },
                     {
                       "nome": "JULIANA MARIA DE ANDRADE SOUTO",
                       "nomeCurto": "Juliana Souto",
@@ -198,7 +210,7 @@
                     }
                   ],
                   "vagasAbertas": 0,
-                  "totalVagas": 4
+                  "totalVagas": 5
                 },
                 {
                   "inicio": "19:00",
@@ -239,9 +251,15 @@
                       "nomeCurto": "Maria Fragoso",
                       "crm": "33849",
                       "uf": "SP"
+                    },
+                    {
+                      "nome": "THIALA CARDOSO LOPES",
+                      "nomeCurto": "Thiala Lopes",
+                      "crm": "198033",
+                      "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 4,
+                  "vagasAbertas": 3,
                   "totalVagas": 5
                 },
                 {
@@ -634,13 +652,19 @@
                   "periodo": "manha",
                   "medicos": [
                     {
+                      "nome": "RENAN DOS SANTOS MOURA",
+                      "nomeCurto": "Renan Moura",
+                      "crm": "238618",
+                      "uf": "SP"
+                    },
+                    {
                       "nome": "CAMILA CAROLINE LEITE BEZERRA",
                       "nomeCurto": "Camila Bezerra",
                       "crm": "189860",
                       "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 4,
+                  "vagasAbertas": 3,
                   "totalVagas": 5
                 },
                 {
@@ -660,9 +684,15 @@
                       "nomeCurto": "Bruna Melone",
                       "crm": "222834",
                       "uf": "SP"
+                    },
+                    {
+                      "nome": "RENAN DOS SANTOS MOURA",
+                      "nomeCurto": "Renan Moura",
+                      "crm": "238618",
+                      "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 2,
+                  "vagasAbertas": 1,
                   "totalVagas": 4
                 },
                 {
@@ -724,9 +754,15 @@
                       "nomeCurto": "Maria Fragoso",
                       "crm": "33849",
                       "uf": "SP"
+                    },
+                    {
+                      "nome": "THIALA CARDOSO LOPES",
+                      "nomeCurto": "Thiala Lopes",
+                      "crm": "198033",
+                      "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 4,
+                  "vagasAbertas": 3,
                   "totalVagas": 5
                 },
                 {
@@ -1181,13 +1217,19 @@
                       "uf": "SP"
                     },
                     {
+                      "nome": "RENAN DOS SANTOS MOURA",
+                      "nomeCurto": "Renan Moura",
+                      "crm": "238618",
+                      "uf": "SP"
+                    },
+                    {
                       "nome": "MARIA LUIZA GARBIERE DA SILVA FINAZZI",
                       "nomeCurto": "Maria Finazzi",
                       "crm": "217449",
                       "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 3,
+                  "vagasAbertas": 2,
                   "totalVagas": 5
                 },
                 {
@@ -1196,6 +1238,12 @@
                   "horas": 6.0,
                   "periodo": "tarde",
                   "medicos": [
+                    {
+                      "nome": "RENAN DOS SANTOS MOURA",
+                      "nomeCurto": "Renan Moura",
+                      "crm": "238618",
+                      "uf": "SP"
+                    },
                     {
                       "nome": "JULIANA MARIA DE ANDRADE SOUTO",
                       "nomeCurto": "Juliana Souto",
@@ -1215,7 +1263,7 @@
                       "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 1,
+                  "vagasAbertas": 0,
                   "totalVagas": 4
                 },
                 {
@@ -1257,9 +1305,15 @@
                       "nomeCurto": "Maria Fragoso",
                       "crm": "33849",
                       "uf": "SP"
+                    },
+                    {
+                      "nome": "THIALA CARDOSO LOPES",
+                      "nomeCurto": "Thiala Lopes",
+                      "crm": "198033",
+                      "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 4,
+                  "vagasAbertas": 3,
                   "totalVagas": 5
                 },
                 {
@@ -1779,9 +1833,15 @@
                       "nomeCurto": "Maria Finazzi",
                       "crm": "217449",
                       "uf": "SP"
+                    },
+                    {
+                      "nome": "RENAN DOS SANTOS MOURA",
+                      "nomeCurto": "Renan Moura",
+                      "crm": "238618",
+                      "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 2,
+                  "vagasAbertas": 1,
                   "totalVagas": 5
                 },
                 {
@@ -1790,6 +1850,12 @@
                   "horas": 6.0,
                   "periodo": "tarde",
                   "medicos": [
+                    {
+                      "nome": "RENAN DOS SANTOS MOURA",
+                      "nomeCurto": "Renan Moura",
+                      "crm": "238618",
+                      "uf": "SP"
+                    },
                     {
                       "nome": "FERNANDA CAROLINE GUEDES DE ANDRADE CARVALHO",
                       "nomeCurto": "Fernanda Carvalho",
@@ -1809,7 +1875,7 @@
                       "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 1,
+                  "vagasAbertas": 0,
                   "totalVagas": 4
                 },
                 {
@@ -2459,6 +2525,17 @@
           "noite": 3
         },
         {
+          "nome": "RENAN DOS SANTOS MOURA",
+          "nomeCurto": "Renan Moura",
+          "crm": "238618",
+          "uf": "SP",
+          "totalHoras": 48.0,
+          "totalPlantoes": 8,
+          "manha": 4,
+          "tarde": 4,
+          "noite": 0
+        },
+        {
           "nome": "MARINA MARTINS DE MEIRELES",
           "nomeCurto": "Marina Meireles",
           "crm": "221999",
@@ -2468,6 +2545,17 @@
           "manha": 0,
           "tarde": 0,
           "noite": 2
+        },
+        {
+          "nome": "THIALA CARDOSO LOPES",
+          "nomeCurto": "Thiala Lopes",
+          "crm": "198033",
+          "uf": "SP",
+          "totalHoras": 18.0,
+          "totalPlantoes": 3,
+          "manha": 3,
+          "tarde": 0,
+          "noite": 0
         },
         {
           "nome": "BRAULIO SANCHES DE OLIVEIRA ZORZELLA",
@@ -2569,31 +2657,9 @@
           "noite": 0
         },
         {
-          "nome": "RENAN DOS SANTOS MOURA",
-          "nomeCurto": "Renan Moura",
-          "crm": "238618",
-          "uf": "SP",
-          "totalHoras": 0.0,
-          "totalPlantoes": 0,
-          "manha": 0,
-          "tarde": 0,
-          "noite": 0
-        },
-        {
           "nome": "TANIA LIANA TOLEDO YUGAR",
           "nomeCurto": "Tania Yugar",
           "crm": "54639",
-          "uf": "SP",
-          "totalHoras": 0.0,
-          "totalPlantoes": 0,
-          "manha": 0,
-          "tarde": 0,
-          "noite": 0
-        },
-        {
-          "nome": "THIALA CARDOSO LOPES",
-          "nomeCurto": "Thiala Lopes",
-          "crm": "198033",
           "uf": "SP",
           "totalHoras": 0.0,
           "totalPlantoes": 0,
@@ -2790,6 +2856,20 @@
           "ddmm": "01/12",
           "weekdayFull": "Terça-feira",
           "weekdayShort": "TER",
+          "inicio": "07:00",
+          "fim": "13:00",
+          "horas": 6.0,
+          "periodo": "manha",
+          "medico": "RENAN DOS SANTOS MOURA",
+          "medicoCurto": "Renan Moura",
+          "crm": "238618",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-01",
+          "ddmm": "01/12",
+          "weekdayFull": "Terça-feira",
+          "weekdayShort": "TER",
           "inicio": "13:00",
           "fim": "19:00",
           "horas": 6.0,
@@ -2842,6 +2922,20 @@
           "uf": "SP"
         },
         {
+          "iso": "2026-12-01",
+          "ddmm": "01/12",
+          "weekdayFull": "Terça-feira",
+          "weekdayShort": "TER",
+          "inicio": "13:00",
+          "fim": "19:00",
+          "horas": 6.0,
+          "periodo": "tarde",
+          "medico": "RENAN DOS SANTOS MOURA",
+          "medicoCurto": "Renan Moura",
+          "crm": "238618",
+          "uf": "SP"
+        },
+        {
           "iso": "2026-12-02",
           "ddmm": "02/12",
           "weekdayFull": "Quarta-feira",
@@ -2853,6 +2947,20 @@
           "medico": "MARIA LUCIA MENDES FRAGOSO",
           "medicoCurto": "Maria Fragoso",
           "crm": "33849",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-02",
+          "ddmm": "02/12",
+          "weekdayFull": "Quarta-feira",
+          "weekdayShort": "QUA",
+          "inicio": "07:00",
+          "fim": "13:00",
+          "horas": 6.0,
+          "periodo": "manha",
+          "medico": "THIALA CARDOSO LOPES",
+          "medicoCurto": "Thiala Lopes",
+          "crm": "198033",
           "uf": "SP"
         },
         {
@@ -3112,6 +3220,20 @@
           "ddmm": "08/12",
           "weekdayFull": "Terça-feira",
           "weekdayShort": "TER",
+          "inicio": "07:00",
+          "fim": "13:00",
+          "horas": 6.0,
+          "periodo": "manha",
+          "medico": "RENAN DOS SANTOS MOURA",
+          "medicoCurto": "Renan Moura",
+          "crm": "238618",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-08",
+          "ddmm": "08/12",
+          "weekdayFull": "Terça-feira",
+          "weekdayShort": "TER",
           "inicio": "13:00",
           "fim": "19:00",
           "horas": 6.0,
@@ -3133,6 +3255,20 @@
           "medico": "CAMILA CAROLINE LEITE BEZERRA",
           "medicoCurto": "Camila Bezerra",
           "crm": "189860",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-08",
+          "ddmm": "08/12",
+          "weekdayFull": "Terça-feira",
+          "weekdayShort": "TER",
+          "inicio": "13:00",
+          "fim": "19:00",
+          "horas": 6.0,
+          "periodo": "tarde",
+          "medico": "RENAN DOS SANTOS MOURA",
+          "medicoCurto": "Renan Moura",
+          "crm": "238618",
           "uf": "SP"
         },
         {
@@ -3196,6 +3332,20 @@
           "ddmm": "09/12",
           "weekdayFull": "Quarta-feira",
           "weekdayShort": "QUA",
+          "inicio": "07:00",
+          "fim": "13:00",
+          "horas": 6.0,
+          "periodo": "manha",
+          "medico": "THIALA CARDOSO LOPES",
+          "medicoCurto": "Thiala Lopes",
+          "crm": "198033",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-09",
+          "ddmm": "09/12",
+          "weekdayFull": "Quarta-feira",
+          "weekdayShort": "QUA",
           "inicio": "13:00",
           "fim": "19:00",
           "horas": 6.0,
@@ -3588,6 +3738,20 @@
           "ddmm": "15/12",
           "weekdayFull": "Terça-feira",
           "weekdayShort": "TER",
+          "inicio": "07:00",
+          "fim": "13:00",
+          "horas": 6.0,
+          "periodo": "manha",
+          "medico": "RENAN DOS SANTOS MOURA",
+          "medicoCurto": "Renan Moura",
+          "crm": "238618",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-15",
+          "ddmm": "15/12",
+          "weekdayFull": "Terça-feira",
+          "weekdayShort": "TER",
           "inicio": "13:00",
           "fim": "19:00",
           "horas": 6.0,
@@ -3626,6 +3790,20 @@
           "uf": "SP"
         },
         {
+          "iso": "2026-12-15",
+          "ddmm": "15/12",
+          "weekdayFull": "Terça-feira",
+          "weekdayShort": "TER",
+          "inicio": "13:00",
+          "fim": "19:00",
+          "horas": 6.0,
+          "periodo": "tarde",
+          "medico": "RENAN DOS SANTOS MOURA",
+          "medicoCurto": "Renan Moura",
+          "crm": "238618",
+          "uf": "SP"
+        },
+        {
           "iso": "2026-12-16",
           "ddmm": "16/12",
           "weekdayFull": "Quarta-feira",
@@ -3637,6 +3815,20 @@
           "medico": "MARIA LUCIA MENDES FRAGOSO",
           "medicoCurto": "Maria Fragoso",
           "crm": "33849",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-16",
+          "ddmm": "16/12",
+          "weekdayFull": "Quarta-feira",
+          "weekdayShort": "QUA",
+          "inicio": "07:00",
+          "fim": "13:00",
+          "horas": 6.0,
+          "periodo": "manha",
+          "medico": "THIALA CARDOSO LOPES",
+          "medicoCurto": "Thiala Lopes",
+          "crm": "198033",
           "uf": "SP"
         },
         {
@@ -4176,6 +4368,20 @@
           "ddmm": "22/12",
           "weekdayFull": "Terça-feira",
           "weekdayShort": "TER",
+          "inicio": "07:00",
+          "fim": "13:00",
+          "horas": 6.0,
+          "periodo": "manha",
+          "medico": "RENAN DOS SANTOS MOURA",
+          "medicoCurto": "Renan Moura",
+          "crm": "238618",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-22",
+          "ddmm": "22/12",
+          "weekdayFull": "Terça-feira",
+          "weekdayShort": "TER",
           "inicio": "13:00",
           "fim": "19:00",
           "horas": 6.0,
@@ -4211,6 +4417,20 @@
           "medico": "MARIA LUIZA GARBIERE DA SILVA FINAZZI",
           "medicoCurto": "Maria Finazzi",
           "crm": "217449",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-22",
+          "ddmm": "22/12",
+          "weekdayFull": "Terça-feira",
+          "weekdayShort": "TER",
+          "inicio": "13:00",
+          "fim": "19:00",
+          "horas": 6.0,
+          "periodo": "tarde",
+          "medico": "RENAN DOS SANTOS MOURA",
+          "medicoCurto": "Renan Moura",
+          "crm": "238618",
           "uf": "SP"
         },
         {
@@ -4379,7 +4599,7 @@
       "mesAnoLabel": "Dezembro/2026",
       "refYear": 2026,
       "refMonth": 12,
-      "exportRef": "27/11/2026 - 08:10:41",
+      "exportRef": "27/11/2026 - 08:36:25",
       "kpis": {
         "totalVagas": 31,
         "preenchidas": 16,
