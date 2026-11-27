@@ -1,8 +1,8 @@
 {
   "hospital": "HOSPITAL CRUZEIRO DO SUL",
   "municipio": "SÃO PAULO",
-  "geradoEm": "27/11/2026 às 08:42",
-  "planilhaModificadaEm": "27/11/2026 às 08:42",
+  "geradoEm": "27/11/2026 às 08:45",
+  "planilhaModificadaEm": "27/11/2026 às 08:45",
   "arquivoFonte": "Escalas_Hospital_Cruzeiro_Do_Sul_11_26.xlsx",
   "escalas": [
     {
@@ -15,15 +15,15 @@
       "mesAnoLabel": "Dezembro/2026",
       "refYear": 2026,
       "refMonth": 12,
-      "exportRef": "27/11/2026 - 08:36:25",
+      "exportRef": "27/11/2026 - 08:44:07",
       "kpis": {
         "totalVagas": 390,
-        "preenchidas": 127,
-        "abertas": 263,
-        "coberturaPct": 32.6,
-        "medicosEscalados": 13,
-        "medicosCadastrados": 22,
-        "totalHoras": 848.0
+        "preenchidas": 129,
+        "abertas": 261,
+        "coberturaPct": 33.1,
+        "medicosEscalados": 14,
+        "medicosCadastrados": 23,
+        "totalHoras": 860.0
       },
       "semanas": [
         {
@@ -612,9 +612,15 @@
                       "nomeCurto": "Bruna Melone",
                       "crm": "222834",
                       "uf": "SP"
+                    },
+                    {
+                      "nome": "CAROLINE RODRIGUES DOS SANTOS KUNIMATSU",
+                      "nomeCurto": "Caroline Kunimatsu",
+                      "crm": "218797",
+                      "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 1,
+                  "vagasAbertas": 0,
                   "totalVagas": 4
                 },
                 {
@@ -1164,9 +1170,15 @@
                       "nomeCurto": "Ana Augustinho",
                       "crm": "242928",
                       "uf": "SP"
+                    },
+                    {
+                      "nome": "CAROLINE RODRIGUES DOS SANTOS KUNIMATSU",
+                      "nomeCurto": "Caroline Kunimatsu",
+                      "crm": "218797",
+                      "uf": "SP"
                     }
                   ],
-                  "vagasAbertas": 1,
+                  "vagasAbertas": 0,
                   "totalVagas": 4
                 },
                 {
@@ -2569,6 +2581,17 @@
           "noite": 1
         },
         {
+          "nome": "CAROLINE RODRIGUES DOS SANTOS KUNIMATSU",
+          "nomeCurto": "Caroline Kunimatsu",
+          "crm": "218797",
+          "uf": "SP",
+          "totalHoras": 12.0,
+          "totalPlantoes": 2,
+          "manha": 0,
+          "tarde": 2,
+          "noite": 0
+        },
+        {
           "nome": "AMANDA CANDIDO MARTINS",
           "nomeCurto": "Amanda Martins",
           "crm": "196176",
@@ -3196,6 +3219,20 @@
           "fim": "19:00",
           "horas": 6.0,
           "periodo": "tarde",
+          "medico": "CAROLINE RODRIGUES DOS SANTOS KUNIMATSU",
+          "medicoCurto": "Caroline Kunimatsu",
+          "crm": "218797",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-07",
+          "ddmm": "07/12",
+          "weekdayFull": "Segunda-feira",
+          "weekdayShort": "SEG",
+          "inicio": "13:00",
+          "fim": "19:00",
+          "horas": 6.0,
+          "periodo": "tarde",
           "medico": "MARIA LUCIA MENDES FRAGOSO",
           "medicoCurto": "Maria Fragoso",
           "crm": "33849",
@@ -3661,6 +3698,20 @@
           "medico": "ANA BEATRIZ DE SOUZA AUGUSTINHO",
           "medicoCurto": "Ana Augustinho",
           "crm": "242928",
+          "uf": "SP"
+        },
+        {
+          "iso": "2026-12-14",
+          "ddmm": "14/12",
+          "weekdayFull": "Segunda-feira",
+          "weekdayShort": "SEG",
+          "inicio": "13:00",
+          "fim": "19:00",
+          "horas": 6.0,
+          "periodo": "tarde",
+          "medico": "CAROLINE RODRIGUES DOS SANTOS KUNIMATSU",
+          "medicoCurto": "Caroline Kunimatsu",
+          "crm": "218797",
           "uf": "SP"
         },
         {
@@ -4599,14 +4650,14 @@
       "mesAnoLabel": "Dezembro/2026",
       "refYear": 2026,
       "refMonth": 12,
-      "exportRef": "27/11/2026 - 08:36:25",
+      "exportRef": "27/11/2026 - 08:44:07",
       "kpis": {
         "totalVagas": 31,
         "preenchidas": 16,
         "abertas": 15,
         "coberturaPct": 51.6,
         "medicosEscalados": 2,
-        "medicosCadastrados": 22,
+        "medicosCadastrados": 23,
         "totalHoras": 96.0
       },
       "semanas": [
@@ -5449,6 +5500,17 @@
           "nome": "CAMILA CAROLINE LEITE BEZERRA",
           "nomeCurto": "Camila Bezerra",
           "crm": "189860",
+          "uf": "SP",
+          "totalHoras": 0.0,
+          "totalPlantoes": 0,
+          "manha": 0,
+          "tarde": 0,
+          "noite": 0
+        },
+        {
+          "nome": "CAROLINE RODRIGUES DOS SANTOS KUNIMATSU",
+          "nomeCurto": "Caroline Kunimatsu",
+          "crm": "218797",
           "uf": "SP",
           "totalHoras": 0.0,
           "totalPlantoes": 0,
